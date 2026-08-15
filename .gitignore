@@ -1,0 +1,12 @@
+node_modules/
+npm-debug.log*
+
+# Local editor/agent configuration
+.claude/
+.codex/
+
+# Browser automation profiles and temporary audit artifacts
+.tmp-chrome-*/
+.tmp-*.html
+.tmp-*.png
+root.getAttribute('aria-roledescription')

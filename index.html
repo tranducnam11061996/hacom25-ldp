@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#C81820">
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; style-src 'self'; font-src 'self'; script-src 'self'; img-src 'self' data:; base-uri 'self'; form-action 'self'">
+  <title>HACOM - PC, LAPTOP, Thiết Bị Chơi Game hàng đầu Việt Nam</title>
+  <link rel="icon" type="image/png" href="LOGO-HACOM.png">
+  <link rel="preload" href="fonts/Inter-Variable-Latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/media/gateway/performance-main-960.webp" as="image" type="image/webp"
+    imagesrcset="assets/media/gateway/performance-main-960.webp 960w, assets/media/gateway/performance-main-1536.webp 1536w"
+    imagesizes="(min-width: 1181px) calc(100vw - 620px), 100vw" fetchpriority="high">
+  <link rel="stylesheet" href="assets/tailwind.css">
+  <link rel="stylesheet" href="assets/vendor/fontawesome/fontawesome.min.css">
+  <link rel="stylesheet" href="assets/vendor/fontawesome/solid.min.css">
+  <link rel="stylesheet" href="assets/vendor/fontawesome/brands.min.css">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script defer src="assets/catalog.js"></script>
+  <script defer src="assets/product-cards.js"></script>
+  <script defer src="assets/carousel.js"></script>
+  <script defer src="assets/app.js"></script>
+</head>
+
+<body class="site-shell">
+  <a class="skip-link" href="#main-content">Chuyển đến nội dung chính</a>
+  <p id="pageStatus" class="sr-only" aria-live="polite"></p>
+
+  <header class="site-header" id="top">
+    <div class="announcement-bar">
+      <div class="page-container announcement-inner">
+        <span><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Chính hãng · Bảo hành minh bạch</span>
+        <span class="announcement-note">Giao nhanh nội thành Hà Nội &amp; TP. Hồ Chí Minh</span>
+        <span class="announcement-links"><button type="button" data-demo-action>Tra cứu đơn hàng</button><span aria-hidden="true">·</span><button type="button" data-demo-action>Trung tâm hỗ trợ</button></span>
+      </div>
+    </div>
+
+    <div class="page-container header-main">
+      <a class="brand-lockup" href="index.html" aria-label="HACOM - Trang chủ">
+        <img src="LOGO-HACOM.png" alt="HACOM, từ năm 2001" width="176" height="68">
+      </a>
+      <div class="header-search search-glow-container">
+        <label class="sr-only" for="desktopSearch">Tìm kiếm sản phẩm</label>
+        <div class="search-input-box">
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          <input id="desktopSearch" type="search" name="desktop-search" autocomplete="off"
+            placeholder="Tìm kiếm sản phẩm, danh mục và bài viết…">
+          <span class="search-shortcut" aria-hidden="true">⌘ K</span>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button type="button" data-demo-action aria-label="Tài khoản" class="header-action"><i class="fa-regular fa-user" aria-hidden="true"></i><span>Tài khoản</span></button>
+        <button type="button" data-demo-action class="header-action action-cart"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i><span>Giỏ hàng</span><b>0</b></button>
+        <button type="button" data-demo-action aria-label="Sản phẩm yêu thích" class="header-action"><i class="fa-regular fa-heart" aria-hidden="true"></i><span>Yêu thích</span></button>
+      </div>
+    </div>
+
+    <div class="page-container nav-row">
+      <button id="menuBorderDesktop" type="button" data-menu-toggle aria-expanded="false" aria-controls="megaMenu" class="menu-trigger">
+        <i data-menu-icon class="fa-solid fa-bars" aria-hidden="true"></i><span>Danh mục</span>
+      </button>
+      <nav class="primary-nav" aria-label="Điều hướng chính">
+        <button type="button" data-demo-action class="nav-link is-active">Trang chủ</button>
+        <button type="button" data-demo-action class="nav-link">Laptop đặc biệt</button>
+        <button type="button" data-demo-action class="nav-link">PC lắp sẵn</button>
+        <button type="button" data-demo-action class="nav-link">Linh kiện</button>
+        <button type="button" data-demo-action class="nav-link nav-link--deal"><i class="fa-solid fa-bolt" aria-hidden="true"></i> Ưu đãi hôm nay</button>
+        <button type="button" data-demo-action class="nav-link">AI PC Builder</button>
+        <button type="button" data-demo-action class="nav-link">Hàng mới về</button>
+      </nav>
+      <button type="button" data-demo-action class="nav-utility"><i class="fa-solid fa-headset" aria-hidden="true"></i> Tư vấn chọn máy</button>
+    </div>
+
+    <div class="mobile-header page-container">
+      <a class="brand-lockup brand-lockup--mobile" href="index.html" aria-label="HACOM - Trang chủ"><img src="LOGO-HACOM.png" alt="HACOM" width="136" height="52"></a>
+      <div class="header-search search-glow-container">
+        <label class="sr-only" for="mobileSearch">Tìm kiếm sản phẩm</label>
+        <div class="search-input-box"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><input id="mobileSearch" type="search" name="mobile-search" autocomplete="off" placeholder="Tìm kiếm…"></div>
+      </div>
+      <button id="menuBorderMobile" type="button" data-menu-toggle aria-label="Mở menu danh mục" aria-expanded="false" aria-controls="megaMenu" class="menu-trigger menu-trigger--mobile"><i data-menu-icon class="fa-solid fa-bars" aria-hidden="true"></i></button>
+    </div>
+    <nav class="mobile-topic-nav page-container" aria-label="Chủ đề nổi bật">
+      <button type="button" data-demo-action class="nav-link">Laptop đặc biệt</button>
+      <button type="button" data-demo-action class="nav-link nav-link--deal"><i class="fa-solid fa-bolt" aria-hidden="true"></i> Ưu đãi</button>
+      <button type="button" data-demo-action class="nav-link">PC Gaming</button>
+      <button type="button" data-demo-action class="nav-link">Linh kiện</button>
+    </nav>
+
+    <div id="megaMenu" hidden class="mega-menu" aria-label="Danh mục sản phẩm">
+      <div class="mobile-menu-view" id="mobileGrid">
+        <div class="menu-view-tabs"><button type="button" class="menu-tab is-active"><i class="fa-solid fa-grid-2" aria-hidden="true"></i> Khu vực sản phẩm</button><button type="button" class="menu-tab"><i class="fa-regular fa-star" aria-hidden="true"></i> Yêu thích</button></div>
+        <div id="mobileGridContainer" class="mobile-menu-grid"></div>
+      </div>
+      <div id="mobileSubView" class="mobile-menu-view hidden">
+        <div class="mobile-sub-heading"><button type="button" data-mobile-menu-back aria-label="Quay lại danh mục"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button><h2 id="mobileSubTitle">Danh mục</h2></div>
+        <div id="mobileSubContentList" class="mobile-sub-content"></div>
+      </div>
+      <div class="desktop-menu-view">
+        <aside class="menu-sidebar">
+          <div class="menu-view-tabs"><button type="button" class="menu-tab is-active"><i class="fa-solid fa-grid-2" aria-hidden="true"></i> Khu vực sản phẩm</button><button type="button" class="menu-tab"><i class="fa-regular fa-star" aria-hidden="true"></i> Yêu thích</button></div>
+          <div id="desktopSidebarList" class="menu-sidebar-list"></div>
+        </aside>
+        <div id="desktopContentContainer" class="desktop-menu-content"></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-bottom-nav">
+    <button type="button" data-demo-action aria-label="Tài khoản"><i class="fa-regular fa-user" aria-hidden="true"></i><span>Tài khoản</span></button>
+    <button type="button" data-demo-action class="action-cart"><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i><b>0</b><span>Giỏ hàng</span></button>
+    <button type="button" data-demo-action aria-label="Sản phẩm yêu thích"><i class="fa-regular fa-heart" aria-hidden="true"></i><span>Yêu thích</span></button>
+    <button type="button" data-demo-action aria-label="Hỗ trợ khách hàng"><i class="fa-solid fa-headset" aria-hidden="true"></i><span>Hỗ trợ</span></button>
+    <button type="button" data-demo-action aria-label="Tuỳ chọn khác"><i class="fa-solid fa-ellipsis" aria-hidden="true"></i><span>Thêm</span></button>
+  </div>
+
+  <main id="main-content" tabindex="-1">
+    <section id="hero" class="gateway-section section-shell" aria-labelledby="gatewayTitle">
+      <div class="page-container">
+        <div class="gateway-mobile-toolbar">
+          <button type="button" class="gateway-mobile-menu" data-menu-toggle aria-expanded="false" aria-controls="megaMenu">
+            <i data-menu-icon class="fa-solid fa-bars" aria-hidden="true"></i>
+            <span>Danh mục sản phẩm</span>
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div id="gateway" class="gateway-shell">
+          <nav class="gateway-nav" aria-label="Danh mục sản phẩm nổi bật">
+            <div class="gateway-nav__head">
+              <strong>Khám phá theo danh mục</strong>
+            </div>
+            <div id="gatewayCategoryList" class="gateway-category-list"></div>
+            <button type="button" class="gateway-nav__footer" data-demo-action>
+              <span><i class="fa-solid fa-headset" aria-hidden="true"></i> Cần tư vấn cấu hình?</span>
+              <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+            </button>
+          </nav>
+
+          <div class="gateway-stage">
+            <div id="gatewayCarousel" class="gateway-carousel carousel-viewport" data-carousel-root data-carousel-autoplay data-carousel-variant="gateway" data-carousel-delay="6000" aria-label="Chiến dịch nổi bật HACOM">
+              <div class="carousel-track gateway-track" data-carousel-track>
+                <article class="gateway-campaign is-gateway-active" data-campaign-name="HACOM Performance">
+                  <div class="gateway-campaign-grid">
+                    <section class="gateway-main gateway-main--dark">
+                      <picture class="gateway-art" aria-hidden="true">
+                        <source srcset="assets/media/gateway/performance-main-960.webp 960w, assets/media/gateway/performance-main-1536.webp 1536w" sizes="(min-width: 1181px) calc(100vw - 620px), 100vw" type="image/webp">
+                        <img src="assets/media/gateway/performance-main-1536.webp" alt="" width="1536" height="1024" fetchpriority="high">
+                      </picture>
+                      <div class="gateway-main__shade" aria-hidden="true"></div>
+                      <div class="gateway-main__copy">
+                        <h1 id="gatewayTitle">Thiết bị tốt hơn.<br><em>Trải nghiệm khác biệt.</em></h1>
+                        <p>Một hệ sinh thái hiệu năng được chọn đúng từ đầu — cho công việc, sáng tạo và những trận đấu dài.</p>
+                        <div class="gateway-actions">
+                          <button type="button" data-demo-action class="button button--primary">Khám phá sản phẩm <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+                          <button type="button" data-demo-action class="gateway-text-link">Tư vấn miễn phí <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></button>
+                        </div>
+                      </div>
+                      <div class="gateway-proof" aria-label="Cam kết mua sắm"><span>Chính hãng</span><span>Giao tận nơi</span><span>Hỗ trợ 7 ngày</span></div>
+                    </section>
+                    <aside class="gateway-promo-rail" aria-label="Điểm nổi bật của HACOM Performance">
+                      <button type="button" class="gateway-promo gateway-promo--dark" data-demo-action>
+                        <picture aria-hidden="true"><source srcset="assets/media/gateway/performance-deal-420.webp 420w, assets/media/gateway/performance-deal-720.webp 720w" sizes="300px" type="image/webp"><img src="assets/media/gateway/performance-deal-720.webp" alt="" width="720" height="900"></picture>
+                        <span class="gateway-promo__shade" aria-hidden="true"></span><span class="gateway-promo__copy"><small>Chọn đúng thời điểm</small><strong>Ưu đãi<br>hôm nay</strong><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+                      </button>
+                      <button type="button" class="gateway-promo gateway-promo--light" data-demo-action>
+                        <picture aria-hidden="true"><source srcset="assets/media/gateway/performance-support-420.webp 420w, assets/media/gateway/performance-support-720.webp 720w" sizes="300px" type="image/webp"><img src="assets/media/gateway/performance-support-720.webp" alt="" width="720" height="900"></picture>
+                        <span class="gateway-promo__shade" aria-hidden="true"></span><span class="gateway-promo__copy"><small>Chọn đúng ngay từ đầu</small><strong>Tư vấn<br>chọn máy</strong><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+                      </button>
+                    </aside>
+                  </div>
+                </article>
+
+                <article class="gateway-campaign" data-campaign-name="Laptop AI">
+                  <div class="gateway-campaign-grid">
+                    <section class="gateway-main gateway-main--light">
+                      <picture class="gateway-art" aria-hidden="true">
+                        <source srcset="assets/media/gateway/mobility-main-960.webp 960w, assets/media/gateway/mobility-main-1536.webp 1536w" sizes="(min-width: 1181px) calc(100vw - 620px), 100vw" type="image/webp">
+                        <img src="assets/media/gateway/mobility-main-1536.webp" alt="" width="1536" height="1024" loading="lazy">
+                      </picture>
+                      <div class="gateway-main__shade" aria-hidden="true"></div>
+                      <div class="gateway-main__copy">
+                        <h2>Nhẹ để đi xa.<br><em>Mạnh để làm việc.</em></h2>
+                        <p>Thiết kế mỏng nhẹ, khả năng xử lý thông minh và thời lượng pin cho một ngày luôn chuyển động.</p>
+                        <div class="gateway-actions"><button type="button" data-demo-action class="button button--primary">Xem laptop nổi bật <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div>
+                      </div>
+                    </section>
+                    <aside class="gateway-promo-rail" aria-label="Điểm nổi bật của Laptop AI">
+                      <button type="button" class="gateway-promo gateway-promo--light" data-demo-action>
+                        <picture aria-hidden="true"><source srcset="assets/media/gateway/mobility-ai-420.webp 420w, assets/media/gateway/mobility-ai-720.webp 720w" sizes="300px" type="image/webp"><img src="assets/media/gateway/mobility-ai-720.webp" alt="" width="720" height="900" loading="lazy"></picture>
+                        <span class="gateway-promo__shade" aria-hidden="true"></span><span class="gateway-promo__copy"><small>Sẵn sàng cho tương lai</small><strong>Laptop<br>đặc biệt</strong><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+                      </button>
+                      <button type="button" class="gateway-promo gateway-promo--dark" data-demo-action>
+                        <picture aria-hidden="true"><source srcset="assets/media/gateway/mobility-accessories-420.webp 420w, assets/media/gateway/mobility-accessories-720.webp 720w" sizes="300px" type="image/webp"><img src="assets/media/gateway/mobility-accessories-720.webp" alt="" width="720" height="900" loading="lazy"></picture>
+                        <span class="gateway-promo__shade" aria-hidden="true"></span><span class="gateway-promo__copy"><small>Gọn nhẹ, đủ đầy</small><strong>Phụ kiện<br>di động</strong><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+                      </button>
+                    </aside>
+                  </div>
+                </article>
+
+                <article class="gateway-campaign" data-campaign-name="PC Builder">
+                  <div class="gateway-campaign-grid">
+                    <section class="gateway-main gateway-main--dark">
+                      <picture class="gateway-art" aria-hidden="true">
+                        <source srcset="assets/media/gateway/builder-main-960.webp 960w, assets/media/gateway/builder-main-1536.webp 1536w" sizes="(min-width: 1181px) calc(100vw - 620px), 100vw" type="image/webp">
+                        <img src="assets/media/gateway/builder-main-1536.webp" alt="" width="1536" height="1024" loading="lazy">
+                      </picture>
+                      <div class="gateway-main__shade" aria-hidden="true"></div>
+                      <div class="gateway-main__copy">
+                        <h2>Cấu hình đúng gu.<br><em>Hiệu năng đúng giá.</em></h2>
+                        <p>Bắt đầu từ nhu cầu thực tế, hoàn thiện một bộ máy cân bằng và được lắp ráp chỉn chu.</p>
+                        <div class="gateway-actions"><button type="button" data-demo-action class="button button--primary">Bắt đầu build PC <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div>
+                      </div>
+                    </section>
+                    <aside class="gateway-promo-rail" aria-label="Điểm nổi bật của PC Builder">
+                      <button type="button" class="gateway-promo gateway-promo--dark" data-demo-action>
+                        <picture aria-hidden="true"><source srcset="assets/media/gateway/builder-graphics-420.webp 420w, assets/media/gateway/builder-graphics-720.webp 720w" sizes="300px" type="image/webp"><img src="assets/media/gateway/builder-graphics-720.webp" alt="" width="720" height="900" loading="lazy"></picture>
+                        <span class="gateway-promo__shade" aria-hidden="true"></span><span class="gateway-promo__copy"><small>Hiệu năng nhìn thấy được</small><strong>GPU &amp;<br>màn hình</strong><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+                      </button>
+                      <button type="button" class="gateway-promo gateway-promo--light" data-demo-action>
+                        <picture aria-hidden="true"><source srcset="assets/media/gateway/builder-service-420.webp 420w, assets/media/gateway/builder-service-720.webp 720w" sizes="300px" type="image/webp"><img src="assets/media/gateway/builder-service-720.webp" alt="" width="720" height="900" loading="lazy"></picture>
+                        <span class="gateway-promo__shade" aria-hidden="true"></span><span class="gateway-promo__copy"><small>An tâm sau khi chọn</small><strong>Lắp ráp &amp;<br>bảo hành</strong><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+                      </button>
+                    </aside>
+                  </div>
+                </article>
+              </div>
+
+              <div class="gateway-control-deck">
+                <button type="button" data-carousel-prev aria-label="Campaign trước"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button>
+                <span class="gateway-counter" data-carousel-status aria-hidden="true">01 / 03</span>
+                <button type="button" data-carousel-toggle aria-label="Tạm dừng tự động chuyển"><i class="fa-solid fa-pause" aria-hidden="true"></i></button>
+                <button type="button" data-carousel-next aria-label="Campaign tiếp theo"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button>
+                <div class="gateway-indicators" data-carousel-indicators role="group" aria-label="Chọn campaign"></div>
+              </div>
+            </div>
+
+            <div id="gatewayFlyout" class="gateway-flyout" hidden aria-label="Danh mục chi tiết">
+              <div class="gateway-flyout__head"><div><span>Danh mục đang chọn</span><h2 id="gatewayFlyoutTitle">Laptop</h2></div><button type="button" data-gateway-close aria-label="Đóng danh mục"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button></div>
+              <div id="gatewayFlyoutContent" class="gateway-flyout__content"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="stories" class="section-shell section-stories">
+      <div class="page-container">
+        <div class="section-head section-head--compact"><div><p class="eyebrow">HACOM signal</p><h2>Khám phá thế giới công nghệ</h2></div><div class="carousel-controls"><button type="button" data-carousel-prev aria-label="Story trước"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button><button type="button" data-carousel-next aria-label="Story tiếp theo"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></div>
+        <div class="carousel-viewport story-container hover-lift-safe-zone" data-carousel-root data-carousel-autoplay data-carousel-variant="spotlight" data-carousel-delay="5000" aria-label="Khám phá thế giới công nghệ"><div class="carousel-track story-track" data-carousel-track>
+          <article class="story-card story-card--red is-featured"><button type="button" class="story-card__action" data-demo-action data-carousel-card-action aria-current="true"><span class="story-card__number">01 / 08</span><i class="fa-solid fa-bolt story-card__icon" aria-hidden="true"></i><span class="story-card__copy"><strong>Ưu đãi hôm nay</strong><span>Deal mới mỗi ngày</span></span><span class="story-card__arrow" aria-hidden="true"><span>Khám phá</span><i class="fa-solid fa-arrow-right"></i></span><span class="story-card__orbit" aria-hidden="true"></span></button></article>
+          <article class="story-card story-card--navy"><button type="button" class="story-card__action" data-demo-action data-carousel-card-action><span class="story-card__number">02 / 08</span><i class="fa-solid fa-microchip story-card__icon" aria-hidden="true"></i><span class="story-card__copy"><strong>Build PC</strong><span>Chọn cấu hình phù hợp</span></span><span class="story-card__arrow" aria-hidden="true"><span>Khám phá</span><i class="fa-solid fa-arrow-right"></i></span><span class="story-card__orbit" aria-hidden="true"></span></button></article>
+          <article class="story-card story-card--cool"><button type="button" class="story-card__action" data-demo-action data-carousel-card-action><span class="story-card__number">03 / 08</span><i class="fa-solid fa-laptop story-card__icon" aria-hidden="true"></i><span class="story-card__copy"><strong>Laptop guide</strong><span>Đúng máy, đúng nhu cầu</span></span><span class="story-card__arrow" aria-hidden="true"><span>Khám phá</span><i class="fa-solid fa-arrow-right"></i></span><span class="story-card__orbit" aria-hidden="true"></span></button></article>
+          <article class="story-card story-card--soft"><button type="button" class="story-card__action" data-demo-action data-carousel-card-action><span class="story-card__number">04 / 08</span><i class="fa-solid fa-headset story-card__icon" aria-hidden="true"></i><span class="story-card__copy"><strong>Setup gaming</strong><span>Nâng cấp góc chơi</span></span><span class="story-card__arrow" aria-hidden="true"><span>Khám phá</span><i class="fa-solid fa-arrow-right"></i></span><span class="story-card__orbit" aria-hidden="true"></span></button></article>
+          <article class="story-card story-card--red"><button type="button" class="story-card__action" data-demo-action data-carousel-card-action><span class="story-card__number">05 / 08</span><i class="fa-solid fa-shield-halved story-card__icon" aria-hidden="true"></i><span class="story-card__copy"><strong>Bảo hành</strong><span>An tâm sau khi mua</span></span><span class="story-card__arrow" aria-hidden="true"><span>Khám phá</span><i class="fa-solid fa-arrow-right"></i></span><span class="story-card__orbit" aria-hidden="true"></span></button></article>
+          <article class="story-card story-card--navy"><button type="button" class="story-card__action" data-demo-action data-carousel-card-action><span class="story-card__number">06 / 08</span><i class="fa-solid fa-wand-magic-sparkles story-card__icon" aria-hidden="true"></i><span class="story-card__copy"><strong>AI PC</strong><span>Sẵn sàng cho tương lai</span></span><span class="story-card__arrow" aria-hidden="true"><span>Khám phá</span><i class="fa-solid fa-arrow-right"></i></span><span class="story-card__orbit" aria-hidden="true"></span></button></article>
+          <article class="story-card story-card--cool"><button type="button" class="story-card__action" data-demo-action data-carousel-card-action><span class="story-card__number">07 / 08</span><i class="fa-solid fa-display story-card__icon" aria-hidden="true"></i><span class="story-card__copy"><strong>Màn hình</strong><span>Đẹp, nhanh, chuẩn màu</span></span><span class="story-card__arrow" aria-hidden="true"><span>Khám phá</span><i class="fa-solid fa-arrow-right"></i></span><span class="story-card__orbit" aria-hidden="true"></span></button></article>
+          <article class="story-card story-card--soft"><button type="button" class="story-card__action" data-demo-action data-carousel-card-action><span class="story-card__number">08 / 08</span><i class="fa-solid fa-keyboard story-card__icon" aria-hidden="true"></i><span class="story-card__copy"><strong>Phụ kiện</strong><span>Chi tiết tạo khác biệt</span></span><span class="story-card__arrow" aria-hidden="true"><span>Khám phá</span><i class="fa-solid fa-arrow-right"></i></span><span class="story-card__orbit" aria-hidden="true"></span></button></article>
+        </div></div>
+      </div>
+    </section>
+
+    <section id="categories" class="section-shell section-shell--white">
+      <div class="page-container"><div class="section-head"><div><p class="eyebrow">Chọn theo nhu cầu</p><h2>Danh mục nổi bật</h2></div><div class="section-head-actions"><button type="button" data-carousel-prev aria-label="Danh mục trước"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button><button type="button" data-carousel-next aria-label="Danh mục tiếp theo"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button><button type="button" data-demo-action class="text-link">Xem tất cả <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></div>
+        <div class="carousel-viewport hover-lift-safe-zone" data-carousel-root data-carousel-autoplay aria-label="Danh mục sản phẩm"><div class="carousel-track category-track" data-carousel-track>
+          <article class="category-card"><div class="category-art category-art--laptop"><i class="fa-solid fa-laptop" aria-hidden="true"></i></div><h3>Laptop</h3><p>Học tập · Văn phòng · Gaming</p><button type="button" data-demo-action>Xem danh mục <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></article>
+          <article class="category-card"><div class="category-art category-art--pc"><i class="fa-solid fa-desktop" aria-hidden="true"></i></div><h3>PC &amp; Gaming</h3><p>Cấu hình lắp sẵn, sẵn sàng chiến</p><button type="button" data-demo-action>Xem danh mục <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></article>
+          <article class="category-card"><div class="category-art category-art--parts"><i class="fa-solid fa-microchip" aria-hidden="true"></i></div><h3>Linh kiện</h3><p>CPU · GPU · RAM · SSD</p><button type="button" data-demo-action>Xem danh mục <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></article>
+          <article class="category-card"><div class="category-art category-art--display"><i class="fa-solid fa-display" aria-hidden="true"></i></div><h3>Màn hình</h3><p>Chuẩn màu, tốc độ cao</p><button type="button" data-demo-action>Xem danh mục <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></article>
+          <article class="category-card"><div class="category-art category-art--gear"><i class="fa-solid fa-headset" aria-hidden="true"></i></div><h3>Phụ kiện</h3><p>Chuột · Phím · Âm thanh</p><button type="button" data-demo-action>Xem danh mục <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></article>
+          <article class="category-card"><div class="category-art category-art--network"><i class="fa-solid fa-wifi" aria-hidden="true"></i></div><h3>Thiết bị mạng</h3><p>Kết nối ổn định, phủ rộng</p><button type="button" data-demo-action>Xem danh mục <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></article>
+        </div></div>
+      </div>
+    </section>
+
+    <section id="featured" class="section-shell section-shell--tint">
+      <div class="page-container"><div class="section-head"><div><p class="eyebrow">Curated collections</p><h2>Bắt đầu từ một setup tốt</h2></div><button type="button" data-demo-action class="text-link">Khám phá tất cả <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div>
+        <div class="featured-grid"><article class="feature-panel feature-panel--large"><div class="feature-content"><span class="feature-kicker">01 · Laptop deals</span><h3>Làm việc nhanh hơn, đi đến đâu cũng gọn.</h3><p>Những mẫu laptop cân bằng giữa hiệu năng, pin và thiết kế cho ngày làm việc linh hoạt.</p><button type="button" data-demo-action class="button button--dark">Xem laptop <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div><div class="feature-visual"><i class="fa-solid fa-laptop" aria-hidden="true"></i><span></span></div></article><article class="feature-panel feature-panel--brand-deep"><div class="feature-content"><span class="feature-kicker">02 · PC build</span><h3>Bộ máy dành riêng cho cách bạn chơi.</h3><p>Chọn hiệu năng, ngân sách và thẩm mỹ. HACOM hoàn thiện phần còn lại.</p><button type="button" data-demo-action class="button button--light">Tạo cấu hình <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div><div class="feature-visual"><i class="fa-solid fa-computer" aria-hidden="true"></i><span></span></div></article><article class="feature-panel feature-panel--small feature-panel--red"><span class="feature-kicker">03 · GPU</span><h3>Nâng cấp khung hình.</h3><button type="button" data-demo-action class="text-link text-link--light">Xem card đồ hoạ <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button><i class="fa-solid fa-chart-line feature-icon" aria-hidden="true"></i></article><article class="feature-panel feature-panel--small feature-panel--soft"><span class="feature-kicker">04 · Màn hình</span><h3>Mỗi pixel đều đáng giá.</h3><button type="button" data-demo-action class="text-link">Xem màn hình <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button><i class="fa-solid fa-display feature-icon" aria-hidden="true"></i></article></div>
+      </div>
+    </section>
+
+    <section id="recommendations" class="section-shell section-shell--white">
+      <div class="page-container"><div class="section-head"><div><p class="eyebrow">Được chọn cho bạn</p><h2>Phụ kiện hoàn thiện góc chơi</h2></div><div class="section-head-actions"><button type="button" data-carousel-prev aria-label="Sản phẩm trước"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button><button type="button" data-carousel-next aria-label="Sản phẩm tiếp theo"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></div><div class="carousel-viewport hover-lift-safe-zone" data-carousel-root data-carousel-autoplay aria-label="Phụ kiện hoàn thiện góc chơi"><div class="carousel-track product-track" data-carousel-track>
+        <article class="product-card"><div class="product-art product-art--mouse"><i class="fa-solid fa-computer-mouse" aria-hidden="true"></i></div><div class="product-meta"><span>Logitech</span><button type="button" data-demo-action aria-label="Thêm Logitech G502 vào yêu thích"><i class="fa-regular fa-heart" aria-hidden="true"></i></button></div><h3>G502 Hero Gaming Mouse</h3><strong class="price">1.090.000₫</strong><p class="stock"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Sẵn hàng</p></article>
+        <article class="product-card"><div class="product-art product-art--keyboard"><i class="fa-solid fa-keyboard" aria-hidden="true"></i></div><div class="product-meta"><span>HACOM Gear</span><button type="button" data-demo-action aria-label="Thêm bàn phím vào yêu thích"><i class="fa-regular fa-heart" aria-hidden="true"></i></button></div><h3>Mechanical Keyboard 75%</h3><strong class="price">890.000₫</strong><p class="stock"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Sẵn hàng</p></article>
+        <article class="product-card"><div class="product-art product-art--headset"><i class="fa-solid fa-headphones" aria-hidden="true"></i></div><div class="product-meta"><span>HyperX</span><button type="button" data-demo-action aria-label="Thêm HyperX vào yêu thích"><i class="fa-regular fa-heart" aria-hidden="true"></i></button></div><h3>Cloud III Wireless</h3><strong class="price">2.590.000₫</strong><p class="stock"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Sẵn hàng</p></article>
+        <article class="product-card"><div class="product-art product-art--chair"><i class="fa-solid fa-chair" aria-hidden="true"></i></div><div class="product-meta"><span>Gamdias</span><button type="button" data-demo-action aria-label="Thêm ghế gaming vào yêu thích"><i class="fa-regular fa-heart" aria-hidden="true"></i></button></div><h3>Gaming Chair E3</h3><strong class="price">3.490.000₫</strong><p class="stock"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Sẵn hàng</p></article>
+        <article class="product-card"><div class="product-art product-art--mic"><i class="fa-solid fa-microphone" aria-hidden="true"></i></div><div class="product-meta"><span>FIFINE</span><button type="button" data-demo-action aria-label="Thêm microphone vào yêu thích"><i class="fa-regular fa-heart" aria-hidden="true"></i></button></div><h3>Studio USB Microphone</h3><strong class="price">1.290.000₫</strong><p class="stock"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Sẵn hàng</p></article>
+        <article class="product-card"><div class="product-art product-art--keyboard"><i class="fa-solid fa-keyboard" aria-hidden="true"></i></div><div class="product-meta"><span>Redragon</span></div><h3>Desk Mat XL — Navy</h3><strong class="price">390.000₫</strong><p class="stock"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Sẵn hàng</p></article>
+      </div></div></div>
+    </section>
+
+    <section id="services" class="section-shell section-shell--brand-deep">
+      <div class="page-container"><div class="section-head section-head--light"><div><p class="eyebrow eyebrow--light">HACOM services</p><h2>Không chỉ là một chiếc máy</h2><p class="section-intro">Từ lúc chọn cấu hình đến nhiều năm sau đó, đội ngũ HACOM luôn ở bên bạn.</p></div></div><div class="service-grid"><article class="service-card"><i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i><span>AI PC Builder</span><h3>Không chắc nên chọn máy nào?</h3><p>Trả lời vài câu hỏi, nhận cấu hình gợi ý theo nhu cầu và ngân sách.</p><button type="button" data-demo-action class="text-link text-link--light">Bắt đầu tư vấn <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></article><article class="service-card"><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i><span>HACOM app</span><h3>Ưu đãi riêng trong ứng dụng</h3><p>Đặt trước deal hot, theo dõi đơn hàng và lưu lại setup yêu thích.</p><button type="button" data-demo-action class="text-link text-link--light">Tìm hiểu ứng dụng <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></article><article class="service-card"><i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i><span>Lắp ráp tận tâm</span><h3>Build đúng từ chi tiết nhỏ</h3><p>Lắp ráp, kiểm tra và tối ưu cẩn thận trước khi máy đến tay bạn.</p><button type="button" data-demo-action class="text-link text-link--light">Xem dịch vụ <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></article><article class="service-card service-card--accent"><i class="fa-solid fa-bolt" aria-hidden="true"></i><span>Flash deal</span><h3>Đừng bỏ lỡ nhịp giá tốt</h3><p>Những sản phẩm được chọn giá tốt trong thời gian giới hạn.</p><button type="button" data-demo-action class="text-link text-link--light">Xem deal hôm nay <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></article></div></div>
+    </section>
+
+    <section id="trending" class="section-shell section-shell--white">
+      <div class="page-container"><div class="section-head"><div><p class="eyebrow">Đang được quan tâm</p><h2>Sản phẩm nổi bật</h2></div><div class="section-head-actions"><button type="button" data-carousel-prev aria-label="Sản phẩm trước"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button><button type="button" data-carousel-next aria-label="Sản phẩm tiếp theo"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button><button type="button" data-demo-action class="text-link">Xem tất cả <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></div><div class="carousel-viewport hover-lift-safe-zone" data-carousel-root data-carousel-autoplay aria-label="Sản phẩm nổi bật"><div class="carousel-track product-track" data-carousel-track>
+        <article class="product-card"><div class="product-art product-art--laptop"><i class="fa-solid fa-laptop" aria-hidden="true"></i><span class="product-tag">Bán chạy</span></div><div class="product-meta"><span>HP</span><button type="button" data-demo-action aria-label="Yêu thích HP 15"><i class="fa-regular fa-heart" aria-hidden="true"></i></button></div><h3>HP 15 — Core i5 / 16GB / 512GB</h3><strong class="price">15.490.000₫</strong><p class="stock"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Sẵn hàng</p></article>
+        <article class="product-card"><div class="product-art product-art--laptop"><i class="fa-solid fa-laptop" aria-hidden="true"></i></div><div class="product-meta"><span>Lenovo</span><button type="button" data-demo-action aria-label="Yêu thích Lenovo IdeaPad"><i class="fa-regular fa-heart" aria-hidden="true"></i></button></div><h3>IdeaPad Slim 3 — Ryzen 7</h3><strong class="price">16.990.000₫</strong><p class="stock"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Sẵn hàng</p></article>
+        <article class="product-card"><div class="product-art product-art--pc"><i class="fa-solid fa-computer" aria-hidden="true"></i><span class="product-tag product-tag--red">Mới</span></div><div class="product-meta"><span>HACOM PC</span><button type="button" data-demo-action aria-label="Yêu thích HACOM PC"><i class="fa-regular fa-heart" aria-hidden="true"></i></button></div><h3>HACOM Gaming Core i7 / RTX</h3><strong class="price">29.990.000₫</strong><p class="stock"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Sẵn hàng</p></article>
+        <article class="product-card"><div class="product-art product-art--gpu"><i class="fa-solid fa-memory" aria-hidden="true"></i></div><div class="product-meta"><span>ASUS</span><button type="button" data-demo-action aria-label="Yêu thích ASUS GPU"><i class="fa-regular fa-heart" aria-hidden="true"></i></button></div><h3>ROG Strix Graphics Card</h3><strong class="price">18.490.000₫</strong><p class="stock"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Sẵn hàng</p></article>
+        <article class="product-card"><div class="product-art product-art--display"><i class="fa-solid fa-display" aria-hidden="true"></i></div><div class="product-meta"><span>ViewSonic</span><button type="button" data-demo-action aria-label="Yêu thích ViewSonic"><i class="fa-regular fa-heart" aria-hidden="true"></i></button></div><h3>VX2779A — 27 inch / 180Hz</h3><strong class="price">4.990.000₫</strong><p class="stock"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Sẵn hàng</p></article>
+        <article class="product-card"><div class="product-art product-art--pc"><i class="fa-solid fa-hard-drive" aria-hidden="true"></i></div><div class="product-meta"><span>Samsung</span></div><h3>990 EVO 1TB</h3><strong class="price">2.090.000₫</strong><p class="stock"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Sẵn hàng</p></article>
+      </div></div></div>
+    </section>
+
+    <section id="deals" class="section-shell section-shell--tint">
+      <div class="page-container"><div class="deal-intro"><div><p class="eyebrow">Deal theo mục tiêu</p><h2>Đầu tư đúng chỗ,<br><em>nâng cấp đúng lúc.</em></h2></div><p>Những bộ sưu tập được gom lại để bạn không phải tìm quá lâu.</p></div><div class="deal-grid"><article class="deal-card deal-card--red"><span>SSD deals</span><h3>Thêm tốc độ<br>cho mọi tác vụ.</h3><button type="button" data-demo-action class="text-link text-link--light">Xem SSD <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button><i class="fa-solid fa-hard-drive deal-icon" aria-hidden="true"></i></article><article class="deal-card deal-card--brand-deep"><span>Streaming essentials</span><h3>Phòng stream<br>đủ chất.</h3><button type="button" data-demo-action class="text-link text-link--light">Xem thiết bị <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button><i class="fa-solid fa-video deal-icon" aria-hidden="true"></i></article><article class="deal-card deal-card--brand-deeper"><span>Tech essentials</span><h3>Những món nhỏ<br>tạo khác biệt lớn.</h3><button type="button" data-demo-action class="text-link text-link--light">Xem phụ kiện <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button><i class="fa-solid fa-plug deal-icon" aria-hidden="true"></i></article><article class="deal-card deal-card--soft"><span>Trending deals</span><h3>Đang được chọn<br>nhiều nhất.</h3><button type="button" data-demo-action class="text-link">Xem ngay <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button><i class="fa-solid fa-chart-line deal-icon" aria-hidden="true"></i></article><article class="deal-card deal-card--light"><span>App only deals</span><h3>Ưu đãi riêng<br>trong app.</h3><button type="button" data-demo-action class="text-link">Mở ứng dụng <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button><i class="fa-solid fa-mobile-screen deal-icon" aria-hidden="true"></i></article></div></div>
+    </section>
+
+    <section id="accessories" class="section-shell section-shell--white">
+      <div class="page-container"><div class="section-head"><div><p class="eyebrow">Setup essentials</p><h2>Chạm là chơi</h2></div><div class="section-head-actions"><button type="button" data-carousel-prev aria-label="Phụ kiện trước"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button><button type="button" data-carousel-next aria-label="Phụ kiện tiếp theo"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></div><div class="carousel-viewport hover-lift-safe-zone" data-carousel-root data-carousel-autoplay aria-label="Phụ kiện gaming"><div class="carousel-track product-track" data-carousel-track>
+        <article class="product-card"><div class="product-art product-art--mouse"><i class="fa-solid fa-computer-mouse" aria-hidden="true"></i></div><div class="product-meta"><span>Logitech</span></div><h3>M171 Wireless Mouse</h3><strong class="price">290.000₫</strong><p class="stock"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Sẵn hàng</p></article><article class="product-card"><div class="product-art product-art--keyboard"><i class="fa-solid fa-keyboard" aria-hidden="true"></i></div><div class="product-meta"><span>HACOM Gear</span></div><h3>Desk Mat XL — Navy</h3><strong class="price">390.000₫</strong><p class="stock"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Sẵn hàng</p></article><article class="product-card"><div class="product-art product-art--headset"><i class="fa-solid fa-headset" aria-hidden="true"></i></div><div class="product-meta"><span>Razer</span></div><h3>DeathAdder Essential</h3><strong class="price">690.000₫</strong><p class="stock"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Sẵn hàng</p></article><article class="product-card"><div class="product-art product-art--mic"><i class="fa-solid fa-microphone" aria-hidden="true"></i></div><div class="product-meta"><span>MARVO</span></div><h3>Gaming Mic USB</h3><strong class="price">790.000₫</strong><p class="stock"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Sẵn hàng</p></article><article class="product-card"><div class="product-art product-art--chair"><i class="fa-solid fa-chair" aria-hidden="true"></i></div><div class="product-meta"><span>SteelSeries</span></div><h3>Rival Gaming Mouse</h3><strong class="price">990.000₫</strong><p class="stock"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Sẵn hàng</p></article><article class="product-card"><div class="product-art product-art--keyboard"><i class="fa-solid fa-keyboard" aria-hidden="true"></i></div><div class="product-meta"><span>HyperX</span></div><h3>Mechanical Keyboard 75%</h3><strong class="price">890.000₫</strong><p class="stock"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Sẵn hàng</p></article>
+      </div></div></div>
+    </section>
+
+    <section id="component-deals-1" class="section-shell section-shell--white section-deal-list"><div class="page-container"><div class="section-head"><div><p class="eyebrow">Linh kiện được chọn</p><h2>Component deals</h2></div><button type="button" data-demo-action class="text-link">Xem tất cả <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div><div class="component-layout"><article class="component-banner component-banner--red"><span>Upgrade bundles</span><h3>Nâng cấp<br>có kế hoạch.</h3><p>Thêm hiệu năng mà không cần thay cả bộ máy.</p><button type="button" data-demo-action class="button button--dark">Khám phá bundle <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></article><div class="component-products"><article class="mini-product"><div class="mini-product-art"><i class="fa-solid fa-memory" aria-hidden="true"></i></div><span>Gamdias</span><h3>Memory kit 32GB</h3><strong>1.490.000₫</strong></article><article class="mini-product"><div class="mini-product-art"><i class="fa-solid fa-bolt" aria-hidden="true"></i></div><span>MSI</span><h3>PSU 650W Bronze</h3><strong>1.690.000₫</strong></article><article class="mini-product"><div class="mini-product-art"><i class="fa-solid fa-hard-drive" aria-hidden="true"></i></div><span>Samsung</span><h3>990 EVO 1TB</h3><strong>2.090.000₫</strong></article></div></div></div></section>
+    <section id="component-deals-2" class="section-shell section-shell--tint section-deal-list"><div class="page-container"><div class="section-head"><div><p class="eyebrow">Màn hình &amp; bàn làm việc</p><h2>Không gian làm việc tốt hơn</h2></div><button type="button" data-demo-action class="text-link">Xem collection <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div><div class="component-products component-products--wide"><article class="mini-product mini-product--featured"><div class="mini-product-art"><i class="fa-solid fa-display" aria-hidden="true"></i></div><span>ViewSonic</span><h3>Màn hình 27 inch 180Hz</h3><strong>4.990.000₫</strong></article><article class="mini-product"><div class="mini-product-art"><i class="fa-solid fa-chair" aria-hidden="true"></i></div><span>Gamdias</span><h3>Ghế gaming E3</h3><strong>3.490.000₫</strong></article><article class="mini-product"><div class="mini-product-art"><i class="fa-solid fa-keyboard" aria-hidden="true"></i></div><span>Promate</span><h3>Combo keyboard &amp; mouse</h3><strong>590.000₫</strong></article><article class="mini-product"><div class="mini-product-art"><i class="fa-solid fa-volume-high" aria-hidden="true"></i></div><span>Gamdias</span><h3>Loa desktop compact</h3><strong>790.000₫</strong></article></div></div></section>
+    <section id="component-deals-3" class="section-shell section-shell--white section-deal-list"><div class="page-container"><div class="section-head"><div><p class="eyebrow">Âm thanh &amp; kết nối</p><h2>Chi tiết tạo nên trải nghiệm</h2></div><button type="button" data-demo-action class="text-link">Xem sản phẩm <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div><div class="component-layout component-layout--reverse"><div class="component-products component-products--wide"><article class="mini-product"><div class="mini-product-art"><i class="fa-solid fa-headphones" aria-hidden="true"></i></div><span>Turtle Beach</span><h3>Atlas Air Wireless</h3><strong>3.990.000₫</strong></article><article class="mini-product"><div class="mini-product-art"><i class="fa-solid fa-microphone" aria-hidden="true"></i></div><span>FIFINE</span><h3>Microphone studio</h3><strong>1.290.000₫</strong></article><article class="mini-product"><div class="mini-product-art"><i class="fa-solid fa-wifi" aria-hidden="true"></i></div><span>Dahua</span><h3>Wi-Fi 6 router</h3><strong>1.190.000₫</strong></article></div><article class="component-banner component-banner--brand-deep"><span>Smart setup</span><h3>Kết nối<br>liền mạch.</h3><p>Phụ kiện đúng chuẩn để mọi thiết bị làm việc cùng nhau.</p><button type="button" data-demo-action class="button button--light">Xem thiết bị <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></article></div></div></section>
+
+    <section id="campaigns" class="section-shell section-shell--tint"><div class="page-container"><div class="campaign-grid"><article class="campaign-card campaign-card--red"><span>Best sellers</span><h3>Được chọn<br>nhiều nhất.</h3><button type="button" data-demo-action class="text-link text-link--light">Xem ngay <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button><i class="fa-solid fa-fire-flame-curved campaign-icon" aria-hidden="true"></i></article><article class="campaign-card campaign-card--brand-deep"><span>Perfect gift</span><h3>Món quà<br>đúng gu.</h3><button type="button" data-demo-action class="text-link text-link--light">Chọn quà <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button><i class="fa-solid fa-gift campaign-icon" aria-hidden="true"></i></article><article class="campaign-card campaign-card--brand-deeper"><span>New arrivals</span><h3>Công nghệ<br>vừa cập bến.</h3><button type="button" data-demo-action class="text-link text-link--light">Xem hàng mới <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button><i class="fa-solid fa-box-open campaign-icon" aria-hidden="true"></i></article><article class="campaign-card campaign-card--soft"><span>Clearance sales</span><h3>Giá tốt cho<br>lựa chọn đúng.</h3><button type="button" data-demo-action class="text-link">Xem clearance <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button><i class="fa-solid fa-tag campaign-icon" aria-hidden="true"></i></article></div></div></section>
+
+    <section id="brands" class="section-shell section-shell--white"><div class="page-container"><div class="section-head"><div><p class="eyebrow">Đối tác công nghệ</p><h2>Thương hiệu chúng tôi tin dùng</h2></div><span class="section-count">Hơn 40 thương hiệu</span></div><div id="brandsGrid" class="brands-grid"><button type="button" data-demo-action>ASUS</button><button type="button" data-demo-action>Lenovo</button><button type="button" data-demo-action>MSI</button><button type="button" data-demo-action>HP</button><button type="button" data-demo-action>Intel</button><button type="button" data-demo-action>AMD</button><button type="button" data-demo-action>NVIDIA</button><button type="button" data-demo-action>Samsung</button><button type="button" data-demo-action>Logitech</button><button type="button" data-demo-action>Razer</button><button type="button" data-demo-action>HyperX</button><button type="button" data-demo-action>ViewSonic</button><button type="button" data-demo-action>Dahua</button><button type="button" data-demo-action>Gamdias</button><button type="button" data-demo-action>SteelSeries</button><button type="button" data-demo-action>FIFINE</button><button type="button" data-demo-action>Kingston</button><button type="button" data-demo-action>Cooler Master</button></div><div id="expandOverlay" class="brands-overlay"><button id="expandBtn" type="button" aria-expanded="false" aria-label="Xem thêm thương hiệu"><span>Xem thêm thương hiệu</span><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></button></div></div></section>
+
+    <section id="editorial" class="section-shell section-shell--brand"><div class="page-container"><div class="section-head section-head--light"><div><p class="eyebrow eyebrow--light">HACOM picks</p><h2>Những collection đáng xem</h2></div><div class="carousel-controls"><button type="button" data-carousel-prev aria-label="Collection trước"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button><button type="button" data-carousel-next aria-label="Collection tiếp theo"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></div><div class="carousel-viewport" data-carousel-root data-carousel-autoplay aria-label="Collection nổi bật"><div class="carousel-track promo-track" data-carousel-track><article class="promo-card promo-card--red"><span>01</span><h3>Best sellers</h3><p>Những lựa chọn đã được kiểm chứng bởi cộng đồng.</p><button type="button" data-demo-action class="text-link text-link--light">Xem collection <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></article><article class="promo-card promo-card--light"><span>02</span><h3>Perfect gift</h3><p>Gợi ý quà công nghệ cho người bạn quan tâm.</p><button type="button" data-demo-action class="text-link">Chọn quà <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></article><article class="promo-card promo-card--brand-deep"><span>03</span><h3>Intel PCs</h3><p>Hiệu năng cân bằng cho công việc và sáng tạo.</p><button type="button" data-demo-action class="text-link text-link--light">Xem PC <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></article><article class="promo-card promo-card--soft"><span>04</span><h3>New arrivals</h3><p>Công nghệ mới, sẵn sàng trong tầm tay.</p><button type="button" data-demo-action class="text-link">Xem hàng mới <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></article></div></div></div></section>
+
+    <section id="final-picks" class="section-shell section-shell--white"><div class="page-container"><div class="section-head"><div><p class="eyebrow">Chọn thêm một chút</p><h2>Hoàn thiện setup của bạn</h2></div><div class="section-head-actions"><button type="button" data-carousel-prev aria-label="Gợi ý trước"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i></button><button type="button" data-carousel-next aria-label="Gợi ý tiếp theo"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div></div><div class="carousel-viewport hover-lift-safe-zone" data-carousel-root data-carousel-autoplay aria-label="Gợi ý hoàn thiện setup"><div class="carousel-track product-track" data-carousel-track><article class="product-card"><div class="product-art product-art--mouse"><i class="fa-solid fa-computer-mouse" aria-hidden="true"></i></div><div class="product-meta"><span>Logitech</span></div><h3>G502 Hero</h3><strong class="price">1.090.000₫</strong><p class="stock"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Sẵn hàng</p></article><article class="product-card"><div class="product-art product-art--keyboard"><i class="fa-solid fa-keyboard" aria-hidden="true"></i></div><div class="product-meta"><span>HACOM Gear</span></div><h3>Mechanical Keyboard 75%</h3><strong class="price">890.000₫</strong><p class="stock"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Sẵn hàng</p></article><article class="product-card"><div class="product-art product-art--headset"><i class="fa-solid fa-headset" aria-hidden="true"></i></div><div class="product-meta"><span>HyperX</span></div><h3>Cloud III Wireless</h3><strong class="price">2.590.000₫</strong><p class="stock"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Sẵn hàng</p></article><article class="product-card"><div class="product-art product-art--display"><i class="fa-solid fa-display" aria-hidden="true"></i></div><div class="product-meta"><span>ViewSonic</span></div><h3>VX2779A — 27 inch</h3><strong class="price">4.990.000₫</strong><p class="stock"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Sẵn hàng</p></article><article class="product-card"><div class="product-art product-art--mic"><i class="fa-solid fa-microphone" aria-hidden="true"></i></div><div class="product-meta"><span>FIFINE</span></div><h3>Studio USB Microphone</h3><strong class="price">1.290.000₫</strong><p class="stock"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Sẵn hàng</p></article><article class="product-card"><div class="product-art product-art--chair"><i class="fa-solid fa-chair" aria-hidden="true"></i></div><div class="product-meta"><span>Centaur</span></div><h3>Gaming Chair E3</h3><strong class="price">3.490.000₫</strong><p class="stock"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Sẵn hàng</p></article></div></div></div></section>
+  </main>
+
+  <footer class="site-footer"><div class="page-container"><div class="footer-top"><div class="footer-brand"><img src="LOGO-HACOM.png" alt="HACOM" width="176" height="68"><p>You dream it, we build it.</p><p class="footer-copy">Công nghệ tốt bắt đầu từ một lựa chọn đúng.</p><form id="newsletterForm" class="newsletter-form" novalidate><label for="newsletterEmail">Nhận deal và tư vấn mới</label><div><input id="newsletterEmail" type="email" name="email" autocomplete="email" placeholder="Email của bạn" required><button type="submit" aria-label="Đăng ký nhận tin"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></button></div><p id="newsletterStatus" class="form-status" aria-live="polite"></p></form></div><div class="footer-links"><div><h2>Mua sắm</h2><button type="button" data-demo-action>Laptop</button><button type="button" data-demo-action>PC Gaming</button><button type="button" data-demo-action>Linh kiện</button><button type="button" data-demo-action>Phụ kiện</button></div><div><h2>Hỗ trợ</h2><button type="button" data-demo-action>Liên hệ HACOM</button><button type="button" data-demo-action>Tra cứu đơn hàng</button><button type="button" data-demo-action>Chính sách bảo hành</button><button type="button" data-demo-action>Hướng dẫn mua hàng</button></div><div><h2>Về HACOM</h2><button type="button" data-demo-action>Giới thiệu</button><button type="button" data-demo-action>Showroom</button><button type="button" data-demo-action>Tuyển dụng</button><button type="button" data-demo-action>Tin công nghệ</button></div><div><h2>Xây dựng</h2><button type="button" data-demo-action>PC Builder</button><button type="button" data-demo-action>Tư vấn laptop</button><button type="button" data-demo-action>Setup gaming</button><button type="button" data-demo-action>HACOM app</button></div></div></div><div class="footer-contact"><div><i class="fa-solid fa-phone" aria-hidden="true"></i><span>1900 1903<small>Hỗ trợ khách hàng</small></span></div><div><i class="fa-solid fa-envelope" aria-hidden="true"></i><span>hacom.vn<small>Chăm sóc khách hàng</small></span></div><div><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span>131 Lê Thanh Nghị<small>Bạch Mai, Hà Nội</small></span></div><div><i class="fa-regular fa-clock" aria-hidden="true"></i><span>08:00 — 20:00<small>Hàng ngày</small></span></div></div><div class="footer-bottom"><span>© 2026 HACOM. Công nghệ cho mọi người.</span><div class="social-links"><button type="button" data-demo-action aria-label="Facebook"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></button><button type="button" data-demo-action aria-label="YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i></button><button type="button" data-demo-action aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></button></div><span>Thanh toán an toàn · VISA · MASTERCARD · COD</span></div></div></footer>
+</body>
+
+</html>
