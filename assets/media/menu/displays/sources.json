@@ -1,0 +1,150 @@
+{
+  "version": 1,
+  "category": "displays",
+  "designFile": "design-menu/man_hinh.jpg",
+  "assets": [
+    {
+      "id": "asus",
+      "role": "brand-logo",
+      "label": "ASUS",
+      "pageUrl": "https://hacom.vn/man-hinh-may-tinh-theo-hang",
+      "sourceUrl": "https://hanoicomputercdn.com/media/brand/asus.png",
+      "output": "assets/media/menu/displays/brands/asus.webp",
+      "crop": { "x": 0, "y": 0, "width": 240, "height": 60 },
+      "canvas": { "width": 240, "height": 80, "fit": "contain", "background": "#ffffff" },
+      "fallback": false
+    },
+    {
+      "id": "acer",
+      "role": "brand-logo",
+      "label": "Acer",
+      "pageUrl": "https://hacom.vn/man-hinh-may-tinh-theo-hang",
+      "sourceUrl": "https://hanoicomputercdn.com/media/brand/acer.png",
+      "output": "assets/media/menu/displays/brands/acer.webp",
+      "crop": { "x": 0, "y": 0, "width": 240, "height": 60 },
+      "canvas": { "width": 240, "height": 80, "fit": "contain", "background": "#ffffff" },
+      "fallback": false
+    },
+    {
+      "id": "lg",
+      "role": "brand-logo",
+      "label": "LG",
+      "pageUrl": "https://hacom.vn/man-hinh-may-tinh-theo-hang",
+      "sourceUrl": "https://hanoicomputercdn.com/media/brand/lg.png",
+      "output": "assets/media/menu/displays/brands/lg.webp",
+      "crop": { "x": 0, "y": 0, "width": 240, "height": 60 },
+      "canvas": { "width": 240, "height": 80, "fit": "contain", "background": "#ffffff" },
+      "fallback": false
+    },
+    {
+      "id": "samsung",
+      "role": "brand-logo",
+      "label": "Samsung",
+      "pageUrl": "https://hacom.vn/man-hinh-may-tinh-theo-hang",
+      "sourceUrl": "https://hanoicomputercdn.com/media/brand/samsung.png",
+      "output": "assets/media/menu/displays/brands/samsung.webp",
+      "crop": { "x": 0, "y": 0, "width": 240, "height": 60 },
+      "canvas": { "width": 240, "height": 80, "fit": "contain", "background": "#ffffff" },
+      "fallback": false
+    },
+    {
+      "id": "dell",
+      "role": "brand-logo",
+      "label": "Dell",
+      "pageUrl": "https://hacom.vn/man-hinh-may-tinh-theo-hang",
+      "sourceUrl": "https://hanoicomputercdn.com/media/brand/dell.png",
+      "output": "assets/media/menu/displays/brands/dell.webp",
+      "crop": { "x": 0, "y": 0, "width": 240, "height": 60 },
+      "canvas": { "width": 240, "height": 80, "fit": "contain", "background": "#ffffff" },
+      "fallback": false
+    },
+    {
+      "id": "msi",
+      "role": "brand-logo",
+      "label": "MSI",
+      "pageUrl": "https://hacom.vn/man-hinh-may-tinh-theo-hang",
+      "sourceUrl": "https://hanoicomputercdn.com/media/brand/msi.png",
+      "output": "assets/media/menu/displays/brands/msi.webp",
+      "crop": { "x": 0, "y": 0, "width": 240, "height": 80 },
+      "canvas": { "width": 240, "height": 80, "fit": "contain", "background": "#ffffff" },
+      "fallback": false
+    },
+    {
+      "id": "gigabyte",
+      "role": "brand-logo",
+      "label": "Gigabyte / AORUS",
+      "pageUrl": "https://hacom.vn/man-hinh-may-tinh-theo-hang",
+      "sourceUrl": "https://hanoicomputercdn.com/media/brand/gigabyte.png",
+      "output": "assets/media/menu/displays/brands/gigabyte.webp",
+      "crop": { "x": 0, "y": 0, "width": 240, "height": 60 },
+      "canvas": { "width": 240, "height": 80, "fit": "contain", "background": "#ffffff" },
+      "fallback": false
+    },
+    {
+      "id": "viewsonic",
+      "role": "brand-logo",
+      "label": "ViewSonic",
+      "pageUrl": "https://hacom.vn/man-hinh-may-tinh-theo-hang",
+      "sourceUrl": "https://hanoicomputercdn.com/media/brand/viewsonic.png",
+      "output": "assets/media/menu/displays/brands/viewsonic.webp",
+      "crop": { "x": 0, "y": 0, "width": 240, "height": 60 },
+      "canvas": { "width": 240, "height": 80, "fit": "contain", "background": "#ffffff" },
+      "fallback": false
+    },
+    {
+      "id": "benq",
+      "role": "brand-logo",
+      "label": "BenQ",
+      "pageUrl": "https://hacom.vn/man-hinh-may-tinh-theo-hang",
+      "sourceUrl": "https://hanoicomputercdn.com/media/brand/benq.png",
+      "output": "assets/media/menu/displays/brands/benq.webp",
+      "crop": { "x": 0, "y": 0, "width": 240, "height": 60 },
+      "canvas": { "width": 240, "height": 80, "fit": "contain", "background": "#ffffff" },
+      "fallback": false
+    },
+    {
+      "id": "philips",
+      "role": "brand-logo",
+      "label": "Philips",
+      "pageUrl": "https://hacom.vn/man-hinh-may-tinh-theo-hang",
+      "sourceUrl": "https://hanoicomputercdn.com/media/brand/philips.png",
+      "output": "assets/media/menu/displays/brands/philips.webp",
+      "crop": { "x": 0, "y": 0, "width": 159, "height": 136 },
+      "canvas": { "width": 240, "height": 80, "fit": "contain", "background": "#ffffff" },
+      "fallback": false
+    },
+    {
+      "id": "lenovo",
+      "role": "brand-logo",
+      "label": "Lenovo",
+      "pageUrl": "https://hacom.vn/man-hinh-may-tinh-theo-hang",
+      "sourceUrl": "https://hanoicomputercdn.com/media/brand/lenovo.png",
+      "output": "assets/media/menu/displays/brands/lenovo.webp",
+      "crop": { "x": 0, "y": 0, "width": 240, "height": 60 },
+      "canvas": { "width": 240, "height": 80, "fit": "contain", "background": "#ffffff" },
+      "fallback": false
+    },
+    {
+      "id": "cooler-master",
+      "role": "brand-logo",
+      "label": "Cooler Master",
+      "pageUrl": "https://hacom.vn/cac-san-pham-moding?brand=coolermaster",
+      "sourceUrl": "https://hanoicomputercdn.com/media/brand/coolermaster.png",
+      "output": "assets/media/menu/displays/brands/cooler-master.webp",
+      "crop": { "x": 0, "y": 0, "width": 240, "height": 60 },
+      "canvas": { "width": 240, "height": 80, "fit": "contain", "background": "#ffffff" },
+      "fallback": false
+    },
+    {
+      "id": "hp",
+      "role": "brand-logo",
+      "label": "HP",
+      "pageUrl": "https://hacom.vn/man-hinh-may-tinh-theo-hang",
+      "sourceUrl": "https://hanoicomputercdn.com/media/brand/hp.png",
+      "output": "assets/media/menu/displays/brands/hp.webp",
+      "crop": { "x": 0, "y": 0, "width": 240, "height": 60 },
+      "canvas": { "width": 96, "height": 96, "fit": "contain", "background": "#ffffff" },
+      "fallback": false
+    }
+  ]
+}

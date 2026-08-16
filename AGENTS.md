@@ -34,6 +34,10 @@
 - Interactive controls should preserve a touch target of at least `44px` in each axis whenever the component permits it.
 - Verify content order, `:focus-visible`, clipping, and horizontal overflow at mobile and tablet breakpoints for every UI or interaction change.
 
+## Menu design-to-code workflow
+
+- For tasks that convert reference images under `design-menu/` into homepage category flyouts, read `docs/menu-design-to-code.md` before planning or implementation.
+
 ## Browser automation
 
 Before any task that opens, clicks, screenshots, or tests a web page, read:

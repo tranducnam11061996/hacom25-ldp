@@ -22,6 +22,9 @@
     for (let index = 0; index < 5; index += 1) {
       wrapper.append(icon('fa-solid fa-star product-card__rating-star'));
     }
+    if (Number.isFinite(product.reviewCount) && product.reviewCount > 0) {
+      wrapper.append(make('span', { className: 'product-card__review-count', text: `(${product.reviewCount})` }));
+    }
     return wrapper;
   }
 

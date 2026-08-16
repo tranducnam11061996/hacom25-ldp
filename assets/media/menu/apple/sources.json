@@ -1,0 +1,194 @@
+{
+  "version": 1,
+  "category": "apple",
+  "designFile": "design-menu/san_pham_apple.jpg",
+  "assets": [
+    {
+      "id": "macbook-air",
+      "role": "mac",
+      "label": "MacBook Air",
+      "pageUrl": "https://hacom.vn/laptop-apple-macbook-air-m5-mdh84saa-ltma0283",
+      "sourceUrl": "https://cdn-files.hacom.vn/hacom/cdn/web/20042026/Laptop-Apple-Macbook-Air-M5-MDH84SAA-Apple-M510-core-CPU10-core-GPU16GB-RAM1TB-SSD13.6-inchMac-OSSilver-3.jpg",
+      "output": "assets/media/menu/apple/mac/macbook-air.webp",
+      "crop": null,
+      "canvas": { "width": 480, "height": 320, "fit": "contain", "background": "#ffffff" },
+      "fallback": false
+    },
+    {
+      "id": "macbook-pro",
+      "role": "mac",
+      "label": "MacBook Pro",
+      "pageUrl": "https://hacom.vn/laptop-apple-macbook-pro-14-m5-ltma0263",
+      "sourceUrl": "https://cdn-files.hacom.vn/hacom/cdn/web/26112025/laptop-apple-macbook-pro-14-m5-ltma0263_0001_apple-4.jpg",
+      "output": "assets/media/menu/apple/mac/macbook-pro.webp",
+      "crop": null,
+      "canvas": { "width": 480, "height": 320, "fit": "contain", "background": "#ffffff" },
+      "fallback": false
+    },
+    {
+      "id": "imac",
+      "role": "mac",
+      "label": "iMac",
+      "pageUrl": "https://hacom.vn/pc-apple-imac-mmqa2saa-i5-2.3ghz-8g-1tb-km-21.5-macos-sierra",
+      "sourceUrl": "https://hanoicomputercdn.com/media/product/45061_pc_apple_imac_a__1_.jpg",
+      "output": "assets/media/menu/apple/mac/imac.webp",
+      "crop": null,
+      "canvas": { "width": 480, "height": 320, "fit": "contain", "background": "#ffffff" },
+      "fallback": true
+    },
+    {
+      "id": "mac-mini",
+      "role": "mac",
+      "label": "Mac Mini",
+      "pageUrl": "https://hacom.vn/apple-mac-mini-mu9e3sa-a-pcap0052",
+      "sourceUrl": "https://hanoicomputercdn.com/media/product/87397_apple_mac_mini_mu9e3sa_a_apple_m4_1.jpg",
+      "output": "assets/media/menu/apple/mac/mac-mini.webp",
+      "crop": null,
+      "canvas": { "width": 480, "height": 320, "fit": "contain", "background": "#ffffff" },
+      "fallback": false
+    },
+    {
+      "id": "iphone-17",
+      "role": "iphone",
+      "label": "iPhone 17 Series",
+      "pageUrl": "https://hacom.vn/dien-thoai-di-dong-iphone-17-256-gb-xanh-la-xo-thom-dtap0289",
+      "sourceUrl": "https://cdn-files.hacom.vn/hacom/cdn/web/dien-thoai-di-dong-iphone-17-xanh-la-xo-thom-4.jpg",
+      "output": "assets/media/menu/apple/iphone/iphone-17.webp",
+      "crop": null,
+      "canvas": { "width": 480, "height": 320, "fit": "contain", "background": "#ffffff" },
+      "fallback": false
+    },
+    {
+      "id": "iphone-16",
+      "role": "iphone",
+      "label": "iPhone 16 Series",
+      "pageUrl": "https://hacom.vn/dien-thoai-di-dong-iphone-16-128gb-teal-dtap0274",
+      "sourceUrl": "https://cdn-files.hacom.vn/hacom/web/File-pts-chuan-le_0003_0029111_xanh-mong-ket_550.jpg",
+      "output": "assets/media/menu/apple/iphone/iphone-16.webp",
+      "crop": null,
+      "canvas": { "width": 480, "height": 320, "fit": "contain", "background": "#ffffff" },
+      "fallback": false
+    },
+    {
+      "id": "iphone-15",
+      "role": "iphone",
+      "label": "iPhone 15 Series",
+      "pageUrl": "https://hacom.vn/dien-thoai-di-dong-iphone-15-128gb-pink-dtap0265",
+      "sourceUrl": "https://cdn-files.hacom.vn/hacom//web/Dien-thoai-di-dong-iPhone-15-128GB-Pink-MTP13VNA-3.jpg",
+      "output": "assets/media/menu/apple/iphone/iphone-15.webp",
+      "crop": null,
+      "canvas": { "width": 480, "height": 320, "fit": "contain", "background": "#ffffff" },
+      "fallback": false
+    },
+    {
+      "id": "ipad-pro",
+      "role": "ipad",
+      "label": "iPad Pro",
+      "pageUrl": "https://hacom.vn/may-tinh-bang-apple-ipad-pro-m4-mvv83za-a-256gb-11inch-wifi-den-2024",
+      "sourceUrl": "https://hanoicomputercdn.com/media/product/83272_may_tinh_bang_apple_ipad_pro_m4_256gb_11inch_wifi_bac_2024__2_.jpg",
+      "output": "assets/media/menu/apple/ipad/ipad-pro.webp",
+      "crop": null,
+      "canvas": { "width": 480, "height": 320, "fit": "contain", "background": "#ffffff" },
+      "fallback": false
+    },
+    {
+      "id": "ipad-air",
+      "role": "ipad",
+      "label": "iPad Air",
+      "pageUrl": "https://hacom.vn/may-tinh-bang-apple-ipad-air-m3-11-5g-mtbp0322",
+      "sourceUrl": "https://cdn-files.hacom.vn/hacom/cdn/web/20102025/may-tinh-bang-apple-ipad-air-m3-11-mtbp0312_0000_MCA64ZAA-2.jpg",
+      "output": "assets/media/menu/apple/ipad/ipad-air.webp",
+      "crop": null,
+      "canvas": { "width": 480, "height": 320, "fit": "contain", "background": "#ffffff" },
+      "fallback": false
+    },
+    {
+      "id": "ipad-mini",
+      "role": "ipad",
+      "label": "iPad Mini",
+      "pageUrl": "https://hacom.vn/may-tinh-bang-apple-ipad-mini-8-3-mk7p3za-a",
+      "sourceUrl": "https://hanoicomputercdn.com/media/product/64509_may_tinh_bang_apple_ipad_mini_8_3_3.png",
+      "output": "assets/media/menu/apple/ipad/ipad-mini.webp",
+      "crop": null,
+      "canvas": { "width": 480, "height": 320, "fit": "contain", "background": "#ffffff" },
+      "fallback": true
+    },
+    {
+      "id": "ipad-gen",
+      "role": "ipad",
+      "label": "iPad Gen Series",
+      "pageUrl": "https://hacom.vn/may-tinh-bang-apple-ipad-a16-gen-11-mtbp0283",
+      "sourceUrl": "https://cdn-files.hacom.vn/hacom/cdn/web/20102025/may-tinh-bang-apple-ipad-a16-gen-11-mtbp0283_0003_A1.jpg",
+      "output": "assets/media/menu/apple/ipad/ipad-gen.webp",
+      "crop": null,
+      "canvas": { "width": 480, "height": 320, "fit": "contain", "background": "#ffffff" },
+      "fallback": false
+    },
+    {
+      "id": "apple-watch",
+      "role": "watch",
+      "label": "Apple Watch",
+      "pageUrl": "https://hacom.vn/dong-ho-apple-watch-ultra-3-gps-cellular-49mm-natural-titanium-milanese-size-m-dhap0059",
+      "sourceUrl": "https://cdn-files.hacom.vn/hacom/cdn/web/dong-ho-apple-watch-ultra-3-gps-cellular-49mm-natural-titanium-milanese-size-m-dhap0059_0000_apple-watch-1.jpg",
+      "output": "assets/media/menu/apple/watch/apple-watch.webp",
+      "crop": null,
+      "canvas": { "width": 480, "height": 320, "fit": "contain", "background": "#ffffff" },
+      "fallback": false
+    },
+    {
+      "id": "apple-keyboard",
+      "role": "accessory",
+      "label": "Bàn Phím Apple",
+      "pageUrl": "https://hacom.vn/ban-phim-apple-magic-with-numeric-keypad-us-english-mrmh2za-a-xam",
+      "sourceUrl": "https://hanoicomputercdn.com/media/product/58258_ban_phim_apple_magic_with_numeric_keypad_us_english_mrmh2za_a_xam_0000_1.jpg",
+      "output": "assets/media/menu/apple/accessories/apple-keyboard.webp",
+      "crop": null,
+      "canvas": { "width": 480, "height": 320, "fit": "contain", "background": "#ffffff" },
+      "fallback": false
+    },
+    {
+      "id": "apple-mouse",
+      "role": "accessory",
+      "label": "Chuột Apple",
+      "pageUrl": "https://hacom.vn/chuot-apple-magic-mouse-meap0002",
+      "sourceUrl": "https://cdn-files.hacom.vn/hacom/web/chuot-apple-magic-mouse-trang-1.jpg",
+      "output": "assets/media/menu/apple/accessories/apple-mouse.webp",
+      "crop": null,
+      "canvas": { "width": 480, "height": 320, "fit": "contain", "background": "#ffffff" },
+      "fallback": false
+    },
+    {
+      "id": "airpods",
+      "role": "accessory",
+      "label": "Tai Nghe Apple",
+      "pageUrl": "https://hacom.vn/tai-nghe-apple-airpods-4-tnap0014",
+      "sourceUrl": "https://cdn-files.hacom.vn/hacom//web/tai-nghe-bluetooth-apple-airpods-4-2024-mxp63-1.jpg",
+      "output": "assets/media/menu/apple/accessories/airpods.webp",
+      "crop": null,
+      "canvas": { "width": 480, "height": 320, "fit": "contain", "background": "#ffffff" },
+      "fallback": false
+    },
+    {
+      "id": "apple-pencil",
+      "role": "accessory",
+      "label": "Bút Apple",
+      "pageUrl": "https://hacom.vn/but-cam-ung-apple-pencil-buap0004",
+      "sourceUrl": "https://cdn-files.hacom.vn/hacom/cdn/web/19052026/But-cam-ung-Apple-Pencil-USB-CMUWA3-ZPA-3.jpg",
+      "output": "assets/media/menu/apple/accessories/apple-pencil.webp",
+      "crop": null,
+      "canvas": { "width": 480, "height": 320, "fit": "contain", "background": "#ffffff" },
+      "fallback": false
+    },
+    {
+      "id": "apple-cable",
+      "role": "accessory",
+      "label": "Cáp Sạc Apple",
+      "pageUrl": "https://hacom.vn/cap-apple-usb-c-to-lightning-1m-cadt1002",
+      "sourceUrl": "https://cdn-files.hacom.vn/hacom/web/Cap-Apple-USB-C-to-Lightning-1m-MUQ93ZAA-2.jpg",
+      "output": "assets/media/menu/apple/accessories/apple-cable.webp",
+      "crop": null,
+      "canvas": { "width": 480, "height": 320, "fit": "contain", "background": "#ffffff" },
+      "fallback": false
+    }
+  ]
+}

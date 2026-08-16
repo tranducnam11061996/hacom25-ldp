@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "category": "laptops",
+  "designFile": "design-menu/laptop.jpg",
+  "assets": [
+    {
+      "id": "study-office",
+      "role": "need",
+      "label": "Học tập Văn phòng",
+      "pageUrl": "https://hacom.vn/laptop-acer-aspire-go-ag15-72p-54gy-ltac1001",
+      "sourceUrl": "https://cdn-files.hacom.vn/hacom/cdn/web/30102025/laptop-acer-aspire-go-ag15-72p-54gy-ltac1001_0005_ace1.jpg",
+      "output": "assets/media/menu/laptops/needs/study-office.webp",
+      "crop": { "x": 150, "y": 196, "width": 550, "height": 462 },
+      "canvas": { "width": 480, "height": 320, "fit": "contain", "background": "#ffffff" },
+      "fallback": false
+    },
+    {
+      "id": "gaming",
+      "role": "need",
+      "label": "Laptop Gaming",
+      "pageUrl": "https://hacom.vn/laptop-msi-cyborg-15-a13uc-2082vn-ltms0640",
+      "sourceUrl": "https://cdn-files.hacom.vn/hacom/cdn/web/29102025/laptop-msi-cyborg-15-a13uc-2082vn-ltms0640_0004_MSI-1.jpg",
+      "output": "assets/media/menu/laptops/needs/gaming.webp",
+      "crop": { "x": 106, "y": 204, "width": 652, "height": 452 },
+      "canvas": { "width": 480, "height": 320, "fit": "contain", "background": "#ffffff" },
+      "fallback": false
+    },
+    {
+      "id": "graphics-design",
+      "role": "need",
+      "label": "Đồ họa Thiết kế",
+      "pageUrl": "https://hacom.vn/laptop-gigabyte-gaming-aero-x16-x16-1vh93vnc94dh",
+      "sourceUrl": "https://cdn-files.hacom.vn/hacom/web/AERO-X16-1VH93VNC94DH.jpg",
+      "output": "assets/media/menu/laptops/needs/graphics-design.webp",
+      "crop": { "x": 80, "y": 80, "width": 734, "height": 450 },
+      "canvas": { "width": 480, "height": 320, "fit": "contain", "background": "#ffffff" },
+      "fallback": false
+    },
+    {
+      "id": "business-premium",
+      "role": "need",
+      "label": "Doanh nhân Cao cấp",
+      "pageUrl": "https://hacom.vn/laptop-asus-zenbook-um3406ga-qd073ws-ltau1065",
+      "sourceUrl": "https://cdn-files.hacom.vn/hacom/cdn/web/27022026/Laptop-Asus-ZenBook-UM3406GA-QD073WS-AI7-44532GB-RAM1TB-SSD14-WUXGA-60HzWin11TuiDen-2.jpg",
+      "output": "assets/media/menu/laptops/needs/business-premium.webp",
+      "crop": { "x": 110, "y": 198, "width": 554, "height": 446 },
+      "canvas": { "width": 480, "height": 320, "fit": "contain", "background": "#ffffff" },
+      "fallback": false
+    },
+    {
+      "id": "student-budget",
+      "role": "need",
+      "label": "Sinh viên Giá tốt",
+      "pageUrl": "https://hacom.vn/laptop-dell-pro-15-essential-pv15250-vkvkd-ltdl0675",
+      "sourceUrl": "https://cdn-files.hacom.vn/hacom/cdn/web/25022026/Laptop-Dell-Pro-15-Essential-PV15250-VKVKD-Core-3-100U-8GB512GB-SSD15.6-inch-FHDUbuntuDen-NK_Bao-hanh-tai-HACOM-1.jpg",
+      "output": "assets/media/menu/laptops/needs/student-budget.webp",
+      "crop": { "x": 128, "y": 214, "width": 568, "height": 414 },
+      "canvas": { "width": 480, "height": 320, "fit": "contain", "background": "#ffffff" },
+      "fallback": true
+    }
+  ]
+}
