@@ -1,0 +1,23 @@
+{
+  "homepage": "https://hacom.vn/",
+  "fetchedAt": "2026-08-17",
+  "transform": "https://cdn-transformations.hacom.vn/insecure/f:webp/q:82/rt:fit/w:900/{base64url(sourceUrl)}.webp",
+  "items": [
+    { "id": "customer-01", "sourceUrl": "https://cdn-files.hacom.vn/hacom/cdn/Media/Image/Banner/12082026/13-1.png", "output": "assets/media/customers/customer-01.webp", "width": 562, "height": 700 },
+    { "id": "customer-02", "sourceUrl": "https://cdn-files.hacom.vn/hacom/cdn/Media/Image/Banner/12082026/12-1.png", "output": "assets/media/customers/customer-02.webp", "width": 562, "height": 700 },
+    { "id": "customer-03", "sourceUrl": "https://cdn-files.hacom.vn/hacom/cdn/Media/Image/Banner/12082026/11-1.png", "output": "assets/media/customers/customer-03.webp", "width": 562, "height": 700 },
+    { "id": "customer-04", "sourceUrl": "https://cdn-files.hacom.vn/hacom/cdn/Media/Image/Banner/12082026/10-1.png", "output": "assets/media/customers/customer-04.webp", "width": 562, "height": 700 },
+    { "id": "customer-05", "sourceUrl": "https://cdn-files.hacom.vn/hacom/cdn/Media/Image/Banner/12082026/8-1.png", "output": "assets/media/customers/customer-05.webp", "width": 562, "height": 700 },
+    { "id": "customer-06", "sourceUrl": "https://cdn-files.hacom.vn/hacom/cdn/Media/Image/Banner/12082026/9-1.png", "output": "assets/media/customers/customer-06.webp", "width": 562, "height": 700 },
+    { "id": "customer-07", "sourceUrl": "https://cdn-files.hacom.vn/hacom/cdn/Media/Image/Banner/12082026/7-1.png", "output": "assets/media/customers/customer-07.webp", "width": 562, "height": 700 },
+    { "id": "customer-08", "sourceUrl": "https://cdn-files.hacom.vn/hacom/cdn/Media/Image/Banner/12082026/5.png", "output": "assets/media/customers/customer-08.webp", "width": 562, "height": 700 },
+    { "id": "customer-09", "sourceUrl": "https://cdn-files.hacom.vn/hacom/cdn/Media/Image/Banner/12082026/6-1.png", "output": "assets/media/customers/customer-09.webp", "width": 562, "height": 700 },
+    { "id": "customer-10", "sourceUrl": "https://cdn-files.hacom.vn/hacom/cdn/Media/Image/Banner/12082026/4-1.png", "output": "assets/media/customers/customer-10.webp", "width": 562, "height": 700 },
+    { "id": "customer-11", "sourceUrl": "https://cdn-files.hacom.vn/hacom/cdn/Media/Image/Banner/12082026/kht711.png", "output": "assets/media/customers/customer-11.webp", "width": 562, "height": 700 },
+    { "id": "customer-12", "sourceUrl": "https://cdn-files.hacom.vn/hacom/cdn/Media/Image/Banner/20072026/kht7-12.png", "output": "assets/media/customers/customer-12.webp", "width": 562, "height": 700 },
+    { "id": "customer-13", "sourceUrl": "https://cdn-files.hacom.vn/hacom/cdn/Media/Image/Banner/12082026/1-1.png", "output": "assets/media/customers/customer-13.webp", "width": 562, "height": 700 },
+    { "id": "customer-14", "sourceUrl": "https://cdn-files.hacom.vn/hacom/cdn/Media/Image/Banner/12082026/3-1.png", "output": "assets/media/customers/customer-14.webp", "width": 562, "height": 700 },
+    { "id": "customer-15", "sourceUrl": "https://cdn-files.hacom.vn/hacom/cdn/Media/Image/Banner/12082026/2-1.png", "output": "assets/media/customers/customer-15.webp", "width": 562, "height": 700 },
+    { "id": "customer-16", "sourceUrl": "https://cdn-files.hacom.vn/hacom/cdn/Media/Image/Banner/20072026/kht7-1.png", "output": "assets/media/customers/customer-16.webp", "width": 562, "height": 700 }
+  ]
+}

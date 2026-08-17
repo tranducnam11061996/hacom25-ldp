@@ -304,7 +304,10 @@ assert.match(appJs, /window\.HacomCarousel\?\.initInfiniteCarousel/);
 assert.ok(html.indexOf('id="hero"') < html.indexOf('id="deals"'));
 assert.match(html, /data-carousel-variant="gateway"[^>]*data-carousel-delay="6000"/);
 assert.equal((html.match(/class="gateway-campaign(?:\s|"|$)/g) || []).length, 3);
-assert.equal((html.match(/class="gateway-promo gateway-promo--/g) || []).length, 6);
+assert.equal((html.match(/class="gateway-promo gateway-promo--/g) || []).length, 4);
+assert.equal((html.match(/class="gateway-reference-tile gateway-reference-tile--/g) || []).length, 5);
+assert.equal((html.match(/class="header-promo-card"/g) || []).length, 5);
+assert.match(html, /data-carousel-variant="snap"/);
 assert.equal((html.match(/data-product-grid/g) || []).length, 8);
 for (const collection of ['deals', 'trending', 'new-arrivals', 'laptops', 'pc-gaming', 'displays', 'components', 'gaming-gear']) {
   assert.match(html, new RegExp(`data-collection="${collection}"`));

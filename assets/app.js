@@ -495,9 +495,9 @@ const categoryTree = Object.freeze([
 ]);
 
 const campaignSets = Object.freeze([
-  { id: 'performance', name: 'HACOM Performance', artwork: { main: 'performance-main', side: ['performance-deal', 'performance-support'] } },
-  { id: 'mobility', name: 'Laptop AI', artwork: { main: 'mobility-main', side: ['mobility-ai', 'mobility-accessories'] } },
-  { id: 'builder', name: 'PC Builder', artwork: { main: 'builder-main', side: ['builder-graphics', 'builder-service'] } }
+  { id: 'akko', name: 'Bàn phím cơ siêu lướt', artwork: { main: 'header-tech/hero-akko', side: [] } },
+  { id: 'performance', name: 'HACOM Performance', artwork: { main: 'header-tech/hero-performance', side: [] } },
+  { id: 'builder', name: 'PC Builder', artwork: { main: 'header-tech/hero-builder', side: [] } }
 ]);
 
 const homepageCollections = Object.freeze({
@@ -534,6 +534,104 @@ const createIcon = (iconClass) => createElement('i', {
   className: `${iconClass} menu-icon`,
   'aria-hidden': 'true'
 });
+
+function initResponsiveHeaderPanels() {
+  const header = document.querySelector('.site-header--reference');
+  const triggers = [...document.querySelectorAll('[data-header-panel-trigger]')];
+  const panels = new Map(
+    [...document.querySelectorAll('[data-header-panel]')]
+      .map((panel) => [panel.dataset.headerPanel, panel])
+  );
+  if (!(header instanceof HTMLElement) || triggers.length === 0 || panels.size === 0) return;
+
+  const desktopQuery = window.matchMedia('(min-width: 1181px)');
+  const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const closeTimers = new Map();
+  let activeName = null;
+  let activeTrigger = null;
+
+  const clearCloseTimer = (name) => {
+    const timer = closeTimers.get(name);
+    if (timer) window.clearTimeout(timer);
+    closeTimers.delete(name);
+  };
+
+  const concealPanel = (name, immediate = false) => {
+    const panel = panels.get(name);
+    if (!(panel instanceof HTMLElement)) return;
+    clearCloseTimer(name);
+    panel.classList.remove('is-open');
+    if (immediate || reducedMotionQuery.matches) {
+      panel.hidden = true;
+      return;
+    }
+    closeTimers.set(name, window.setTimeout(() => {
+      panel.hidden = true;
+      closeTimers.delete(name);
+    }, 220));
+  };
+
+  const closeActive = ({ returnFocus = false, immediate = false } = {}) => {
+    if (!activeName) return;
+    const closingName = activeName;
+    const closingTrigger = activeTrigger;
+    activeName = null;
+    activeTrigger = null;
+    triggers.forEach((trigger) => trigger.setAttribute('aria-expanded', 'false'));
+    concealPanel(closingName, immediate);
+    if (returnFocus && closingTrigger instanceof HTMLElement) {
+      activeTrigger = closingTrigger;
+      activeTrigger?.focus();
+      activeTrigger = null;
+    }
+  };
+
+  const openPanel = (name, trigger) => {
+    const panel = panels.get(name);
+    if (!(panel instanceof HTMLElement)) return;
+    if (activeName && activeName !== name) closeActive({ immediate: true });
+    clearCloseTimer(name);
+    activeName = name;
+    activeTrigger = trigger;
+    triggers.forEach((item) => item.setAttribute('aria-expanded', String(item === trigger)));
+    panel.hidden = false;
+    panel.getBoundingClientRect();
+    window.requestAnimationFrame(() => {
+      if (activeName === name) panel.classList.add('is-open');
+    });
+  };
+
+  triggers.forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      const name = trigger.dataset.headerPanelTrigger;
+      if (!name) return;
+      if (activeName === name) closeActive();
+      else openPanel(name, trigger);
+    });
+  });
+
+  panels.forEach((panel) => {
+    panel.querySelectorAll('[data-header-panel-action]').forEach((action) => {
+      action.addEventListener('click', () => closeActive());
+    });
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!activeName || !(event.target instanceof Element)) return;
+    if (event.target.closest('[data-header-panel-trigger], [data-header-panel]')) return;
+    closeActive();
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape' || !activeName) return;
+    event.preventDefault();
+    closeActive({ returnFocus: true });
+  });
+
+  desktopQuery.addEventListener?.('change', (event) => {
+    if (event.matches) closeActive({ immediate: true });
+  });
+}
 
 function initMenu() {
   const menu = document.getElementById('megaMenu');
@@ -1507,6 +1605,91 @@ const renderBusinessFlyout = (flyoutData) => {
   return shell;
 };
 
+function initSnapCarousel(root) {
+  const viewport = root.querySelector('[data-snap-viewport]');
+  const track = root.querySelector('[data-carousel-track]');
+  const previous = root.querySelector('[data-carousel-prev]');
+  const next = root.querySelector('[data-carousel-next]');
+  const status = root.querySelector('[data-carousel-status]');
+
+  if (!(viewport instanceof HTMLElement) || !(track instanceof HTMLElement)) return null;
+
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let syncFrame = null;
+
+  root.setAttribute('aria-roledescription', 'carousel');
+
+  const getMetrics = () => {
+    const firstCard = track.firstElementChild;
+    const styles = window.getComputedStyle(track);
+    const gap = Number.parseFloat(styles.columnGap || styles.gap) || 0;
+    const step = firstCard instanceof HTMLElement
+      ? firstCard.getBoundingClientRect().width + gap
+      : viewport.clientWidth;
+
+    return {
+      maxScroll: Math.max(0, viewport.scrollWidth - viewport.clientWidth),
+      step: Math.max(1, step),
+    };
+  };
+
+  const sync = () => {
+    syncFrame = null;
+    const { maxScroll, step } = getMetrics();
+    const current = Math.min(maxScroll, Math.max(0, viewport.scrollLeft));
+    const activeCard = Math.min(track.children.length, Math.round(current / step) + 1);
+    const edgeTolerance = 2;
+
+    if (previous instanceof HTMLButtonElement) previous.disabled = current <= edgeTolerance;
+    if (next instanceof HTMLButtonElement) next.disabled = current >= maxScroll - edgeTolerance;
+    if (status) status.textContent = `Khuyến mại ${activeCard} trên ${track.children.length}`;
+  };
+
+  const queueSync = () => {
+    if (syncFrame !== null) return;
+    syncFrame = window.requestAnimationFrame(sync);
+  };
+
+  const move = (direction) => {
+    const { maxScroll, step } = getMetrics();
+    const target = Math.min(maxScroll, Math.max(0, viewport.scrollLeft + (step * direction)));
+    viewport.scrollTo({
+      left: target,
+      behavior: reducedMotion.matches ? 'auto' : 'smooth',
+    });
+  };
+
+  const movePrevious = () => move(-1);
+  const moveNext = () => move(1);
+  const handleKeydown = (event) => {
+    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+    event.preventDefault();
+    move(event.key === 'ArrowLeft' ? -1 : 1);
+  };
+
+  previous?.addEventListener('click', movePrevious);
+  next?.addEventListener('click', moveNext);
+  viewport.addEventListener('scroll', queueSync, { passive: true });
+  viewport.addEventListener('keydown', handleKeydown);
+
+  const resizeObserver = typeof ResizeObserver === 'function' ? new ResizeObserver(queueSync) : null;
+  resizeObserver?.observe(viewport);
+  resizeObserver?.observe(track);
+  sync();
+
+  return Object.freeze({
+    refresh: sync,
+    destroy() {
+      previous?.removeEventListener('click', movePrevious);
+      next?.removeEventListener('click', moveNext);
+      viewport.removeEventListener('scroll', queueSync);
+      viewport.removeEventListener('keydown', handleKeydown);
+      resizeObserver?.disconnect();
+      if (syncFrame !== null) window.cancelAnimationFrame(syncFrame);
+    },
+  });
+}
+
 function initGatewayMenu(carouselController) {
   const root = document.getElementById('gateway');
   const list = document.getElementById('gatewayCategoryList');
@@ -1808,8 +1991,110 @@ function initCollectionTabs() {
   setActive(tabs[0].dataset.collectionTab);
 }
 
+function initShowroomFinder() {
+  const data = window.HacomShowrooms;
+  const cards = document.getElementById('showroomCards');
+  const search = document.getElementById('showroomSearch');
+  const form = document.getElementById('showroomSearchForm');
+  const clear = document.getElementById('showroomClear');
+  const status = document.getElementById('showroomResultsStatus');
+  const empty = document.getElementById('showroomEmpty');
+  const toggle = document.getElementById('showroomToggle');
+  if (!data?.items?.length || !cards || !(search instanceof HTMLInputElement)) return;
+
+  const regionLabels = { north: 'Miền Bắc', central: 'Miền Trung', south: 'Miền Nam' };
+  const normalize = (value) => String(value || '').toLocaleLowerCase('vi-VN').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd');
+  const escapeHtml = (value) => String(value || '').replace(/[&<>"']/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character]));
+  const phoneHref = (value) => `tel:${String(value || '').split('-')[0].replace(/[^\d+]/g, '')}`;
+  const regionText = (region) => regionLabels[region] || 'Toàn quốc';
+  const getLimit = () => {
+    if (window.matchMedia?.('(min-width: 1181px)').matches) return 8;
+    if (window.matchMedia?.('(min-width: 768px)').matches) return 6;
+    return 4;
+  };
+  const getMatches = (state) => {
+    const query = normalize(state.query);
+    return data.items.filter((item) => {
+      if (state.region !== 'all' && item.region !== state.region) return false;
+      if (!query) return true;
+      return normalize([item.name, item.province, item.address, item.email].join(' ')).includes(query);
+    });
+  };
+  const renderCard = (item) => {
+    const details = [
+      item.warrantyPhone ? `<div><dt>Bảo hành</dt><dd>${escapeHtml(item.warrantyPhone)}</dd></div>` : '',
+      item.email ? `<div><dt>Email showroom</dt><dd><a href="mailto:${escapeHtml(item.email)}">${escapeHtml(item.email)}</a></dd></div>` : '',
+      item.lunchBreak ? `<div><dt>Nghỉ trưa</dt><dd>${escapeHtml(item.lunchBreak)}</dd></div>` : '',
+      item.photoUrl ? `<a class="showroom-card__photo-link" href="${escapeHtml(item.photoUrl)}" target="_blank" rel="noopener noreferrer"><i class="fa-regular fa-image" aria-hidden="true"></i> Xem hình ảnh showroom</a>` : ''
+    ].join('');
+    return `<article class="showroom-card" data-showroom-card data-region="${escapeHtml(item.region)}">
+      <div class="showroom-card__heading"><span class="showroom-card__number">${String(item.ordinal).padStart(2, '0')}</span><div><p>${escapeHtml(regionText(item.region))}</p><h3>${escapeHtml(item.name)}</h3></div></div>
+      <div class="showroom-card__facts"><p><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span>${escapeHtml(item.address)}</span></p><p><i class="fa-regular fa-clock" aria-hidden="true"></i><span>${escapeHtml(item.openHours)}</span></p><a href="${phoneHref(item.salesPhone)}"><i class="fa-solid fa-phone" aria-hidden="true"></i><span>${escapeHtml(item.salesPhone)}</span></a></div>
+      <div class="showroom-card__actions"><a class="showroom-card__call" href="${phoneHref(item.salesPhone)}"><i class="fa-solid fa-phone" aria-hidden="true"></i> Gọi showroom</a><a href="${escapeHtml(item.mapUrl)}" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-diamond-turn-right" aria-hidden="true"></i> Chỉ đường</a></div>
+      <details><summary>Thông tin chi tiết <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></summary><dl>${details}</dl></details>
+    </article>`;
+  };
+  const state = { query: '', region: 'all', expanded: false };
+  const countNodes = [...document.querySelectorAll('[data-showroom-count]')];
+  const regionButtons = [...document.querySelectorAll('[data-showroom-region]')];
+  const reset = () => {
+    state.query = '';
+    state.region = 'all';
+    state.expanded = false;
+    search.value = '';
+    render();
+    search.focus();
+  };
+  const render = () => {
+    const matches = getMatches(state);
+    const limit = getLimit();
+    const isFiltered = Boolean(state.query.trim()) || state.region !== 'all';
+    const visible = state.expanded || isFiltered ? matches : matches.slice(0, limit);
+    const fragment = document.createDocumentFragment();
+    const wrapper = document.createElement('div');
+    wrapper.insertAdjacentHTML('beforeend', visible.map(renderCard).join(''));
+    while (wrapper.firstElementChild) fragment.append(wrapper.firstElementChild);
+    cards.replaceChildren(fragment);
+    countNodes.forEach((node) => { node.textContent = String(data.items.length); });
+    regionButtons.forEach((button) => {
+      const region = button.dataset.showroomRegion || 'all';
+      const count = region === 'all' ? data.items.length : data.items.filter((item) => item.region === region).length;
+      button.setAttribute('aria-pressed', String(state.region === region));
+      const badge = button.querySelector('[data-showroom-region-count]');
+      if (badge) badge.textContent = String(count);
+    });
+    const isEmpty = matches.length === 0;
+    cards.hidden = isEmpty;
+    if (empty) empty.hidden = !isEmpty;
+    if (clear) clear.hidden = !state.query;
+    if (status) status.textContent = isEmpty ? 'Không tìm thấy showroom phù hợp.' : `Hiển thị ${visible.length} trên ${matches.length} showroom${isFiltered ? ' phù hợp' : ''}.`;
+    if (toggle) {
+      const canExpand = !isFiltered && matches.length > limit;
+      toggle.hidden = !canExpand;
+      toggle.setAttribute('aria-expanded', String(state.expanded));
+      const icon = document.createElement('i');
+      icon.className = `fa-solid fa-arrow-${state.expanded ? 'up' : 'down'}`;
+      icon.setAttribute('aria-hidden', 'true');
+      toggle.replaceChildren(document.createTextNode(state.expanded ? 'Thu gọn danh sách ' : `Xem toàn bộ ${matches.length} showroom `), icon);
+    }
+  };
+
+  search.addEventListener('input', () => { state.query = search.value; state.expanded = false; render(); });
+  form?.addEventListener('submit', (event) => { event.preventDefault(); state.query = search.value; render(); });
+  clear?.addEventListener('click', reset);
+  regionButtons.forEach((button) => button.addEventListener('click', () => {
+    state.region = button.dataset.showroomRegion || 'all';
+    state.expanded = false;
+    render();
+  }));
+  toggle?.addEventListener('click', () => { state.expanded = !state.expanded; render(); });
+  document.querySelectorAll('[data-showroom-reset]').forEach((button) => button.addEventListener('click', reset));
+  [window.matchMedia?.('(min-width: 768px)'), window.matchMedia?.('(min-width: 1181px)')].filter(Boolean).forEach((query) => query.addEventListener?.('change', render));
+  render();
+}
+
 function initFormsAndActions() {
-  document.querySelectorAll('input[type="search"]').forEach((input) => {
+  document.querySelectorAll('input[type="search"]:not([data-showroom-search])').forEach((input) => {
     input.addEventListener('keydown', (event) => {
       if (event.key !== 'Enter') return;
       event.preventDefault();
@@ -1838,19 +2123,26 @@ function initFormsAndActions() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  initResponsiveHeaderPanels();
   initMenu();
   initProductCollections();
   initCollectionTabs();
+  initShowroomFinder();
   const initCarousel = window.HacomCarousel?.initInfiniteCarousel;
   const carouselControllers = new Map();
-  if (typeof initCarousel === 'function') {
-    document.querySelectorAll('[data-carousel-root]').forEach((root) => {
-      const controller = initCarousel(root);
-      if (controller) carouselControllers.set(root, controller);
-    });
-  } else {
-    console.error('Không thể khởi tạo carousel: assets/carousel.js chưa được tải.');
-  }
+  document.querySelectorAll('[data-carousel-root]').forEach((root) => {
+    const carouselVariant = root.dataset.carouselVariant;
+    const controller = carouselVariant === 'snap'
+      ? initSnapCarousel(root)
+      : typeof initCarousel === 'function'
+        ? initCarousel(root)
+        : null;
+
+    if (controller) carouselControllers.set(root, controller);
+    if (!controller && carouselVariant !== 'snap') {
+      console.error('Không thể khởi tạo carousel: assets/carousel.js chưa được tải.');
+    }
+  });
   initGatewayMenu(carouselControllers.get(document.getElementById('gatewayCarousel')));
   initBrandExpander();
   initFormsAndActions();

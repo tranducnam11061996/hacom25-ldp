@@ -1,0 +1,34 @@
+{
+  "sourcePage": "https://hacom.vn/showroom",
+  "fetchedAt": "2026-08-17",
+  "items": [
+    {
+      "output": "assets/media/footer/member-service.webp",
+      "sourceUrl": "https://hanoicomputercdn.com/media/lib/28-08-2024/logo-dvt.png",
+      "alt": "Dịch vụ tốt - thành viên của HACOM",
+      "width": 663,
+      "height": 110
+    },
+    {
+      "output": "assets/media/footer/member-gameshop.webp",
+      "sourceUrl": "https://hanoicomputercdn.com/media/lib/28-07-2025/gameshop.png",
+      "alt": "GameShop - thành viên của HACOM",
+      "width": 256,
+      "height": 66
+    },
+    {
+      "output": "assets/media/footer/bo-cong-thuong.webp",
+      "sourceUrl": "https://hanoicomputercdn.com/media/lib/31-05-2024/news.png",
+      "alt": "Đã thông báo Bộ Công Thương",
+      "width": 36,
+      "height": 36
+    },
+    {
+      "output": "assets/media/footer/dmca.webp",
+      "sourceUrl": "https://images.dmca.com/Badges/dmca_protected_16_120.png?ID=4b6a2d98-21eb-4b0b-92d5-3f6aa73a1c39",
+      "alt": "DMCA Protected",
+      "width": 121,
+      "height": 39
+    }
+  ]
+}

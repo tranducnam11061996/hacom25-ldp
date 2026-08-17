@@ -30,9 +30,9 @@ test('carousel configuration reads the spotlight variant and five-second delay',
   assert.equal(config.variant, 'spotlight');
 });
 
-test('gateway carousel keeps its synchronized campaign variant and six-second delay', () => {
-  const config = getCarouselConfig({ dataset: { carouselDelay: '6000', carouselVariant: 'gateway' } });
-  assert.equal(config.autoDelay, 6000);
+test('gateway carousel keeps its synchronized center-slide variant and three-second delay', () => {
+  const config = getCarouselConfig({ dataset: { carouselDelay: '3000', carouselVariant: 'gateway' } });
+  assert.equal(config.autoDelay, 3000);
   assert.equal(config.variant, 'gateway');
 });
 
