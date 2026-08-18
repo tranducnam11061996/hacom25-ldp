@@ -2122,12 +2122,112 @@ function initFormsAndActions() {
   });
 }
 
+function initHeaderPromoReveal() {
+  const section = document.querySelector('.header-promo-showcase');
+  if (!(section instanceof HTMLElement)) return null;
+
+  section.classList.add('is-promo-ready');
+  const reducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)');
+  if (reducedMotion?.matches || typeof IntersectionObserver !== 'function') {
+    section.classList.add('is-promo-visible');
+    return null;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    if (!entries.some((entry) => entry.isIntersecting)) return;
+    section.classList.add('is-promo-visible');
+    observer.disconnect();
+  }, { threshold: .12, rootMargin: '0px 0px -8% 0px' });
+
+  observer.observe(section);
+  return observer;
+}
+
+function initCustomerStoriesReveal() {
+  const section = document.getElementById('customerStories');
+  if (!(section instanceof HTMLElement)) return null;
+
+  section.classList.add('is-customer-ready');
+  const reducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)');
+  if (reducedMotion?.matches || typeof IntersectionObserver !== 'function') {
+    section.classList.add('is-customer-visible');
+    return null;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    if (!entries.some((entry) => entry.isIntersecting)) return;
+    section.classList.add('is-customer-visible');
+    observer.disconnect();
+  }, { threshold: .12, rootMargin: '0px 0px -7% 0px' });
+
+  observer.observe(section);
+  return observer;
+}
+
+function initCategorySpectrumReveal() {
+  const section = document.getElementById('categories');
+  if (!(section instanceof HTMLElement)) return null;
+
+  section.classList.add('is-category-ready');
+  const reducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)');
+  if (reducedMotion?.matches || typeof IntersectionObserver !== 'function') {
+    section.classList.add('is-category-visible');
+    return null;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    if (!entries.some((entry) => entry.isIntersecting)) return;
+    section.classList.add('is-category-visible');
+    observer.disconnect();
+  }, { threshold: .12, rootMargin: '0px 0px -8% 0px' });
+
+  observer.observe(section);
+  return observer;
+}
+
+function initDealsReveal() {
+  const section = document.getElementById('deals');
+  if (!(section instanceof HTMLElement)) return null;
+
+  const carouselRoot = section.querySelector('[data-carousel-root]');
+  if (carouselRoot instanceof HTMLElement) {
+    carouselRoot.tabIndex = 0;
+    carouselRoot.addEventListener('keydown', (event) => {
+      if (event.target !== carouselRoot || (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight')) return;
+      event.preventDefault();
+      const direction = event.key === 'ArrowLeft' ? 'prev' : 'next';
+      const control = section.querySelector(`[data-carousel-${direction}]`);
+      if (control instanceof HTMLButtonElement && !control.disabled) control.click();
+    });
+  }
+
+  section.classList.add('is-deals-ready');
+  const reducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)');
+  if (reducedMotion?.matches || typeof IntersectionObserver !== 'function') {
+    section.classList.add('is-deals-visible');
+    return null;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    if (!entries.some((entry) => entry.isIntersecting)) return;
+    section.classList.add('is-deals-visible');
+    observer.disconnect();
+  }, { threshold: .12, rootMargin: '0px 0px -8% 0px' });
+
+  observer.observe(section);
+  return observer;
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initResponsiveHeaderPanels();
   initMenu();
   initProductCollections();
   initCollectionTabs();
   initShowroomFinder();
+  initHeaderPromoReveal();
+  initCustomerStoriesReveal();
+  initCategorySpectrumReveal();
+  initDealsReveal();
   const initCarousel = window.HacomCarousel?.initInfiniteCarousel;
   const carouselControllers = new Map();
   document.querySelectorAll('[data-carousel-root]').forEach((root) => {

@@ -50,8 +50,8 @@ function getControls(root) {
     previous: root.querySelector('[data-carousel-prev]') || scope?.querySelector('[data-carousel-prev]'),
     next: root.querySelector('[data-carousel-next]') || scope?.querySelector('[data-carousel-next]'),
     indicators: root.querySelector('[data-carousel-indicators]'),
-    toggle: root.querySelector('[data-carousel-toggle]'),
-    status: root.querySelector('[data-carousel-status]')
+    toggle: root.querySelector('[data-carousel-toggle]') || scope?.querySelector('[data-carousel-toggle]'),
+    status: root.querySelector('[data-carousel-status]') || scope?.querySelector('[data-carousel-status]')
   };
 }
 

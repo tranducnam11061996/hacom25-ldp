@@ -434,6 +434,89 @@ test('homepage exposes dynamic renderer and accessible product hooks', () => {
   assert.match(html, /aria-label="Đăng ký nhận tin"/);
 });
 
+test('deals uses the Quantum Ice Reactor background without changing the product rail contract', () => {
+  const desktopArtwork = 'assets/media/deals/quantum-ice-reactor-desktop-v1.webp';
+  const mobileArtwork = 'assets/media/deals/quantum-ice-reactor-mobile-v1.webp';
+  assert.ok(existsSync(desktopArtwork), `Missing deals artwork ${desktopArtwork}`);
+  assert.ok(existsSync(mobileArtwork), `Missing deals artwork ${mobileArtwork}`);
+  assert.ok(statSync(desktopArtwork).size > 100 && statSync(desktopArtwork).size < 400_000, 'Desktop deals artwork must stay below 400 KB');
+  assert.ok(statSync(mobileArtwork).size > 100 && statSync(mobileArtwork).size < 300_000, 'Mobile deals artwork must stay below 300 KB');
+
+  const dealsStart = html.indexOf('<section id="deals"');
+  const trendingStart = html.indexOf('<section id="trending"');
+  assert.ok(dealsStart >= 0 && trendingStart > dealsStart, 'Deals must remain immediately before trending');
+  const dealsSection = html.slice(dealsStart, trendingStart);
+
+  assert.match(dealsSection, /class="section-shell section-shell--campaign deals-quantum"/);
+  assert.match(dealsSection, /<picture class="deals-quantum__artwork" aria-hidden="true">/);
+  assert.match(dealsSection, /<source media="\(max-width: 767px\)" srcset="assets\/media\/deals\/quantum-ice-reactor-mobile-v1\.webp" width="1080" height="1600">/);
+  assert.match(dealsSection, /<img src="assets\/media\/deals\/quantum-ice-reactor-desktop-v1\.webp" alt="" width="2400" height="1100" loading="lazy" decoding="async">/);
+  assert.match(dealsSection, /data-carousel-root data-carousel-autoplay aria-label="Deal sốc"/);
+  assert.match(dealsSection, /data-carousel-track data-product-grid data-collection="deals"/);
+  assert.equal((dealsSection.match(/data-carousel-prev/g) || []).length, 1);
+  assert.equal((dealsSection.match(/data-carousel-next/g) || []).length, 1);
+  assert.doesNotMatch(dealsSection, /data-carousel-toggle|data-carousel-status|countdown/i);
+  assert.match(dealsSection, /aria-label="Deal trước"/);
+  assert.match(dealsSection, /aria-label="Deal tiếp theo"/);
+
+  assert.match(appSource, /function initDealsReveal\(\)/);
+  assert.match(appSource, /carouselRoot\.tabIndex\s*=\s*0/);
+  assert.match(appSource, /event\.key !== 'ArrowLeft' && event\.key !== 'ArrowRight'/);
+  assert.match(appSource, /\[data-carousel-\$\{direction\}\]/);
+  assert.match(appSource, /threshold:\s*\.12/);
+  assert.match(appSource, /initDealsReveal\(\)/);
+  assert.match(css, /\.deals-quantum\s*\{[^}]*position:\s*relative[^}]*isolation:\s*isolate[^}]*overflow:\s*clip/s);
+  assert.match(css, /\.deals-quantum__artwork\s*\{\s*transition-property:\s*opacity, transform/);
+  assert.match(css, /\.deals-quantum\.is-deals-ready:not\(\.is-deals-visible\)::after\s*\{[^}]*transform:\s*scaleX\(0\)/s);
+  assert.match(css, /@media \(prefers-reduced-motion: reduce\)[\s\S]*?\.deals-quantum__artwork[\s\S]*?transition:\s*none !important/s);
+  assert.doesNotMatch(css, /\.deals-quantum[^,{]*\.product-card/);
+
+  assert.match(appSource, /deals:\s*Object\.freeze\(\['MELO0130',\s*'VGAS0733',\s*'HDSA0250',\s*'PWMI0005',\s*'PADM0937',\s*'MERZ0119'\]\)/);
+});
+
+test('categories uses the HACOM Spectrum Matrix contract', () => {
+  const categoryStart = html.indexOf('<section id="categories"');
+  const laptopsStart = html.indexOf('<section id="laptops"');
+  const trendingStart = html.indexOf('<section id="trending"');
+  assert.ok(categoryStart > trendingStart && laptopsStart > categoryStart, 'Categories must remain between trending and laptops');
+  const categorySection = html.slice(categoryStart, laptopsStart);
+  const labels = ['Đồ họa', 'Văn phòng', 'Mỏng nhẹ', 'Sinh viên', 'Gaming', 'Cảm ứng', 'Build PC', 'PC lắp sẵn', 'All in one', 'Linh kiện', 'Màn hình di động', 'Nguồn máy tính', 'Mainboard', 'CPU', 'RAM', 'Ổ cứng', 'Card màn hình', 'Card âm thanh', 'Vỏ case', 'Gaming'];
+  assert.match(categorySection, /class="section-shell category-spectrum"/);
+  assert.match(categorySection, /<p class="eyebrow">Chọn theo nhu cầu<\/p>/);
+  assert.match(categorySection, /<h2>Danh mục nổi bật<\/h2>/);
+  assert.match(categorySection, /class="text-link category-spectrum__all"[^>]*>Xem tất cả/);
+  assert.equal((categorySection.match(/category-card category-spectrum__card category-spectrum__card--/g) || []).length, 20);
+  assert.equal((categorySection.match(/data-demo-action/g) || []).length, 21);
+  labels.forEach((label, index) => {
+    const id = String(index + 1).padStart(2, '0');
+    assert.match(categorySection, new RegExp(`category-${id}\\.webp`));
+    assert.match(categorySection, new RegExp(`<span class="category-spectrum__label">${label}<\\/span>`));
+  });
+  assert.equal((categorySection.match(/width="640" height="560" loading="lazy" decoding="async"/g) || []).length, 20);
+  assert.equal((categorySection.match(/alt=""/g) || []).length, 20);
+
+  for (let index = 1; index <= 20; index += 1) {
+    const asset = `assets/media/categories-spectrum/category-${String(index).padStart(2, '0')}.webp`;
+    assert.ok(existsSync(asset), `Missing category asset ${asset}`);
+    assert.ok(statSync(asset).size > 100 && statSync(asset).size < 80_000, `Category asset must stay below 80 KB: ${asset}`);
+  }
+
+  assert.match(css, /.category-spectrum__grid\s*\{[^}]*grid-template-columns:\s*repeat\(10/s);
+  assert.match(css, /@media \(max-width: 1180px\)[\s\S]*?\.category-spectrum__grid\s*\{[^}]*repeat\(5/s);
+  assert.match(css, /grid-auto-flow:\s*column/);
+  assert.match(css, /grid-template-rows:\s*repeat\(2/);
+  assert.match(css, /grid-auto-columns:\s*min\(42vw, 164px\)/);
+  assert.match(css, /scroll-snap-type:\s*x mandatory/);
+  assert.match(css, /category-spectrum__card--coral/);
+  assert.match(css, /category-spectrum__card--periwinkle/);
+  assert.match(css, /category-spectrum__card:focus-visible/);
+  assert.match(css, /@media \(prefers-reduced-motion: reduce\)[\s\S]*?category-spectrum/);
+  assert.doesNotMatch(css, /\.category-spectrum[^,{]*\.product-card/);
+  assert.match(appSource, /function initCategorySpectrumReveal\(\)/);
+  assert.match(appSource, /initCategorySpectrumReveal\(\)/);
+  assert.match(appSource, /threshold:\s*\.12/);
+});
+
 test('customer runway uses local HACOM assets and preserves the section contract', () => {
   assert.equal(customerManifest.homepage, 'https://hacom.vn/');
   assert.equal(customerManifest.fetchedAt, '2026-08-17');
@@ -459,11 +542,17 @@ test('customer runway uses local HACOM assets and preserves the section contract
   assert.match(customerSection, /class="page-container"/);
   assert.match(customerSection, /id="customerStoriesTitle"/);
   assert.match(customerSection, /10\.000\.000\+/);
-  assert.match(customerSection, /Khách hàng đã và đang ủng hộ HACOM/);
+  assert.match(customerSection, /<span>Khách hàng đã và đang<br>ủng hộ HACOM<\/span>/);
+  assert.match(customerSection, /<p>Mỗi khoảnh khắc là một lời cảm ơn\.<\/p>/);
+  assert.match(customerSection, /data-carousel-variant="spotlight"/);
   assert.match(customerSection, /data-carousel-delay="5000"/);
   assert.match(customerSection, /aria-label="Khoảnh khắc khách hàng HACOM"/);
-  assert.doesNotMatch(customerSection, /class="customer-runway__controls"/);
-  assert.doesNotMatch(customerSection, /data-carousel-(?:prev|next|toggle|status)/);
+  assert.match(customerSection, /class="customer-runway__controls"/);
+  assert.match(customerSection, /data-carousel-prev/);
+  assert.match(customerSection, /data-carousel-next/);
+  assert.match(customerSection, /data-carousel-toggle/);
+  assert.match(customerSection, /class="sr-only" data-carousel-status[^>]*aria-live="polite"/);
+  assert.doesNotMatch(customerSection, /customer-runway__gallery-meta|Human signal deck|Khoảnh khắc thật/);
   assert.doesNotMatch(customerSection, /data-carousel-indicators/);
   assert.match(heroSection, /class="gateway-control-deck"/);
   assert.match(heroSection, /data-carousel-prev/);
@@ -482,11 +571,31 @@ test('customer runway uses local HACOM assets and preserves the section contract
     assert.match(image, /decoding="async"/);
   }
 
-  assert.match(css, /\.customer-runway\s*\{[\s\S]*grid-template-columns:\s*minmax\(0, 27fr\)\s*minmax\(0, 73fr\)/);
-  assert.match(css, /\.customer-runway__card img\s*\{[\s\S]*object-fit:\s*cover/);
-  assert.match(css, /@media \(max-width: 767px\)[\s\S]*\.customer-runway__card\s*\{[^}]*78%/);
-  assert.match(css, /\.customer-runway__trust[\s\S]*var\(--brand-navy\)/);
-  assert.match(css, /\.customer-runway__gallery[\s\S]*var\(--brand-red\)/);
+  const trustCoreAsset = 'assets/media/customers/customer-trust-core-bg.webp';
+  assert.ok(existsSync(trustCoreAsset), `Missing Trust Core artwork ${trustCoreAsset}`);
+  assert.ok(statSync(trustCoreAsset).size > 100 && statSync(trustCoreAsset).size < 250_000, 'Trust Core rollback artwork must be optimized below 250 KB');
+  assert.doesNotMatch(css, /url\('media\/customers\/customer-trust-core-bg\.webp'\)/);
+  assert.match(css, /Ice Pearl Trust Gallery/);
+  assert.match(css, /\.customer-stories\s*\{[\s\S]*?background:[\s\S]*?linear-gradient\(108deg,\s*#fff 0%,\s*#f5faff 42%,\s*#eaf4fd 100%\)/);
+  assert.match(css, /\.customer-runway\s*\{[\s\S]*?overflow:\s*visible[\s\S]*?border:\s*0[\s\S]*?border-radius:\s*0[\s\S]*?background:\s*transparent[\s\S]*?box-shadow:\s*none/s);
+  assert.doesNotMatch(css, /--customer-border/);
+  assert.doesNotMatch(css, /\.customer-runway\s*\{[^}]*border:\s*1px/s);
+  assert.match(css, /\.customer-runway__gallery\s*\{[^}]*--customer-edge-fade:\s*clamp\(24px, 3\.4vw, 60px\)[^}]*overflow:\s*hidden[^}]*-webkit-mask-image:\s*linear-gradient\(90deg, transparent 0, #000 var\(--customer-edge-fade\), #000 calc\(100% - var\(--customer-edge-fade\)\), transparent 100%\)[^}]*mask-image:\s*linear-gradient\(90deg, transparent 0, #000 var\(--customer-edge-fade\), #000 calc\(100% - var\(--customer-edge-fade\)\), transparent 100%\)/s);
+  assert.doesNotMatch(css, /\.customer-runway__gallery::(?:before|after)/);
+  assert.match(css, /clip-path:\s*inset\(0 7% 0 7%\);/);
+  assert.doesNotMatch(css, /clip-path:\s*inset\(0 7% 0 7% round/);
+  assert.match(css, /\.customer-runway__card\s*\{[^}]*box-shadow:/s);
+  assert.match(css, /\.customer-runway__controls button\s*\{[^}]*box-shadow:/s);
+  assert.match(css, /\.customer-runway\s*\{[\s\S]*grid-template-columns:\s*minmax\(0, 28fr\)\s*minmax\(0, 72fr\)/);
+  assert.match(css, /\.customer-runway__card\s*\{[^}]*width:\s*31%[^}]*flex:\s*0 0 31%[^}]*aspect-ratio:\s*562 \/ 700/s);
+  assert.match(css, /\.customer-runway__card\s*\{[^}]*filter:\s*saturate\(\.95\) brightness\(\.98\)[^}]*opacity:\s*\.9/s);
+  assert.match(css, /\.customer-runway__card\.is-featured[\s\S]*?scale\(1\.03\)/);
+  assert.match(css, /\.customer-runway__card img\s*\{[^}]*object-fit:\s*cover/s);
+  assert.match(css, /@media \(max-width: 1180px\)[\s\S]*?\.customer-runway__card\s*\{[^}]*width:\s*min\(42%, 370px\)[^}]*flex-basis:\s*min\(42%, 370px\)/s);
+  assert.match(css, /@media \(max-width: 767px\)[\s\S]*?\.customer-runway__card\s*\{[^}]*width:\s*min\(calc\(84% \+ 34px\), 310px\)[^}]*flex-basis:\s*min\(calc\(84% \+ 34px\), 310px\)/s);
+  assert.match(css, /@media \(prefers-reduced-motion: reduce\)[\s\S]*?\.customer-runway__card/s);
+  assert.match(appSource, /function initCustomerStoriesReveal\(\)/);
+  assert.match(appSource, /initCustomerStoriesReveal\(\)/);
 });
 
 test('reference header and gateway showcase preserve the approved design contract', () => {
@@ -560,13 +669,41 @@ test('reference header and gateway showcase preserve the approved design contrac
 
   assert.match(showcaseSection, /data-carousel-root/);
   assert.match(showcaseSection, /data-carousel-variant="snap"/);
+  assert.match(showcaseSection, /aria-labelledby="headerPromoTitle"/);
+  assert.match(showcaseSection, /id="headerPromoTitle"[^>]*>\s*Ưu đãi công nghệ nổi bật\s*</);
   assert.equal((showcaseSection.match(/class="header-benefit"/g) || []).length, 4);
   assert.equal((showcaseSection.match(/class="header-promo-card"/g) || []).length, 5);
   assert.match(showcaseSection, /HỎA TỐC 2H/);
   assert.match(showcaseSection, /MIỄN PHÍ TOÀN QUỐC/);
   assert.match(showcaseSection, /LÃI SUẤT 0%/);
   assert.match(showcaseSection, /TẬN NƠI SỬ DỤNG/);
+  [
+    ['01', 'Trùm loa di động', '399.000đ'],
+    ['02', 'Thiết bị chơi game', '899.000đ'],
+    ['03', 'Arm màn hình', '299.000đ'],
+    ['04', 'Gaming văn phòng', '1.649.000đ'],
+    ['05', 'Màn hình gaming', '399.000đ']
+  ].forEach(([number, title, price]) => {
+    assert.match(showcaseSection, new RegExp(`>${number}<`));
+    assert.match(showcaseSection, new RegExp(title));
+    assert.match(showcaseSection, new RegExp(price.replace('.', '\\.')));
+  });
   assert.doesNotMatch(html, /class="promo-strip/);
+
+  const boulevardAssets = [
+    'promo-speakers.webp',
+    'promo-gaming-devices.webp',
+    'promo-monitor-arm.webp',
+    'promo-gaming-office.webp',
+    'promo-gaming-monitors.webp'
+  ];
+  boulevardAssets.forEach((asset) => {
+    const output = `assets/media/header-showcase-v2/${asset}`;
+    assert.match(showcaseSection, new RegExp(output.replaceAll('/', '\\/').replace('.', '\\.')));
+    assert.ok(existsSync(output), `Missing Ice-Tech Boulevard asset ${output}`);
+    assert.ok(statSync(output).size > 50_000, `Ice-Tech Boulevard asset is unexpectedly small: ${output}`);
+  });
+  assert.equal((showcaseSection.match(/width="960" height="1200"/g) || []).length, 5);
 
   for (let index = 1; index <= 10; index += 1) {
     const asset = `assets/media/header-showcase/anh-${index}.webp`;
@@ -582,6 +719,8 @@ test('reference header and gateway showcase preserve the approved design contrac
 
   assert.match(appSource, /function initSnapCarousel\(/);
   assert.match(appSource, /carouselVariant === 'snap'/);
+  assert.match(appSource, /function initHeaderPromoReveal\(\)/);
+  assert.match(appSource, /initHeaderPromoReveal\(\)/);
   assert.match(css, /\.site-header--reference/);
   assert.match(css, /\.gateway-reference-tile--build\s*\{[^}]*grid-column:\s*5 \/ 7[^}]*grid-row:\s*1/);
   assert.match(css, /url\('media\/header-tech\/tech-bg-desktop\.webp'\)/);
@@ -592,7 +731,18 @@ test('reference header and gateway showcase preserve the approved design contrac
   assert.match(css, /@media \(max-width: 767\.98px\)[\s\S]*?\.gateway-reference-rail\s*\{[^}]*minmax\(84%/s);
   assert.match(css, /@media \(max-width: 767\.98px\)[\s\S]*?\.gateway-hero-carousel\s*\{[^}]*aspect-ratio:\s*4 \/ 3/s);
   assert.match(css, /@media \(prefers-reduced-motion: reduce\)[\s\S]*?\.gateway-hero-slide__action/s);
-  assert.match(css, /\.header-promo-showcase/);
+  assert.match(css, /Ice-Tech Boulevard/);
+  assert.match(css, /\.header-promo-card\s*\{[^}]*min-height:\s*380px[^}]*display:\s*flex[^}]*flex-direction:\s*column[^}]*justify-content:\s*flex-start[^}]*padding:\s*0[^}]*aspect-ratio:\s*7 \/ 10/s);
+  assert.match(css, /\.header-promo-card__copy\s*\{[^}]*min-height:\s*0/s);
+  assert.match(css, /\.header-promo-card \.header-promo-card__art\s*\{[^}]*width:\s*112%[^}]*height:\s*var\(--promo-art-height\)/s);
+  [82, 80, 72, 78, 72].forEach((height, index) => {
+    assert.match(css, new RegExp(`\\.header-promo-card:nth-child\\(${index + 1}\\)\\s*\\{[^}]*--promo-art-height:\\s*${height}%`));
+  });
+  assert.match(css, /@media \(max-width: 1180px\)[\s\S]*?\.header-promo-card\s*\{[^}]*flex-basis:\s*42%/s);
+  assert.match(css, /@media \(max-width: 1180px\)[\s\S]*?\.header-promo-card\s*\{[^}]*aspect-ratio:\s*3 \/ 4/s);
+  assert.match(css, /@media \(max-width: 767\.98px\)[\s\S]*?\.header-promo-card\s*\{[^}]*flex-basis:\s*84%/s);
+  assert.match(css, /@media \(max-width: 767\.98px\)[\s\S]*?\.header-promo-card\s*\{[^}]*min-height:\s*420px[^}]*aspect-ratio:\s*3 \/ 4/s);
+  assert.match(css, /@media \(prefers-reduced-motion: reduce\)[\s\S]*?\.header-promo-showcase/s);
 });
 
 test('footer network command exposes the verified showroom directory contract', () => {

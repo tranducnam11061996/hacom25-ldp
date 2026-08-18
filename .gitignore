@@ -4,6 +4,7 @@ npm-debug.log*
 # Local editor/agent configuration
 .claude/
 .codex/
+.superpowers/
 
 # Browser automation profiles and temporary audit artifacts
 .tmp-chrome-*/
