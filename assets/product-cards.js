@@ -78,7 +78,7 @@
     const body = make('div', { className: 'product-card__body' });
     const meta = make('div', { className: 'product-card__meta' });
     meta.append(renderRating(product));
-    meta.append(make('span', { className: 'product-card__sku', text: `Mã: ${product.sku}` }));
+    meta.append(make('span', { className: 'product-card__sku', text: product.sku }));
     const title = make('h3', { className: 'product-card__title' });
     const titleLink = make('a', { text: product.title, attrs: { href: product.sourceUrl, target: '_blank', rel: 'noopener noreferrer' } });
     title.append(titleLink);
@@ -92,14 +92,20 @@
 
     const footer = make('div', { className: 'product-card__footer' });
     const stock = make('span', { className: `product-card__stock product-card__stock--${product.availability}`, text: product.stock });
-    const cartLabel = product.availability === 'in-stock' ? 'Thêm vào giỏ' : product.availability === 'preorder' ? 'Đặt trước' : 'Xem sản phẩm';
-    const visibleCartLabel = compact ? (product.availability === 'in-stock' ? 'Thêm giỏ' : product.availability === 'preorder' ? 'Đặt trước' : 'Chi tiết') : cartLabel;
+    const cartLabel = product.availability === 'in-stock'
+      ? 'Giỏ hàng'
+      : product.availability === 'preorder'
+        ? 'Đặt trước'
+        : compact ? 'Chi tiết' : 'Xem sản phẩm';
+    const cartAriaLabel = product.availability === 'in-stock'
+      ? `Thêm ${product.title} vào giỏ hàng`
+      : `${cartLabel}: ${product.title}`;
     const cart = make('button', {
       className: 'product-card__cart',
-      attrs: { type: 'button', 'aria-label': `${visibleCartLabel}: ${product.title}`, title: cartLabel },
+      attrs: { type: 'button', 'aria-label': cartAriaLabel, title: cartLabel },
       dataset: { demoAction: '' }
     });
-    cart.append(icon('fa-solid fa-cart-shopping'), make('span', { text: visibleCartLabel }));
+    cart.append(icon('fa-solid fa-cart-shopping'), make('span', { text: cartLabel }));
     footer.append(stock, cart);
     article.append(media, body, footer);
     return article;

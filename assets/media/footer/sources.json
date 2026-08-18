@@ -1,6 +1,6 @@
 {
-  "sourcePage": "https://hacom.vn/showroom",
-  "fetchedAt": "2026-08-17",
+  "sourcePage": "https://hacom.vn/",
+  "fetchedAt": "2026-08-18",
   "items": [
     {
       "output": "assets/media/footer/member-service.webp",
@@ -18,10 +18,10 @@
     },
     {
       "output": "assets/media/footer/bo-cong-thuong.webp",
-      "sourceUrl": "https://hanoicomputercdn.com/media/lib/31-05-2024/news.png",
+      "sourceUrl": "https://cdn-files.hacom.vn/hacom/cdn/web/29092025/dathongbao-1.webp",
       "alt": "Đã thông báo Bộ Công Thương",
-      "width": 36,
-      "height": 36
+      "width": 143,
+      "height": 54
     },
     {
       "output": "assets/media/footer/dmca.webp",
@@ -29,6 +29,13 @@
       "alt": "DMCA Protected",
       "width": 121,
       "height": 39
+    },
+    {
+      "output": "assets/media/footer/payment-methods.png",
+      "sourceUrl": "https://cdn-files.hacom.vn/hacom/cdn/web/11052026/Logo.png",
+      "alt": "VNPay, OnePay, Payoo, Visa, Mastercard và thanh toán tiền mặt",
+      "width": 310,
+      "height": 82
     }
   ]
 }

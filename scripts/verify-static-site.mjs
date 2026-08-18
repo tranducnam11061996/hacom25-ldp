@@ -61,14 +61,13 @@ assert.match(css, /--hover-lift-clearance:\s*12px/);
 assert.match(css, /\.hover-lift-safe-zone\s*\{[^}]*padding-block:\s*var\(--hover-lift-clearance\)[^}]*margin-block:\s*calc\(-1 \* var\(--hover-lift-clearance\)\)/s);
 assert.ok((html.match(/\bhover-lift-safe-zone\b/g) || []).length >= 1);
 assert.match(css, /\.product-grid\s*\{[^}]*grid-template-columns:\s*repeat\(2/);
-assert.match(css, /@media \(min-width: 768px\)[\s\S]*?\.product-grid\s*\{\s*grid-template-columns:\s*repeat\(3/);
-assert.match(css, /@media \(min-width: 1024px\)[\s\S]*?\.product-grid\s*\{\s*grid-template-columns:\s*repeat\(4/);
+assert.match(css, /@media \(min-width: 768px\)[\s\S]*?\.product-grid\s*\{\s*grid-template-columns:\s*repeat\(4/);
 assert.match(css, /@media \(min-width: 1280px\)[\s\S]*?\.product-grid\s*\{\s*grid-template-columns:\s*repeat\(5/);
 assert.match(css, /@media \(min-width: 1600px\)[\s\S]*?\.product-grid\s*\{\s*grid-template-columns:\s*repeat\(6/);
 assert.doesNotMatch(css, /\.product-grid[^}]*repeat\([789]/);
 assert.match(css, /\.product-track\s*\{[^}]*--product-track-card-width:\s*calc\(\(100% - 8px\) \/ 2\)[^}]*gap:\s*8px/s);
 assert.match(css, /\.product-track\s*>\s*\.product-card\s*\{[^}]*flex:\s*0 0 var\(--product-track-card-width\)[^}]*width:\s*var\(--product-track-card-width\)[^}]*min-width:\s*0[^}]*max-width:\s*none/s);
-for (const [minWidth, columns, consumedGap] of [[768, 3, 24], [1024, 4, 36], [1280, 5, 48], [1600, 6, 60]]) {
+for (const [minWidth, columns, consumedGap] of [[768, 4, 36], [1280, 5, 48], [1600, 6, 60]]) {
   assert.match(css, new RegExp(`@media \\(min-width: ${minWidth}px\\)[\\s\\S]{0,320}\\.product-track\\s*\\{[^}]*--product-track-card-width:\\s*calc\\(\\(100% - ${consumedGap}px\\) \\/ ${columns}\\)`));
 }
 assert.doesNotMatch(css, /\.product-track\s*>\s*\*\s*\{[^}]*width:/s);
@@ -302,21 +301,21 @@ assert.match(carouselJs, /window\.HacomCarousel = Object\.freeze/);
 assert.match(appJs, /window\.HacomCarousel\?\.initInfiniteCarousel/);
 
 assert.ok(html.indexOf('id="hero"') < html.indexOf('id="deals"'));
-assert.match(html, /data-carousel-variant="gateway"[^>]*data-carousel-delay="6000"/);
-assert.equal((html.match(/class="gateway-campaign(?:\s|"|$)/g) || []).length, 3);
-assert.equal((html.match(/class="gateway-promo gateway-promo--/g) || []).length, 4);
-assert.equal((html.match(/class="gateway-reference-tile gateway-reference-tile--/g) || []).length, 5);
+assert.match(html, /data-carousel-variant="gateway"[^>]*data-carousel-delay="3000"/);
+assert.equal((html.match(/class="gateway-hero-slide(?:\s|")/g) || []).length, 3);
+assert.equal((html.match(/data-gateway-fixed-tile/g) || []).length, 4);
+assert.equal((html.match(/class="gateway-reference-tile gateway-reference-tile--/g) || []).length, 4);
 assert.equal((html.match(/class="header-promo-card"/g) || []).length, 5);
 assert.match(html, /data-carousel-variant="snap"/);
 assert.equal((html.match(/data-product-grid/g) || []).length, 8);
 for (const collection of ['deals', 'trending', 'new-arrivals', 'laptops', 'pc-gaming', 'displays', 'components', 'gaming-gear']) {
   assert.match(html, new RegExp(`data-collection="${collection}"`));
 }
-assert.equal((html.match(/class="category-card"/g) || []).length, 12);
+assert.equal((html.match(/class="category-card category-spectrum__card/g) || []).length, 20);
 assert.doesNotMatch(html, /gateway-nav__head|gateway-nav__footer|Khám phá theo danh mục|Cần tư vấn cấu hình/);
 assert.match(html, /<nav class="gateway-nav" aria-label="Danh mục sản phẩm nổi bật">/);
 assert.match(css, /--gateway-compact-height:\s*clamp\(700px,\s*calc\(100dvh - 150px\),\s*740px\)/);
-assert.match(css, /\.gateway-flyout\s*\{[^}]*inset:\s*0 0 0 calc\(var\(--gateway-nav-width\) \+ 8px\)/);
+assert.match(css, /\.gateway-flyout\s*\{[^}]*inset:\s*0;/);
 assert.match(css, /--text-caption:\s*0\.75rem/);
 assert.match(css, /--text-meta:\s*0\.8125rem/);
 assert.match(css, /--text-ui:\s*0\.875rem/);
@@ -326,8 +325,7 @@ assert.match(css, /\.gateway-category\s*\{\s*min-height:\s*0;[\s\S]*?grid-templa
 assert.match(css, /\.mobile-header \.search-input-box input\s*\{[^}]*font-size:\s*var\(--text-body\)/s);
 assert.match(css, /\.product-card__title\s*\{[^}]*font-size:\s*var\(--text-card-title\)[^}]*line-height:\s*1\.35/s);
 assert.match(css, /\.product-card__footer\s*\{[^}]*flex-direction:\s*column[^}]*align-items:\s*stretch/s);
-assert.match(css, /\.gateway-main\s*\{\s*min-height:\s*clamp\(360px,\s*43vw,\s*500px\);\s*aspect-ratio:\s*auto/s);
-assert.match(css, /\.gateway-main\s*\{\s*min-height:\s*clamp\(360px,\s*108vw,\s*440px\);\s*aspect-ratio:\s*auto/s);
+assert.doesNotMatch(css, /\.gateway-(?:campaign|main|promo)(?:[\s_-]|\.)/);
 assert.match(css, /-moz-osx-font-smoothing:\s*grayscale/);
 assert.doesNotMatch(css, /\.product-card__spec-label\s*\{\s*font-size:\s*[789]px/);
 assert.doesNotMatch(css, /\.product-card__cart\s*\{[^}]*font-size:\s*[789]px/);

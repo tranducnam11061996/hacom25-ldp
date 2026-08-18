@@ -73,6 +73,38 @@
       specs: [{ label: 'CPU', value: 'AMD Ryzen 7 7735HS' }, { label: 'Bộ nhớ', value: '24GB · 512GB SSD' }],
       sourceUrl: 'https://hacom.vn/laptop-lenovo-ideapad-slim-3-15arp10-83k700evvn-ltlv0317'
     }),
+    LTAC1001: product({
+      imagePresentation: { scale: 1.1 },
+      sku: 'LTAC1001', brand: 'ACER', category: 'Laptop văn phòng',
+      title: 'Laptop Acer Aspire Go AG15-72P-54GY (Core 5-120U/16GB/512GB/15.6 FHD)', price: 19399000, listPrice: 21999000,
+      stock: 'Sẵn hàng', availability: 'in-stock', rating: 5, reviewCount: 0,
+      specs: [{ label: 'CPU', value: 'Intel Core 5 120U' }, { label: 'Bộ nhớ', value: '16GB · 512GB SSD' }],
+      sourceUrl: 'https://hacom.vn/laptop-acer-aspire-go-ag15-72p-54gy-ltac1001'
+    }),
+    LTMS0640: product({
+      imagePresentation: { scale: 1.1 },
+      sku: 'LTMS0640', brand: 'MSI', category: 'Laptop gaming',
+      title: 'Laptop MSI Cyborg 15 A13UC-2082VN (i7-13620H/16GB/512GB/RTX 3050)', price: 27599000, listPrice: 29999000,
+      stock: 'Sẵn hàng', availability: 'in-stock', rating: 5, reviewCount: 0,
+      specs: [{ label: 'CPU', value: 'Intel Core i7-13620H' }, { label: 'Đồ họa', value: 'RTX 3050 4GB' }],
+      sourceUrl: 'https://hacom.vn/laptop-msi-cyborg-15-a13uc-2082vn-ltms0640'
+    }),
+    LTAU1091: product({
+      imagePresentation: { scale: 1.1 },
+      sku: 'LTAU1091', brand: 'ASUS TUF', category: 'Laptop gaming',
+      title: 'Laptop Asus TUF Gaming FA506NCG-HN329W (R7 8845HS/16GB/512GB/RTX 3050)', price: 25999000, listPrice: 39999000,
+      stock: 'Sẵn hàng', availability: 'in-stock', rating: 5, reviewCount: 0,
+      specs: [{ label: 'CPU', value: 'AMD Ryzen 7 8845HS' }, { label: 'Đồ họa', value: 'RTX 3050 4GB' }],
+      sourceUrl: 'https://hacom.vn/laptop-asus-gaming-tuf-fa506ncg-hn329w-ltau1091'
+    }),
+    LTAC1029: product({
+      imagePresentation: { scale: 1.08 },
+      sku: 'LTAC1029', brand: 'ACER PREDATOR', category: 'Laptop gaming',
+      title: 'Laptop Acer Predator Helios PHN16-I31-72XE (i7-14650HX/32GB/RTX 5060)', price: 59999000, listPrice: 61999000,
+      stock: 'Sẵn hàng', availability: 'in-stock', rating: 5, reviewCount: 0,
+      specs: [{ label: 'CPU', value: 'Intel Core i7-14650HX' }, { label: 'Đồ họa', value: 'RTX 5060 8GB' }],
+      sourceUrl: 'https://hacom.vn/laptop-acer-predator-helios-phn16-i31-72xe-ltac1029'
+    }),
     PCGM00007: product({
       imagePresentation: { scale: 1.06 },
       sku: 'PCGM00007', brand: 'HACOM PC', category: 'PC Gaming',
@@ -80,6 +112,38 @@
       stock: 'Đặt trước', availability: 'preorder', rating: 5, reviewCount: 0,
       specs: [{ label: 'CPU', value: 'Intel Core i7-10700F' }, { label: 'Đồ họa', value: 'RTX 3060 Ti 8GB' }],
       sourceUrl: 'https://hacom.vn/pc-hacom-gaming-alpha-002-i7-10700f-b460-16gb-ram-500gb-ssd-rtx-3060ti'
+    }),
+    PCGM1174: product({
+      imagePresentation: { scale: 1.04 },
+      sku: 'PCGM1174', brand: 'HACOM PC', category: 'PC Gaming',
+      title: 'PC HACOM PLATINUM PRO 035 (Intel i7-14700F/RTX 5070/Wi-Fi)', price: 49999000, listPrice: 52399000,
+      stock: 'Sẵn hàng', availability: 'in-stock', rating: 5, reviewCount: 0,
+      specs: [{ label: 'CPU', value: 'Intel Core i7-14700F' }, { label: 'Đồ họa', value: 'GeForce RTX 5070' }],
+      sourceUrl: 'https://hacom.vn/pc-hacom-platinum-pro-035-pcgm1174'
+    }),
+    PCGM1171: product({
+      imagePresentation: { scale: 1.04 },
+      sku: 'PCGM1171', brand: 'HACOM PC', category: 'PC Gaming',
+      title: 'PC HACOM SILVER PRO 036 (Ryzen 5 5600G/Radeon Vega 7)', price: 10199000, listPrice: 11499000,
+      stock: 'Sẵn hàng', availability: 'in-stock', rating: 5, reviewCount: 0,
+      specs: [{ label: 'CPU', value: 'AMD Ryzen 5 5600G' }, { label: 'Đồ họa', value: 'Radeon Vega 7' }],
+      sourceUrl: 'https://hacom.vn/pc-hacom-silver-pro-036-pcgm1171'
+    }),
+    PCGM1143: product({
+      imagePresentation: { scale: 1.04 },
+      sku: 'PCGM1143', brand: 'HACOM PC', category: 'PC Gaming',
+      title: 'PC HACOM GOLD PRO 076 (Intel i5-12400F/Wi-Fi/RTX 3060)', price: 23999000, listPrice: 26999000,
+      stock: 'Sẵn hàng', availability: 'in-stock', rating: 5, reviewCount: 0,
+      specs: [{ label: 'CPU', value: 'Intel Core i5-12400F' }, { label: 'Đồ họa', value: 'GeForce RTX 3060' }],
+      sourceUrl: 'https://hacom.vn/pc-hacom-gold-pro-076-pcgm1143'
+    }),
+    PCGM1178: product({
+      imagePresentation: { scale: 1.04 },
+      sku: 'PCGM1178', brand: 'HACOM PC', category: 'PC Gaming',
+      title: 'PC HACOM GOLD PRO 037 (Intel i5-14400F/RTX 5050)', price: 18999000, listPrice: 20499000,
+      stock: 'Sẵn hàng', availability: 'in-stock', rating: 5, reviewCount: 0,
+      specs: [{ label: 'CPU', value: 'Intel Core i5-14400F' }, { label: 'Đồ họa', value: 'GeForce RTX 5050' }],
+      sourceUrl: 'https://hacom.vn/pc-hacom-gold-pro-037-pcgm1178'
     }),
     VGAS0733: product({
       imagePresentation: { scale: 1.02, xPercent: 4 },
@@ -96,6 +160,46 @@
       stock: 'Đặt trước', availability: 'preorder', rating: 5, reviewCount: 0,
       specs: [{ label: 'Tấm nền', value: '27″ · IPS · FHD' }, { label: 'Tần số', value: '240Hz · 1ms' }],
       sourceUrl: 'https://hacom.vn/man-hinh-viewsonic-vx2779a-hd-pro'
+    }),
+    MOGI0059: product({
+      imagePresentation: { scale: 1.12 },
+      sku: 'MOGI0059', brand: 'GIGABYTE', category: 'Màn hình gaming',
+      title: 'Màn hình Gigabyte MO27Q2 (27 inch/QHD/QD-OLED/240Hz/0.03ms)', price: 13590000, listPrice: 16299000,
+      stock: 'Sẵn hàng', availability: 'in-stock', rating: 5, reviewCount: 0,
+      specs: [{ label: 'Tấm nền', value: '27″ · QD-OLED · QHD' }, { label: 'Tần số', value: '240Hz · 0.03ms' }],
+      sourceUrl: 'https://hacom.vn/man-hinh-gigabyte-mo27q2'
+    }),
+    MOAS0338: product({
+      imagePresentation: { scale: 1.12 },
+      sku: 'MOAS0338', brand: 'ASUS TUF', category: 'Màn hình gaming',
+      title: 'Màn hình ASUS TUF VG279QE5A (27 inch/FHD/IPS/146Hz/1ms)', price: 2990000, listPrice: 3999000,
+      stock: 'Sẵn hàng', availability: 'in-stock', rating: 5, reviewCount: 0,
+      specs: [{ label: 'Tấm nền', value: '27″ · IPS · FHD' }, { label: 'Tần số', value: '146Hz · 1ms' }],
+      sourceUrl: 'https://hacom.vn/man-hinh-asus-tuf-vg279qe5a'
+    }),
+    MODE0306: product({
+      imagePresentation: { scale: 1.12 },
+      sku: 'MODE0306', brand: 'DELL', category: 'Màn hình văn phòng',
+      title: 'Màn hình Dell Pro Plus P2725D (27 inch/QHD/IPS/100Hz/USB-C)', price: 6990000, listPrice: 7999000,
+      stock: 'Sẵn hàng', availability: 'in-stock', rating: 5, reviewCount: 0,
+      specs: [{ label: 'Tấm nền', value: '27″ · IPS · QHD' }, { label: 'Tần số', value: '100Hz · USB-C' }],
+      sourceUrl: 'https://hacom.vn/man-hinh-dell-pro-plus-p2725d'
+    }),
+    MOAS0339: product({
+      imagePresentation: { scale: 1.12 },
+      sku: 'MOAS0339', brand: 'ASUS', category: 'Màn hình văn phòng',
+      title: 'Màn hình ASUS VA279HG (27 inch/FHD/IPS/120Hz/1ms)', price: 2790000, listPrice: 3999000,
+      stock: 'Sẵn hàng', availability: 'in-stock', rating: 5, reviewCount: 0,
+      specs: [{ label: 'Tấm nền', value: '27″ · IPS · FHD' }, { label: 'Tần số', value: '120Hz · 1ms' }],
+      sourceUrl: 'https://hacom.vn/man-hinh-asus-va279hg'
+    }),
+    MOSA0326: product({
+      imagePresentation: { scale: 1.12 },
+      sku: 'MOSA0326', brand: 'SAMSUNG', category: 'Màn hình văn phòng',
+      title: 'Màn hình Samsung S3 S32GF (27 inch/FHD/IPS/120Hz/5ms)', price: 2790000, listPrice: 3999000,
+      stock: 'Sẵn hàng', availability: 'in-stock', rating: 5, reviewCount: 0,
+      specs: [{ label: 'Tấm nền', value: '27″ · IPS · FHD' }, { label: 'Tần số', value: '120Hz · 5ms' }],
+      sourceUrl: 'https://hacom.vn/man-hinh-samsung-s3-s32gf-ls27f320gaexxv'
     }),
     PADM0937: product({
       imagePresentation: { scale: 1.28 },
@@ -136,6 +240,30 @@
       stock: 'Đặt trước', availability: 'preorder', rating: 5, reviewCount: 0,
       specs: [{ label: 'Dung lượng', value: '32GB · 1×32GB' }, { label: 'Chuẩn', value: 'DDR4 · 3200MHz' }],
       sourceUrl: 'https://hacom.vn/ram-ecc-rdimm-kingston-32gb-ksm32rd4-32hdr'
+    }),
+    VGGI0734: product({
+      imagePresentation: { scale: 1.04 },
+      sku: 'VGGI0734', brand: 'GIGABYTE', category: 'Card đồ họa',
+      title: 'Card màn hình Gigabyte RTX 5060 WINDFORCE MAX OC 8GB', price: 11299000, listPrice: 11999000,
+      stock: 'Sẵn hàng', availability: 'in-stock', rating: 5, reviewCount: 0,
+      specs: [{ label: 'GPU', value: 'GeForce RTX 5060' }, { label: 'VRAM', value: '8GB GDDR7' }],
+      sourceUrl: 'https://hacom.vn/card-man-hinh-gigabyte-rtx-5060-windforce-max-oc-8gb-vggi0734'
+    }),
+    VGGI0692: product({
+      imagePresentation: { scale: 1.04 },
+      sku: 'VGGI0692', brand: 'GIGABYTE', category: 'Card đồ họa',
+      title: 'Card màn hình Gigabyte RTX 5070 WINDFORCE OC SFF 12G GDDR7', price: 23599000, listPrice: 25999000,
+      stock: 'Sẵn hàng', availability: 'in-stock', rating: 5, reviewCount: 0,
+      specs: [{ label: 'GPU', value: 'GeForce RTX 5070' }, { label: 'VRAM', value: '12GB GDDR7' }],
+      sourceUrl: 'https://hacom.vn/card-man-hinh-gigabyte-rtx-5070-windforce-oc-sff-12g-gddr7-gv-n5070wf3oc-12gd'
+    }),
+    VGAS0844: product({
+      imagePresentation: { scale: 1.04 },
+      sku: 'VGAS0844', brand: 'ASUS', category: 'Card đồ họa',
+      title: 'Card màn hình Asus DUAL RTX 5060 8G OC GDDR7', price: 11999000, listPrice: 12999000,
+      stock: 'Sẵn hàng', availability: 'in-stock', rating: 5, reviewCount: 0,
+      specs: [{ label: 'GPU', value: 'GeForce RTX 5060' }, { label: 'VRAM', value: '8GB GDDR7' }],
+      sourceUrl: 'https://hacom.vn/card-man-hinh-asus-dual-rtx-5060-8g-oc-gddr7-dual-rtx5060-o8g'
     }),
     RTRU0047: product({
       imagePresentation: { scale: 1.16 },

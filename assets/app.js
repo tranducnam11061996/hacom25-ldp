@@ -504,10 +504,10 @@ const homepageCollections = Object.freeze({
   deals: Object.freeze(['MELO0130', 'VGAS0733', 'HDSA0250', 'PWMI0005', 'PADM0937', 'MERZ0119']),
   trending: Object.freeze(['LAHP0257', 'PCGM00007', 'VGAS0733', 'MOVI0237', 'MELO0130', 'TNHP0034']),
   'new-arrivals': Object.freeze(['LTLV0317', 'PCGM00007', 'HDSA0250', 'RAKT0413', 'PWMI0005', 'RTRU0047']),
-  laptops: Object.freeze(['LAHP0257', 'LTLV0317']),
-  'pc-gaming': Object.freeze(['PCGM00007', 'VGAS0733']),
-  displays: Object.freeze(['MOVI0237']),
-  components: Object.freeze(['HDSA0250', 'PWMI0005', 'RAKT0413']),
+  laptops: Object.freeze(['LAHP0257', 'LTLV0317', 'LTAC1001', 'LTMS0640', 'LTAU1091', 'LTAC1029']),
+  'pc-gaming': Object.freeze(['PCGM00007', 'VGAS0733', 'PCGM1174', 'PCGM1171', 'PCGM1143', 'PCGM1178']),
+  displays: Object.freeze(['MOVI0237', 'MOGI0059', 'MOAS0338', 'MODE0306', 'MOAS0339', 'MOSA0326']),
+  components: Object.freeze(['HDSA0250', 'PWMI0005', 'RAKT0413', 'VGGI0734', 'VGGI0692', 'VGAS0844']),
   'gaming-gear': Object.freeze(['MELO0130', 'KBHP0023', 'TNHP0034', 'PADM0937', 'MERZ0119', 'MICR0249'])
 });
 
@@ -1941,17 +1941,75 @@ function initGatewayMenu(carouselController) {
   });
 }
 
-function initBrandExpander() {
-  const grid = document.getElementById('brandsGrid');
-  const overlay = document.getElementById('expandOverlay');
-  const button = document.getElementById('expandBtn');
-  if (!grid || !overlay || !button) return;
-  button.addEventListener('click', () => {
-    const expanded = grid.classList.toggle('expanded');
-    button.classList.toggle('rotated', expanded);
-    button.setAttribute('aria-expanded', String(expanded));
-    button.setAttribute('aria-label', expanded ? 'Thu gọn thương hiệu' : 'Xem thêm thương hiệu');
-    overlay.classList.toggle('is-expanded', expanded);
+function initRevealOnIntersection(element, {
+  readyClass,
+  visibleClass,
+  threshold = .12,
+  rootMargin = '0px 0px -8% 0px'
+}) {
+  if (!(element instanceof HTMLElement)) return null;
+
+  element.classList.add(readyClass);
+  const reducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)');
+  if (reducedMotion?.matches || typeof IntersectionObserver !== 'function') {
+    element.classList.add(visibleClass);
+    return null;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    if (!entries.some((entry) => entry.isIntersecting)) return;
+    element.classList.add(visibleClass);
+    observer.disconnect();
+  }, { threshold, rootMargin });
+
+  observer.observe(element);
+  return observer;
+}
+
+function initServiceGateway() {
+  const section = document.getElementById('serviceGateway');
+  if (!(section instanceof HTMLElement)) return null;
+
+  const cards = [...section.querySelectorAll('[data-service-command-card]')]
+    .filter((card) => card instanceof HTMLElement);
+  const reducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)');
+  const finePointer = window.matchMedia?.('(pointer: fine)');
+
+  if (!reducedMotion?.matches && finePointer?.matches) {
+    cards.forEach((card) => {
+      let pointerX = 0;
+      let pointerY = 0;
+      let frame = 0;
+
+      const renderSpotlight = () => {
+        const bounds = card.getBoundingClientRect();
+        const x = Math.min(100, Math.max(0, ((pointerX - bounds.left) / bounds.width) * 100));
+        const y = Math.min(100, Math.max(0, ((pointerY - bounds.top) / bounds.height) * 100));
+        card.style.setProperty('--pointer-x', `${x.toFixed(2)}%`);
+        card.style.setProperty('--pointer-y', `${y.toFixed(2)}%`);
+        frame = 0;
+      };
+
+      card.addEventListener('pointermove', (event) => {
+        pointerX = event.clientX;
+        pointerY = event.clientY;
+        if (!frame) frame = window.requestAnimationFrame(renderSpotlight);
+      });
+
+      card.addEventListener('pointerleave', () => {
+        if (frame) window.cancelAnimationFrame(frame);
+        frame = 0;
+        card.style.setProperty('--pointer-x', '50%');
+        card.style.setProperty('--pointer-y', '18%');
+      });
+    });
+  }
+
+  return initRevealOnIntersection(section, {
+    readyClass: 'is-service-ready',
+    visibleClass: 'is-service-visible',
+    threshold: .1,
+    rootMargin: '0px 0px -7% 0px'
   });
 }
 
@@ -2008,9 +2066,9 @@ function initShowroomFinder() {
   const phoneHref = (value) => `tel:${String(value || '').split('-')[0].replace(/[^\d+]/g, '')}`;
   const regionText = (region) => regionLabels[region] || 'Toàn quốc';
   const getLimit = () => {
-    if (window.matchMedia?.('(min-width: 1181px)').matches) return 8;
-    if (window.matchMedia?.('(min-width: 768px)').matches) return 6;
-    return 4;
+    if (window.matchMedia?.('(min-width: 1181px)').matches) return 4;
+    if (window.matchMedia?.('(min-width: 768px)').matches) return 2;
+    return 1;
   };
   const getMatches = (state) => {
     const query = normalize(state.query);
@@ -2025,13 +2083,21 @@ function initShowroomFinder() {
       item.warrantyPhone ? `<div><dt>Bảo hành</dt><dd>${escapeHtml(item.warrantyPhone)}</dd></div>` : '',
       item.email ? `<div><dt>Email showroom</dt><dd><a href="mailto:${escapeHtml(item.email)}">${escapeHtml(item.email)}</a></dd></div>` : '',
       item.lunchBreak ? `<div><dt>Nghỉ trưa</dt><dd>${escapeHtml(item.lunchBreak)}</dd></div>` : '',
-      item.photoUrl ? `<a class="showroom-card__photo-link" href="${escapeHtml(item.photoUrl)}" target="_blank" rel="noopener noreferrer"><i class="fa-regular fa-image" aria-hidden="true"></i> Xem hình ảnh showroom</a>` : ''
+      item.photoUrl ? `<a class="showroom-destination__photo-link" href="${escapeHtml(item.photoUrl)}" target="_blank" rel="noopener noreferrer"><i class="fa-regular fa-image" aria-hidden="true"></i> Xem hình ảnh showroom</a>` : ''
     ].join('');
-    return `<article class="showroom-card" data-showroom-card data-region="${escapeHtml(item.region)}">
-      <div class="showroom-card__heading"><span class="showroom-card__number">${String(item.ordinal).padStart(2, '0')}</span><div><p>${escapeHtml(regionText(item.region))}</p><h3>${escapeHtml(item.name)}</h3></div></div>
-      <div class="showroom-card__facts"><p><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span>${escapeHtml(item.address)}</span></p><p><i class="fa-regular fa-clock" aria-hidden="true"></i><span>${escapeHtml(item.openHours)}</span></p><a href="${phoneHref(item.salesPhone)}"><i class="fa-solid fa-phone" aria-hidden="true"></i><span>${escapeHtml(item.salesPhone)}</span></a></div>
-      <div class="showroom-card__actions"><a class="showroom-card__call" href="${phoneHref(item.salesPhone)}"><i class="fa-solid fa-phone" aria-hidden="true"></i> Gọi showroom</a><a href="${escapeHtml(item.mapUrl)}" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-diamond-turn-right" aria-hidden="true"></i> Chỉ đường</a></div>
-      <details><summary>Thông tin chi tiết <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></summary><dl>${details}</dl></details>
+    const detailsMarkup = details ? `<details class="showroom-destination__details"><summary>Thông tin chi tiết <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></summary><dl>${details}</dl></details>` : '';
+    return `<article class="showroom-destination" data-showroom-card data-region="${escapeHtml(item.region)}">
+      <div class="showroom-destination__rail"><span class="showroom-destination__index">${String(item.ordinal).padStart(2, '0')}</span><span class="showroom-destination__rail-line" aria-hidden="true"></span><span class="showroom-destination__region">${escapeHtml(regionText(item.region))}</span></div>
+      <div class="showroom-destination__main">
+        <div class="showroom-destination__heading"><p>HACOM EXPERIENCE POINT</p><h3>${escapeHtml(item.name)}</h3></div>
+        <div class="showroom-destination__facts">
+          <p><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span>${escapeHtml(item.address)}</span></p>
+          <p><i class="fa-regular fa-clock" aria-hidden="true"></i><span>${escapeHtml(item.openHours)}</span></p>
+          <a href="${phoneHref(item.salesPhone)}"><i class="fa-solid fa-phone" aria-hidden="true"></i><span>${escapeHtml(item.salesPhone)}</span></a>
+        </div>
+        <div class="showroom-destination__actions"><a class="showroom-destination__call" href="${phoneHref(item.salesPhone)}"><i class="fa-solid fa-phone" aria-hidden="true"></i><span>Gọi showroom</span></a><a href="${escapeHtml(item.mapUrl)}" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-diamond-turn-right" aria-hidden="true"></i><span>Chỉ đường</span></a></div>
+        ${detailsMarkup}
+      </div>
     </article>`;
   };
   const state = { query: '', region: 'all', expanded: false };
@@ -2067,15 +2133,20 @@ function initShowroomFinder() {
     cards.hidden = isEmpty;
     if (empty) empty.hidden = !isEmpty;
     if (clear) clear.hidden = !state.query;
-    if (status) status.textContent = isEmpty ? 'Không tìm thấy showroom phù hợp.' : `Hiển thị ${visible.length} trên ${matches.length} showroom${isFiltered ? ' phù hợp' : ''}.`;
+    if (status) {
+      if (isEmpty) status.textContent = 'Không tìm thấy showroom phù hợp.';
+      else if (state.query.trim()) status.textContent = `Tìm thấy ${matches.length} showroom phù hợp với “${state.query.trim()}”.`;
+      else if (state.region !== 'all') status.textContent = `${matches.length} showroom tại ${regionText(state.region)}.`;
+      else status.textContent = `Đang hiển thị ${visible.length} showroom nổi bật trên ${matches.length} điểm đến.`;
+    }
     if (toggle) {
       const canExpand = !isFiltered && matches.length > limit;
       toggle.hidden = !canExpand;
       toggle.setAttribute('aria-expanded', String(state.expanded));
-      const icon = document.createElement('i');
-      icon.className = `fa-solid fa-arrow-${state.expanded ? 'up' : 'down'}`;
-      icon.setAttribute('aria-hidden', 'true');
-      toggle.replaceChildren(document.createTextNode(state.expanded ? 'Thu gọn danh sách ' : `Xem toàn bộ ${matches.length} showroom `), icon);
+      const label = toggle.querySelector('span');
+      if (label) label.textContent = state.expanded ? 'Thu gọn danh sách' : `Xem toàn bộ ${matches.length} showroom`;
+      const icon = toggle.querySelector('i');
+      if (icon) icon.className = `fa-solid fa-arrow-${state.expanded ? 'up' : 'down'}`;
     }
   };
 
@@ -2122,67 +2193,64 @@ function initFormsAndActions() {
   });
 }
 
+function initFooterExecutive() {
+  const footer = document.querySelector('.footer-executive');
+  if (!(footer instanceof HTMLElement)) return null;
+
+  const year = footer.querySelector('[data-footer-year]');
+  if (year) year.textContent = String(new Date().getFullYear());
+
+  const groups = [...footer.querySelectorAll('.footer-directory__group')];
+  const mobileQuery = window.matchMedia?.('(max-width: 767px)');
+  if (groups.length && mobileQuery) {
+    let isMobile = mobileQuery.matches;
+    const syncDisclosure = () => {
+      const nextIsMobile = mobileQuery.matches;
+      if (nextIsMobile === isMobile) return;
+      isMobile = nextIsMobile;
+      groups.forEach((group, index) => { group.open = !isMobile || index === 0; });
+    };
+    groups.forEach((group, index) => { group.open = !isMobile || index === 0; });
+    mobileQuery.addEventListener?.('change', syncDisclosure);
+  }
+
+  return initRevealOnIntersection(footer, {
+    readyClass: 'is-footer-ready',
+    visibleClass: 'is-footer-visible',
+    threshold: .08,
+    rootMargin: '0px 0px -6% 0px'
+  });
+}
+
 function initHeaderPromoReveal() {
   const section = document.querySelector('.header-promo-showcase');
   if (!(section instanceof HTMLElement)) return null;
 
-  section.classList.add('is-promo-ready');
-  const reducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)');
-  if (reducedMotion?.matches || typeof IntersectionObserver !== 'function') {
-    section.classList.add('is-promo-visible');
-    return null;
-  }
-
-  const observer = new IntersectionObserver((entries) => {
-    if (!entries.some((entry) => entry.isIntersecting)) return;
-    section.classList.add('is-promo-visible');
-    observer.disconnect();
-  }, { threshold: .12, rootMargin: '0px 0px -8% 0px' });
-
-  observer.observe(section);
-  return observer;
+  return initRevealOnIntersection(section, {
+    readyClass: 'is-promo-ready',
+    visibleClass: 'is-promo-visible'
+  });
 }
 
 function initCustomerStoriesReveal() {
   const section = document.getElementById('customerStories');
   if (!(section instanceof HTMLElement)) return null;
 
-  section.classList.add('is-customer-ready');
-  const reducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)');
-  if (reducedMotion?.matches || typeof IntersectionObserver !== 'function') {
-    section.classList.add('is-customer-visible');
-    return null;
-  }
-
-  const observer = new IntersectionObserver((entries) => {
-    if (!entries.some((entry) => entry.isIntersecting)) return;
-    section.classList.add('is-customer-visible');
-    observer.disconnect();
-  }, { threshold: .12, rootMargin: '0px 0px -7% 0px' });
-
-  observer.observe(section);
-  return observer;
+  return initRevealOnIntersection(section, {
+    readyClass: 'is-customer-ready',
+    visibleClass: 'is-customer-visible',
+    rootMargin: '0px 0px -7% 0px'
+  });
 }
 
 function initCategorySpectrumReveal() {
   const section = document.getElementById('categories');
   if (!(section instanceof HTMLElement)) return null;
 
-  section.classList.add('is-category-ready');
-  const reducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)');
-  if (reducedMotion?.matches || typeof IntersectionObserver !== 'function') {
-    section.classList.add('is-category-visible');
-    return null;
-  }
-
-  const observer = new IntersectionObserver((entries) => {
-    if (!entries.some((entry) => entry.isIntersecting)) return;
-    section.classList.add('is-category-visible');
-    observer.disconnect();
-  }, { threshold: .12, rootMargin: '0px 0px -8% 0px' });
-
-  observer.observe(section);
-  return observer;
+  return initRevealOnIntersection(section, {
+    readyClass: 'is-category-ready',
+    visibleClass: 'is-category-visible'
+  });
 }
 
 function initDealsReveal() {
@@ -2201,21 +2269,10 @@ function initDealsReveal() {
     });
   }
 
-  section.classList.add('is-deals-ready');
-  const reducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)');
-  if (reducedMotion?.matches || typeof IntersectionObserver !== 'function') {
-    section.classList.add('is-deals-visible');
-    return null;
-  }
-
-  const observer = new IntersectionObserver((entries) => {
-    if (!entries.some((entry) => entry.isIntersecting)) return;
-    section.classList.add('is-deals-visible');
-    observer.disconnect();
-  }, { threshold: .12, rootMargin: '0px 0px -8% 0px' });
-
-  observer.observe(section);
-  return observer;
+  return initRevealOnIntersection(section, {
+    readyClass: 'is-deals-ready',
+    visibleClass: 'is-deals-visible'
+  });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -2224,6 +2281,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initProductCollections();
   initCollectionTabs();
   initShowroomFinder();
+  initFooterExecutive();
   initHeaderPromoReveal();
   initCustomerStoriesReveal();
   initCategorySpectrumReveal();
@@ -2244,6 +2302,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
   initGatewayMenu(carouselControllers.get(document.getElementById('gatewayCarousel')));
-  initBrandExpander();
+  initServiceGateway();
   initFormsAndActions();
 });
