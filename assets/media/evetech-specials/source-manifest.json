@@ -1,0 +1,22 @@
+{
+  "sourcePage": "https://www.evetech.co.za/specials#PCs",
+  "verifiedAt": "2026-08-19",
+  "rightsConfirmedByUser": true,
+  "assets": [
+    { "local": "pulse-giveaway.avif", "slot": "portrait-01", "order": 1, "source": "https://img.evetech.co.za/repository/ProductImages/evetech-pulse-giveaway-2026-v1.avif?width=300", "width": 300, "height": 562 },
+    { "local": "intel-game-bundle.avif", "slot": "portrait-01", "order": 2, "source": "https://img.evetech.co.za/repository/ProductImages/intel-game-bundle-banner-308-v1.avif?width=300", "width": 300, "height": 562 },
+    { "local": "flash-deals.avif", "slot": "portrait-02", "order": 1, "source": "https://img.evetech.co.za/repository/ProductImages/flash-deals-308x577px-v01.avif?width=300", "width": 300, "height": 562 },
+    { "local": "laptop-specials.avif", "slot": "portrait-02", "order": 2, "source": "https://img.evetech.co.za/repository/ProductImages/laptop-specials-for-sale-south-africa-banner-308px-v1.avif?width=300", "width": 300, "height": 562 },
+    { "local": "gamesir-specials.avif", "slot": "portrait-03", "order": 1, "source": "https://img.evetech.co.za/repository/ProductImages/gamesir-specials-banner-308px-v1.avif?width=300", "width": 300, "height": 562 },
+    { "local": "uperfect-specials.avif", "slot": "portrait-03", "order": 2, "source": "https://img.evetech.co.za/repository/ProductImages/uperfect-specials-banner-vert-308px-v1.avif?width=300", "width": 300, "height": 562 },
+    { "local": "app-only-deals.avif", "slot": "landscape-01", "order": 1, "source": "https://img.evetech.co.za/repository/ProductImages/app-only-deals-dark-banner-970x360px-v1.avif?width=768", "width": 768, "height": 285 },
+    { "local": "3d-printers.avif", "slot": "landscape-01", "order": 2, "source": "https://img.evetech.co.za/repository/ProductImages/3d-printers-banner-970px-v1.avif?width=768", "width": 768, "height": 285 },
+    { "local": "smart-watches.avif", "slot": "landscape-01", "order": 3, "source": "https://img.evetech.co.za/repository/ProductImages/smart-watches-main-banner-970px-v1.avif?width=768", "width": 768, "height": 285 },
+    { "local": "nvidia-gaming-pcs.avif", "slot": "landscape-02", "order": 1, "source": "https://img.evetech.co.za/repository/ProductImages/nvidia-geforce-gaming-pcs-banner-special-970px-v1.avif?width=768", "width": 768, "height": 285 },
+    { "local": "amd-gaming-pcs.avif", "slot": "landscape-02", "order": 2, "source": "https://img.evetech.co.za/repository/ProductImages/buy-amd-radeon-gaming-pcs-south-africa-banner-970px-v1.avif?width=768", "width": 768, "height": 285 },
+    { "local": "prebuilt-pc-deals.avif", "slot": "landscape-02", "order": 3, "source": "https://img.evetech.co.za/repository/ProductImages/pre-built-pc-deals-banner-special-970px-v1.avif?width=768", "width": 768, "height": 285 },
+    { "local": "macbooks.avif", "slot": "landscape-03", "order": 1, "source": "https://img.evetech.co.za/repository/ProductImages/macbooks-banner-970px-v1.avif?width=768", "width": 768, "height": 285 },
+    { "local": "intel-laptop-specials.avif", "slot": "landscape-03", "order": 2, "source": "https://img.evetech.co.za/repository/ProductImages/intel-laptops-on-special-banner-970px-v1.avif?width=768", "width": 768, "height": 285 },
+    { "local": "ryzen-laptop-deals.avif", "slot": "landscape-03", "order": 3, "source": "https://img.evetech.co.za/repository/ProductImages/ryzen-laptop-deals-banner-970px-v1.avif?width=768", "width": 768, "height": 285 }
+  ]
+}

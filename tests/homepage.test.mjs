@@ -551,10 +551,16 @@ test('deals uses the Quantum Ice Reactor background without changing the product
   assert.match(appSource, /threshold\s*=\s*\.12/);
   assert.equal((appSource.match(/new IntersectionObserver/g) || []).length, 1, 'Reveal sections must share one observer factory');
   assert.match(appSource, /initDealsReveal\(\)/);
+  assert.match(appSource, /const isDealCollection = grid\.dataset\.collection === 'deals';/);
+  assert.match(appSource, /loading: isDealCollection \? 'eager' : 'lazy'/);
+  assert.match(appSource, /fetchPriority: isDealCollection \? 'low' : undefined/);
   assert.match(css, /\.deals-quantum\s*\{[^}]*position:\s*relative[^}]*isolation:\s*isolate[^}]*overflow:\s*clip/s);
   assert.match(css, /\.deals-quantum__artwork\s*\{\s*transition-property:\s*opacity, transform/);
+  assert.match(css, /\.deals-quantum__artwork,[\s\S]*?\.deals-quantum::after\s*\{[^}]*transition-duration:\s*360ms/);
   assert.match(css, /\.deals-quantum\.is-deals-ready:not\(\.is-deals-visible\)::after\s*\{[^}]*transform:\s*scaleX\(0\)/s);
   assert.match(css, /@media \(prefers-reduced-motion: reduce\)[\s\S]*?\.deals-quantum__artwork[\s\S]*?transition:\s*none !important/s);
+  assert.doesNotMatch(css, /\.deals-quantum\.is-deals-ready:not\(\.is-deals-visible\) \.section-head/);
+  assert.doesNotMatch(css, /\.deals-quantum\.is-deals-ready:not\(\.is-deals-visible\) \.carousel-viewport/);
   assert.doesNotMatch(css, /\.deals-quantum[^,{]*\.product-card/);
   assert.match(css, /@media \(max-width: 767\.98px\)[\s\S]*?\.deals-quantum \.section-head \.section-intro\s*\{[^}]*max-width:\s*34ch[^}]*font-size:\s*clamp\(15px,\s*4\.2vw,\s*16px\)[^}]*line-height:\s*1\.45[^}]*text-wrap:\s*balance/s);
   assert.match(css, /@media \(max-width: 767\.98px\)[\s\S]*?\.deals-quantum \.section-head-actions\s*\{[^}]*display:\s*none/s);
@@ -978,7 +984,9 @@ test('footer network command exposes the verified showroom directory contract', 
   assert.match(css, /\.footer-members > a\s*\{[^}]*background:\s*transparent/);
   assert.match(css, /\.footer-directory__grid\s*\{[^}]*minmax\(250px, 1\.24fr\)/);
   assert.match(css, /@media \(max-width: 1180px\)[\s\S]*?\.footer-directory__grid\s*\{[^}]*grid-template-columns:\s*repeat\(3,\s*minmax\(0,\s*1fr\)\)/s);
-  assert.match(css, /@media \(min-width: 768px\) and \(max-width: 1180px\)[\s\S]*?\.footer-hotline a\s*\{[^}]*grid-template-columns:\s*minmax\(68px,\s*max-content\) max-content[^}]*column-gap:\s*10px/s);
+  assert.match(css, /\.footer-hotline\s*\{[^}]*border-top:\s*0/);
+  assert.match(css, /\.footer-payment-panel\s*\{[^}]*border-top:\s*0/);
+  assert.match(css, /@media \(min-width: 768px\) and \(max-width: 1180px\)[\s\S]*?\.footer-hotline a\s*\{[^}]*grid-template-columns:\s*minmax\(72px,\s*max-content\) max-content[^}]*column-gap:\s*18px/s);
   assert.match(css, /\.footer-command__copy h2\s*\{[^}]*font-size:\s*clamp\(2\.25rem, 3\.6vw, 4\.25rem\)/);
   assert.match(css, /\.footer-command__form\s*\{[^}]*width:\s*min\(100%, 720px\)/);
   assert.match(css, /\.footer-command__field button\s*\{[^}]*min-height:\s*44px/);

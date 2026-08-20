@@ -2,10 +2,12 @@
   const product = (data) => Object.freeze({
     ...data,
     image: Object.freeze({
-      src: `assets/media/products/${data.sku}.jpg`,
+      src: `assets/media/products/${data.sku}-640.webp`,
+      srcSet: `assets/media/products/${data.sku}-320.webp 320w, assets/media/products/${data.sku}-640.webp 640w`,
+      sizes: '(max-width: 767px) 44vw, (max-width: 1180px) 22vw, 300px',
       alt: data.imageAlt || data.title,
-      width: 800,
-      height: 600,
+      width: 640,
+      height: 640,
       presentation: Object.freeze({
         scale: 1.12,
         xPercent: 0,

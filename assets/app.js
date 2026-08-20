@@ -2021,11 +2021,16 @@ function initProductCollections() {
   const collections = window.HacomGatewayData?.homepageCollections || {};
   document.querySelectorAll('[data-product-grid][data-collection]').forEach((grid) => {
     const skus = collections[grid.dataset.collection] || [];
+    const isDealCollection = grid.dataset.collection === 'deals';
     const fragment = document.createDocumentFragment();
-    skus.forEach((sku, index) => {
+    skus.forEach((sku) => {
       const product = catalog.getBySku(sku);
       if (!product) return;
-      fragment.append(renderer(product, { variant: 'full', loading: index < 3 ? 'eager' : 'lazy' }));
+      fragment.append(renderer(product, {
+        variant: 'full',
+        loading: isDealCollection ? 'eager' : 'lazy',
+        fetchPriority: isDealCollection ? 'low' : undefined
+      }));
     });
     grid.replaceChildren(fragment);
   });
@@ -2060,6 +2065,9 @@ function initShowroomFinder() {
   const toggle = document.getElementById('showroomToggle');
   if (!data?.items?.length || !cards || !(search instanceof HTMLInputElement)) return;
 
+  const layout = cards.closest('[data-showroom-layout]')?.dataset.showroomLayout || '';
+  const isDirectory = layout === 'directory';
+  const mobileQuery = window.matchMedia?.('(max-width: 767.98px)');
   const regionLabels = { north: 'Miền Bắc', central: 'Miền Trung', south: 'Miền Nam' };
   const normalize = (value) => String(value || '').toLocaleLowerCase('vi-VN').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd');
   const escapeHtml = (value) => String(value || '').replace(/[&<>"']/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character]));
@@ -2078,7 +2086,34 @@ function initShowroomFinder() {
       return normalize([item.name, item.province, item.address, item.email].join(' ')).includes(query);
     });
   };
+  const renderDirectoryFacts = (item) => {
+    const detail = (icon, label, value, className = '', href = '') => {
+      if (!value) return '';
+      const valueMarkup = href ? `<a href="${escapeHtml(href)}">${escapeHtml(value)}</a>` : `<span>${escapeHtml(value)}</span>`;
+      return `<div class="showroom-directory__detail${className ? ` ${className}` : ''}"><dt><i class="${icon}" aria-hidden="true"></i><span>${label}</span></dt><dd>${valueMarkup}</dd></div>`;
+    };
+    const action = (kind, icon, label, href) => href ? `<a class="showroom-directory__action showroom-directory__action--${kind}" href="${escapeHtml(href)}" target="_blank" rel="noopener noreferrer"><i class="${icon}" aria-hidden="true"></i><span>${label}</span></a>` : '';
+    return [
+      `<p class="showroom-directory__address"><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span>${escapeHtml(item.address)}</span></p>`,
+      `<div class="showroom-directory__actions">${action('photo', 'fa-regular fa-image', 'Hình ảnh showroom', item.photoUrl)}${action('map', 'fa-solid fa-diamond-turn-right', 'Chỉ đường', item.mapUrl)}</div>`,
+      `<dl class="showroom-directory__details">${detail('fa-solid fa-phone', 'Bán hàng', item.salesPhone, 'showroom-directory__detail--contact', phoneHref(item.salesPhone))}${detail('fa-solid fa-phone-volume', 'Bảo hành', item.warrantyPhone, 'showroom-directory__detail--contact', phoneHref(item.warrantyPhone))}${detail('fa-regular fa-envelope', 'Email', item.email, 'showroom-directory__detail--contact', `mailto:${item.email}`)}${detail('fa-regular fa-clock', 'Mở cửa', item.openHours, 'showroom-directory__detail--time')}${detail('fa-regular fa-clock', 'Nghỉ trưa', item.lunchBreak, 'showroom-directory__detail--time showroom-directory__detail--lunch')}</dl>`
+    ].join('');
+  };
+  const renderDirectoryCard = (item, isMobile) => {
+    const body = `<div class="showroom-directory__body">${renderDirectoryFacts(item)}</div>`;
+    if (isMobile) {
+      return `<details class="showroom-directory__card showroom-directory__card--mobile" data-showroom-card data-region="${escapeHtml(item.region)}" data-showroom-id="${escapeHtml(item.id)}">
+        <summary><span>${escapeHtml(item.name)}</span><i class="fa-solid fa-chevron-down" aria-hidden="true"></i></summary>
+        ${body}
+      </details>`;
+    }
+    return `<article class="showroom-directory__card" data-showroom-card data-region="${escapeHtml(item.region)}" data-showroom-id="${escapeHtml(item.id)}">
+      <div class="showroom-directory__card-header"><span class="showroom-directory__index">${String(item.ordinal).padStart(2, '0')}</span><h3>${escapeHtml(item.name)}</h3></div>
+      ${body}
+    </article>`;
+  };
   const renderCard = (item) => {
+    if (isDirectory) return renderDirectoryCard(item, mobileQuery?.matches ?? false);
     const details = [
       item.warrantyPhone ? `<div><dt>Bảo hành</dt><dd>${escapeHtml(item.warrantyPhone)}</dd></div>` : '',
       item.email ? `<div><dt>Email showroom</dt><dd><a href="mailto:${escapeHtml(item.email)}">${escapeHtml(item.email)}</a></dd></div>` : '',
@@ -2115,7 +2150,7 @@ function initShowroomFinder() {
     const matches = getMatches(state);
     const limit = getLimit();
     const isFiltered = Boolean(state.query.trim()) || state.region !== 'all';
-    const visible = state.expanded || isFiltered ? matches : matches.slice(0, limit);
+    const visible = isDirectory ? matches : (state.expanded || isFiltered ? matches : matches.slice(0, limit));
     const fragment = document.createDocumentFragment();
     const wrapper = document.createElement('div');
     wrapper.insertAdjacentHTML('beforeend', visible.map(renderCard).join(''));
@@ -2132,14 +2167,15 @@ function initShowroomFinder() {
     const isEmpty = matches.length === 0;
     cards.hidden = isEmpty;
     if (empty) empty.hidden = !isEmpty;
-    if (clear) clear.hidden = !state.query;
+    if (clear) clear.hidden = !state.query.trim();
     if (status) {
       if (isEmpty) status.textContent = 'Không tìm thấy showroom phù hợp.';
       else if (state.query.trim()) status.textContent = `Tìm thấy ${matches.length} showroom phù hợp với “${state.query.trim()}”.`;
       else if (state.region !== 'all') status.textContent = `${matches.length} showroom tại ${regionText(state.region)}.`;
+      else if (isDirectory) status.textContent = `${matches.length} showroom trên toàn quốc.`;
       else status.textContent = `Đang hiển thị ${visible.length} showroom nổi bật trên ${matches.length} điểm đến.`;
     }
-    if (toggle) {
+    if (toggle && !isDirectory) {
       const canExpand = !isFiltered && matches.length > limit;
       toggle.hidden = !canExpand;
       toggle.setAttribute('aria-expanded', String(state.expanded));
@@ -2160,7 +2196,7 @@ function initShowroomFinder() {
   }));
   toggle?.addEventListener('click', () => { state.expanded = !state.expanded; render(); });
   document.querySelectorAll('[data-showroom-reset]').forEach((button) => button.addEventListener('click', reset));
-  [window.matchMedia?.('(min-width: 768px)'), window.matchMedia?.('(min-width: 1181px)')].filter(Boolean).forEach((query) => query.addEventListener?.('change', render));
+  (isDirectory ? [mobileQuery] : [window.matchMedia?.('(min-width: 768px)'), window.matchMedia?.('(min-width: 1181px)')]).filter(Boolean).forEach((query) => query.addEventListener?.('change', render));
   render();
 }
 
@@ -2301,7 +2337,14 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error('Không thể khởi tạo carousel: assets/carousel.js chưa được tải.');
     }
   });
-  initGatewayMenu(carouselControllers.get(document.getElementById('gatewayCarousel')));
+  const gatewayCarouselGroup = {
+    pause(reason, shouldPause) {
+      document.querySelectorAll('#hero #specialsMosaic [data-carousel-root]').forEach((root) => {
+        carouselControllers.get(root)?.pause?.(reason, shouldPause);
+      });
+    }
+  };
+  initGatewayMenu(gatewayCarouselGroup);
   initServiceGateway();
   initFormsAndActions();
 });

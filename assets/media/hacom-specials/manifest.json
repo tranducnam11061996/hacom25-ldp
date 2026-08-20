@@ -1,0 +1,39 @@
+{
+  "purpose": "Runtime brand replacement for the three Evetech-sourced opening slides in the HACOM Specials Mosaic.",
+  "sourceManifest": "../evetech-specials/source-manifest.json",
+  "processedAt": "2026-08-20",
+  "processing": {
+    "format": "AVIF",
+    "method": "deterministic raster compositing",
+    "notes": "Original artwork composition, products and campaign copy are preserved. Evetech marks are removed and replaced with HACOM branding; unverified QR codes are removed from the app banner."
+  },
+  "assets": [
+    {
+      "local": "hacom-pulse-giveaway.avif",
+      "slot": "portrait-01",
+      "order": 1,
+      "width": 300,
+      "height": 562,
+      "sourceOriginal": "../evetech-specials/pulse-giveaway.avif",
+      "source": "https://img.evetech.co.za/repository/ProductImages/evetech-pulse-giveaway-2026-v1.avif?width=300"
+    },
+    {
+      "local": "hacom-flash-deals.avif",
+      "slot": "portrait-02",
+      "order": 1,
+      "width": 300,
+      "height": 562,
+      "sourceOriginal": "../evetech-specials/flash-deals.avif",
+      "source": "https://img.evetech.co.za/repository/ProductImages/flash-deals-308x577px-v01.avif?width=300"
+    },
+    {
+      "local": "hacom-app-only-deals.avif",
+      "slot": "landscape-01",
+      "order": 1,
+      "width": 768,
+      "height": 285,
+      "sourceOriginal": "../evetech-specials/app-only-deals.avif",
+      "source": "https://img.evetech.co.za/repository/ProductImages/app-only-deals-dark-banner-970x360px-v1.avif?width=768"
+    }
+  ]
+}

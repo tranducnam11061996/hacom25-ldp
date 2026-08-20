@@ -10,6 +10,8 @@ const {
   AUTO_SLIDE_DELAY,
   canCycle,
   getCarouselConfig,
+  getKeyboardAction,
+  isDragAllowed,
   getSwipeAction,
   hasMeaningfulInlineSizeChange
 } = context.window.HacomCarousel;
@@ -21,7 +23,16 @@ test('auto-slide waits exactly three seconds between settled slides', () => {
 test('carousel configuration keeps the default variant and delay', () => {
   const config = getCarouselConfig({ dataset: {} });
   assert.equal(config.autoDelay, 3000);
+  assert.equal(config.autoplay, false);
   assert.equal(config.variant, 'default');
+});
+
+test('carousel only autoplays when its explicit data attribute is present', () => {
+  const root = {
+    dataset: {},
+    hasAttribute(name) { return name === 'data-carousel-autoplay'; }
+  };
+  assert.equal(getCarouselConfig(root).autoplay, true);
 });
 
 test('carousel configuration reads the spotlight variant and five-second delay', () => {
@@ -40,6 +51,24 @@ test('carousel configuration rejects invalid and non-positive dataset delays', (
   assert.equal(getCarouselConfig({ dataset: { carouselDelay: 'invalid' } }).autoDelay, 3000);
   assert.equal(getCarouselConfig({ dataset: { carouselDelay: '0' } }).autoDelay, 3000);
   assert.equal(getCarouselConfig({ dataset: { carouselDelay: '-50' } }).autoDelay, 3000);
+});
+
+test('drag modes preserve default and explicit all-device behavior', () => {
+  assert.equal(isDragAllowed({ dataset: {} }, true), true);
+  assert.equal(isDragAllowed({ dataset: {} }, false), true);
+  assert.equal(isDragAllowed({ dataset: { carouselDrag: 'all' } }, true), true);
+  assert.equal(isDragAllowed({ dataset: { carouselDrag: 'all' } }, false), true);
+  assert.equal(isDragAllowed({ dataset: { carouselDrag: 'desktop' } }, true), true);
+  assert.equal(isDragAllowed({ dataset: { carouselDrag: 'desktop' } }, false), false);
+  assert.equal(isDragAllowed({ dataset: { carouselDrag: 'none' } }, true), false);
+  assert.equal(isDragAllowed({ dataset: { carouselDrag: 'invalid' } }, false), true);
+});
+
+test('arrow keys expose an accessible alternative to swipe', () => {
+  assert.equal(getKeyboardAction({ key: 'ArrowLeft' }), 'previous');
+  assert.equal(getKeyboardAction({ key: 'ArrowRight' }), 'next');
+  assert.equal(getKeyboardAction({ key: 'ArrowRight', ctrlKey: true }), null);
+  assert.equal(getKeyboardAction({ key: 'Enter' }), null);
 });
 
 test('canCycle only when the track overflows the viewport', () => {

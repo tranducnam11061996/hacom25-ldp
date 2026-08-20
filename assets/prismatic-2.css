@@ -1,0 +1,1134 @@
+/*
+ * HACOM Version 2 — Prismatic Atelier
+ *
+ * This layer owns the dark editorial surfaces of index-2 only. The category
+ * spectrum, service gateway, mega menu, submenu and gateway flyout are
+ * intentionally left to their existing stylesheet contracts. Product-card
+ * rules at the bottom are the preserved Prism Gallery card skin.
+ */
+
+body[data-theme="prismatic-atelier"] {
+  --pa-obsidian: #050713;
+  --pa-deep-navy: #091126;
+  --pa-navy-soft: #111d3c;
+  --pa-footer-legal-start: #101a31;
+  --pa-footer-legal-end: #162a4b;
+  --pa-titanium: #f7f9fc;
+  --pa-pearl: #eef2f7;
+  --pa-ink: #111827;
+  --pa-ink-inverse: #f7f9ff;
+  --pa-muted: #9aa8c1;
+  --pa-muted-strong: #c4cee0;
+  --pa-line: rgba(178, 205, 242, .18);
+  --pa-line-strong: rgba(178, 205, 242, .32);
+  --pa-cyan: #32d9ff;
+  --pa-violet: #7c5cff;
+  --pa-violet-deep: #5d42cf;
+  --pa-magenta: #ff4fa3;
+  --pa-red: #ea2127;
+  --pa-red-deep: #c81820;
+  --pa-green: #20c77a;
+  --pa-shadow: 0 24px 70px rgba(0, 0, 0, .32);
+  --pa-shadow-soft: 0 16px 40px rgba(7, 13, 34, .22);
+  --pa-radius-panel: 24px;
+  --pa-radius-card: 20px;
+  color-scheme: dark;
+  background: var(--pa-obsidian);
+  color: var(--pa-ink-inverse);
+}
+
+/* The preserved card skin keeps its original light token values. */
+body[data-theme="prismatic-atelier"] {
+  --pg-canvas: #ffffff;
+  --pg-gallery: #f8fafc;
+  --pg-pearl: #eef2f7;
+  --pg-ink: #111827;
+  --pg-ink-soft: #526079;
+  --pg-line: #dfe6ef;
+  --pg-line-strong: #cbd5e1;
+  --pg-red: #ea2127;
+  --pg-red-deep: #c81820;
+  --pg-sky: #42b8ff;
+  --pg-aqua: #52c7c7;
+  --pg-mint: #68d98b;
+  --pg-lime: #a5d94f;
+  --pg-amber: #ffb85c;
+  --pg-coral: #ff6b6b;
+  --pg-rose: #e98bb4;
+  --pg-violet: #b56bde;
+  --pg-indigo: #7f8ce7;
+  --pg-shadow-sm: 0 12px 28px rgba(49, 69, 103, .08);
+  --pg-radius-card: 20px;
+}
+
+body[data-theme="prismatic-atelier"] main {
+  background: var(--pa-obsidian);
+}
+
+body[data-theme="prismatic-atelier"] .site-header--reference {
+  position: relative;
+  z-index: 40;
+  border-bottom: 1px solid var(--pa-line);
+  background: rgba(5, 7, 19, .92);
+  color: var(--pa-ink-inverse);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, .22);
+  backdrop-filter: blur(18px) saturate(1.1);
+}
+
+body[data-theme="prismatic-atelier"] .reference-utility-bar {
+  border-bottom: 1px solid rgba(50, 217, 255, .14);
+  background: var(--pa-obsidian);
+  color: var(--pa-muted);
+}
+
+body[data-theme="prismatic-atelier"] .reference-hotline,
+body[data-theme="prismatic-atelier"] .reference-utility-nav button,
+body[data-theme="prismatic-atelier"] .reference-service-nav button,
+body[data-theme="prismatic-atelier"] .reference-compact-utility button,
+body[data-theme="prismatic-atelier"] .reference-header-action {
+  color: var(--pa-muted-strong);
+}
+
+body[data-theme="prismatic-atelier"] .reference-hotline strong,
+body[data-theme="prismatic-atelier"] .reference-utility-nav button:hover,
+body[data-theme="prismatic-atelier"] .reference-service-nav button:hover,
+body[data-theme="prismatic-atelier"] .reference-compact-utility button:hover,
+body[data-theme="prismatic-atelier"] .reference-header-action:hover {
+  color: var(--pa-cyan);
+}
+
+body[data-theme="prismatic-atelier"] .reference-main-shell {
+  border-bottom: 1px solid var(--pa-line);
+  background: rgba(9, 17, 38, .86);
+}
+
+body[data-theme="prismatic-atelier"] .reference-search-box,
+body[data-theme="prismatic-atelier"] .search-input-box {
+  border-color: var(--pa-line-strong);
+  border-radius: 14px;
+  background: rgba(17, 29, 60, .76);
+  color: var(--pa-ink-inverse);
+  box-shadow: inset 0 1px rgba(255, 255, 255, .06), 0 12px 30px rgba(0, 0, 0, .12);
+}
+
+body[data-theme="prismatic-atelier"] .reference-search-box:focus-within,
+body[data-theme="prismatic-atelier"] .search-input-box:focus-within {
+  border-color: var(--pa-cyan);
+  box-shadow: 0 0 0 4px rgba(50, 217, 255, .14), inset 0 1px rgba(255, 255, 255, .08);
+}
+
+body[data-theme="prismatic-atelier"] .reference-search-box input,
+body[data-theme="prismatic-atelier"] .search-input-box input { color: var(--pa-ink-inverse); }
+body[data-theme="prismatic-atelier"] .reference-search-box input::placeholder,
+body[data-theme="prismatic-atelier"] .search-input-box input::placeholder { color: var(--pa-muted); }
+body[data-theme="prismatic-atelier"] .reference-search-box button,
+body[data-theme="prismatic-atelier"] .search-input-box button { color: var(--pa-cyan); }
+body[data-theme="prismatic-atelier"] .reference-header-action--builder > i { color: var(--pa-cyan); }
+body[data-theme="prismatic-atelier"] .reference-header-action--cart .reference-cart-icon { color: var(--pa-red); }
+body[data-theme="prismatic-atelier"] .reference-cart-icon b { background: var(--pa-red-deep); color: #fff; }
+body[data-theme="prismatic-atelier"] .reference-header-action {
+  border: 1px solid var(--pa-line);
+  border-radius: 12px;
+  background: rgba(17, 29, 60, .72);
+  box-shadow: inset 0 1px rgba(255, 255, 255, .05);
+}
+body[data-theme="prismatic-atelier"] .reference-header-action span small { color: var(--pa-muted); }
+body[data-theme="prismatic-atelier"] .reference-header-action span strong { color: var(--pa-ink-inverse); }
+body[data-theme="prismatic-atelier"] .reference-header-action:hover { border-color: var(--pa-cyan); background: rgba(17, 29, 60, .94); }
+
+body[data-theme="prismatic-atelier"] .reference-header-panel {
+  border-bottom: 1px solid var(--pa-line);
+  background: var(--pa-deep-navy);
+  color: var(--pa-ink-inverse);
+}
+
+/* Prismatic visual skin over the reference desktop header geometry. */
+@media (min-width: 1381px) {
+  body[data-theme="prismatic-atelier"] .site-header--reference {
+    --pa-header-transition: 120ms cubic-bezier(.2, 0, 0, 1);
+    position: sticky;
+    top: calc(-1 * var(--reference-utility-height));
+    z-index: 60;
+    border-bottom-color: rgba(94, 151, 216, .28);
+    background: #070e20;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .28);
+    backdrop-filter: blur(12px) saturate(1.08);
+  }
+
+  body[data-theme="prismatic-atelier"] .reference-main-shell {
+    position: relative;
+    isolation: isolate;
+    min-height: var(--reference-main-height);
+    overflow: clip;
+    border-block: 1px solid rgba(80, 151, 224, .24);
+    background:
+      radial-gradient(circle at 34% 0%, rgba(31, 154, 255, .2), transparent 24%),
+      radial-gradient(circle at 71% 100%, rgba(234, 33, 39, .12), transparent 21%),
+      linear-gradient(180deg, #0c142c 0%, #070e20 55%, #10182d 100%);
+    box-shadow: inset 0 1px rgba(255, 255, 255, .025), inset 0 -1px rgba(50, 217, 255, .06);
+  }
+
+  body[data-theme="prismatic-atelier"] .reference-main-shell::before,
+  body[data-theme="prismatic-atelier"] .reference-main-shell::after {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    content: '';
+    pointer-events: none;
+  }
+
+  body[data-theme="prismatic-atelier"] .reference-main-shell::before {
+    opacity: .72;
+    background:
+      radial-gradient(ellipse at 33% 0%, rgba(38, 163, 255, .36), transparent 18%),
+      radial-gradient(ellipse at 69% 100%, rgba(255, 46, 64, .16), transparent 17%),
+      linear-gradient(90deg, rgba(50, 217, 255, .18), transparent 23%, transparent 78%, rgba(83, 117, 191, .08));
+  }
+
+  body[data-theme="prismatic-atelier"] .reference-main-shell::after {
+    opacity: .66;
+    background:
+      linear-gradient(90deg, rgba(50, 217, 255, .18), rgba(70, 136, 224, .32) 35%, transparent 74%) 0 0 / 100% 1px no-repeat,
+      linear-gradient(90deg, rgba(50, 217, 255, .34), rgba(70, 136, 224, .2) 58%, transparent) 0 100% / 100% 1px no-repeat,
+      linear-gradient(42deg, transparent 47%, rgba(32, 193, 255, .8) 49%, rgba(32, 193, 255, .8) 51%, transparent 53%) 0 64% / 48px 24px no-repeat,
+      linear-gradient(90deg, rgba(32, 193, 255, .76), rgba(32, 193, 255, .12), transparent) 48px calc(64% + 10px) / 160px 1px no-repeat;
+    filter: drop-shadow(0 0 3px rgba(32, 193, 255, .28));
+  }
+
+  body[data-theme="prismatic-atelier"] .reference-header-main {
+    position: relative;
+    z-index: 1;
+    min-height: var(--reference-main-height);
+    grid-template-columns: var(--gateway-nav-width) repeat(6, minmax(0, 1fr));
+    gap: 14px;
+    align-items: center;
+  }
+
+  body[data-theme="prismatic-atelier"] .reference-header-main .brand-lockup {
+    grid-column: 1;
+    width: 100%;
+    min-height: 66px;
+    justify-content: center;
+    padding: 4px 8px;
+  }
+
+  body[data-theme="prismatic-atelier"] .reference-header-main .brand-lockup img {
+    width: auto;
+    max-width: 100%;
+    height: 56px;
+  }
+
+  body[data-theme="prismatic-atelier"] .reference-header-main .header-search {
+    grid-column: 2 / 6;
+    width: 100%;
+    min-width: 0;
+    isolation: isolate;
+  }
+
+  body[data-theme="prismatic-atelier"] .reference-search-box {
+    width: 100%;
+    height: 62px;
+    min-height: 62px;
+    padding: 4px 5px 4px 0;
+    grid-template-columns: minmax(0, 1fr) 72px;
+    gap: 0;
+    align-items: center;
+    border: 1px solid rgba(137, 173, 221, .76);
+    border-radius: 999px;
+    background: linear-gradient(100deg, rgba(32, 39, 63, .94), rgba(12, 19, 38, .98));
+    box-shadow:
+      0 0 0 2px rgba(25, 68, 122, .5),
+      0 0 10px rgba(30, 154, 255, .24),
+      inset 0 1px rgba(255, 255, 255, .12),
+      inset 0 -1px rgba(78, 115, 172, .2);
+    transition:
+      border-color var(--pa-header-transition),
+      box-shadow var(--pa-header-transition);
+  }
+
+  body[data-theme="prismatic-atelier"] .reference-search-box::before {
+    inset: -2px;
+    z-index: -1;
+    border-radius: inherit;
+    opacity: .48;
+    background: linear-gradient(100deg, rgba(50, 217, 255, .72) 0%, rgba(50, 217, 255, .08) 68%, rgba(234, 33, 39, .68) 100%);
+    filter: blur(6px);
+  }
+
+  body[data-theme="prismatic-atelier"] .reference-search-box input {
+    min-width: 0;
+    height: 100%;
+    padding: 0 16px 0 44px;
+    background-color: transparent;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Ccircle cx='10.5' cy='10.5' r='6.75' stroke='%237f8aa6' stroke-width='2'/%3E%3Cpath d='m15.5 15.5 5 5' stroke='%237f8aa6' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-position: 18px center;
+    background-repeat: no-repeat;
+    background-size: 20px;
+    color: #f7f9ff;
+    font-family: Inter, system-ui, -apple-system, sans-serif;
+    font-size: 15px;
+    font-weight: var(--font-regular);
+    line-height: 1.5;
+  }
+
+  body[data-theme="prismatic-atelier"] .reference-search-box input::placeholder {
+    color: #9aa8c1;
+    opacity: 1;
+  }
+
+  body[data-theme="prismatic-atelier"] .reference-search-box button {
+    width: 72px;
+    height: 52px;
+    border: 0;
+    border-left: 1px solid rgba(255, 105, 116, .85);
+    border-radius: 0 999px 999px 0;
+    background: linear-gradient(145deg, #ee2737, #a51325);
+    color: #fff;
+    font-size: 20px;
+    box-shadow: -2px 0 8px rgba(255, 50, 67, .48), inset 0 1px rgba(255, 255, 255, .18);
+    scale: 1;
+    transform: none;
+    transition:
+      color var(--pa-header-transition),
+      border-color var(--pa-header-transition),
+      box-shadow var(--pa-header-transition),
+      scale var(--pa-header-transition);
+  }
+
+  body[data-theme="prismatic-atelier"] .reference-search-box:hover {
+    border-color: rgba(90, 207, 255, .9);
+    box-shadow:
+      0 0 0 2px rgba(50, 217, 255, .22),
+      0 0 12px rgba(30, 154, 255, .3),
+      inset 0 1px rgba(255, 255, 255, .14);
+  }
+
+  body[data-theme="prismatic-atelier"] .reference-search-box:hover button {
+    background: linear-gradient(145deg, #f63143, #bd1527);
+    box-shadow: -2px 0 10px rgba(255, 50, 67, .62), inset 0 1px rgba(255, 255, 255, .22);
+    transform: none;
+  }
+
+  body[data-theme="prismatic-atelier"] .reference-search-box:focus-within {
+    border-color: rgba(50, 217, 255, .96);
+    box-shadow:
+      0 0 0 2px rgba(50, 217, 255, .92),
+      0 0 10px rgba(50, 217, 255, .3),
+      inset 0 1px rgba(255, 255, 255, .14);
+  }
+
+  body[data-theme="prismatic-atelier"] .reference-search-box button:active { scale: .96; }
+
+  body[data-theme="prismatic-atelier"] .reference-header-actions {
+    grid-column: 6 / 8;
+    width: 100%;
+    height: 62px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    align-items: center;
+  }
+
+  body[data-theme="prismatic-atelier"] .reference-header-action {
+    min-height: 62px;
+    height: 62px;
+    gap: 11px;
+    padding: 0 15px;
+    border-radius: 12px;
+    color: #c4cee0;
+    scale: 1;
+    transform: none;
+    transition:
+      color var(--pa-header-transition),
+      background-color var(--pa-header-transition),
+      border-color var(--pa-header-transition),
+      box-shadow var(--pa-header-transition),
+      scale var(--pa-header-transition);
+  }
+
+  body[data-theme="prismatic-atelier"] .reference-header-action--builder {
+    border: 1px solid rgba(86, 156, 218, .58);
+    border-radius: 14px;
+    background: linear-gradient(180deg, rgba(18, 32, 59, .96), rgba(8, 18, 39, .96));
+    box-shadow: 0 0 8px rgba(50, 217, 255, .09), inset 0 1px rgba(255, 255, 255, .09), inset 0 -1px rgba(50, 217, 255, .16);
+  }
+
+  body[data-theme="prismatic-atelier"] .reference-header-action--account,
+  body[data-theme="prismatic-atelier"] .reference-header-action--cart {
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  body[data-theme="prismatic-atelier"] .reference-header-action--account::before,
+  body[data-theme="prismatic-atelier"] .reference-header-action--cart::before {
+    position: absolute;
+    top: 19%;
+    bottom: 19%;
+    left: calc(-1 * clamp(4px, .35vw, 7px));
+    width: 1px;
+    content: '';
+    background: linear-gradient(180deg, transparent, rgba(126, 151, 191, .72) 18%, rgba(126, 151, 191, .72) 82%, transparent);
+  }
+
+  body[data-theme="prismatic-atelier"] .reference-header-action--account::after {
+    width: 6px;
+    height: 6px;
+    flex: 0 0 6px;
+    margin-left: auto;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    content: '';
+    opacity: .72;
+    transform: translateY(-2px) rotate(45deg);
+  }
+
+  body[data-theme="prismatic-atelier"] .reference-header-action--builder > i {
+    color: #32d9ff;
+    font-size: 22px;
+    text-shadow: 0 0 6px rgba(50, 217, 255, .36);
+  }
+
+  body[data-theme="prismatic-atelier"] .reference-header-action--account > i {
+    color: #5579ff;
+    font-size: 30px;
+    text-shadow: 0 0 7px rgba(85, 121, 255, .3);
+  }
+
+  body[data-theme="prismatic-atelier"] .reference-header-action--cart .reference-cart-icon > i {
+    color: #9eb0d3;
+    font-size: 26px;
+    text-shadow: 0 0 6px rgba(112, 143, 210, .2);
+  }
+
+  body[data-theme="prismatic-atelier"] .reference-header-action span:not(.reference-cart-icon) {
+    min-width: 0;
+    gap: 2px;
+  }
+
+  body[data-theme="prismatic-atelier"] .reference-header-action span small {
+    color: #aeb9cf;
+    font-size: 11px;
+    font-weight: var(--font-medium);
+    line-height: 1.5;
+    white-space: nowrap;
+  }
+
+  body[data-theme="prismatic-atelier"] .reference-header-action span strong {
+    overflow: hidden;
+    color: #f7f9ff;
+    font-size: 12px;
+    font-weight: var(--font-semibold);
+    line-height: 1.5;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  body[data-theme="prismatic-atelier"] .reference-header-action--cart span strong {
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  body[data-theme="prismatic-atelier"] .reference-cart-icon b {
+    top: -7px;
+    left: 62%;
+    width: 20px;
+    height: 20px;
+    display: grid;
+    place-items: center;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    background: #ea2127;
+    color: #fff;
+    font-size: 10px;
+    font-weight: var(--font-bold);
+    line-height: 1;
+    box-shadow: 0 2px 6px rgba(234, 33, 39, .36);
+  }
+
+  body[data-theme="prismatic-atelier"] .reference-header-action--builder:hover {
+    border-color: rgba(80, 218, 255, .88);
+    background: linear-gradient(180deg, rgba(24, 45, 79, .98), rgba(9, 24, 49, .98));
+    color: #fff;
+    box-shadow: 0 0 12px rgba(50, 217, 255, .18), inset 0 1px rgba(255, 255, 255, .12), inset 0 -1px rgba(50, 217, 255, .26);
+    transform: none;
+  }
+
+  body[data-theme="prismatic-atelier"] .reference-header-action--account:hover,
+  body[data-theme="prismatic-atelier"] .reference-header-action--cart:hover {
+    border-color: transparent;
+    background: rgba(24, 42, 75, .62);
+    color: #fff;
+    box-shadow: inset 0 0 0 1px rgba(102, 156, 220, .14);
+    transform: none;
+  }
+
+  body[data-theme="prismatic-atelier"] .reference-header-action:active { scale: .96; }
+
+  body[data-theme="prismatic-atelier"] .reference-header-action:focus-visible,
+  body[data-theme="prismatic-atelier"] .reference-header-main .brand-lockup:focus-visible {
+    outline: 2px solid #32d9ff;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(50, 217, 255, .18);
+  }
+
+  body[data-theme="prismatic-atelier"] .reference-search-box button:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: -4px;
+    box-shadow: -2px 0 10px rgba(255, 50, 67, .62), inset 0 0 0 3px rgba(50, 217, 255, .32);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body[data-theme="prismatic-atelier"] .reference-search-box,
+  body[data-theme="prismatic-atelier"] .reference-search-box button,
+  body[data-theme="prismatic-atelier"] .reference-header-action {
+    transition: none !important;
+  }
+
+  body[data-theme="prismatic-atelier"] .reference-search-box button:active,
+  body[data-theme="prismatic-atelier"] .reference-header-action:active { scale: 1; }
+}
+
+/* Immersive Hangar hero. Copy remains HTML; artwork contains no campaign text. */
+body[data-theme="prismatic-atelier"] #hero {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  padding-block: 18px 48px;
+  background:
+    radial-gradient(circle at 75% 18%, rgba(124, 92, 255, .18), transparent 31%),
+    radial-gradient(circle at 24% 70%, rgba(50, 217, 255, .12), transparent 28%),
+    var(--pa-obsidian);
+  color: var(--pa-ink-inverse);
+}
+
+body[data-theme="prismatic-atelier"] #hero::before {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  content: '';
+  opacity: .52;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(5, 7, 19, .98) 0%, rgba(5, 7, 19, .78) 33%, rgba(5, 7, 19, .12) 78%), url('media/promo-atrium/promo-hero.webp') 74% center / min(78vw, 1180px) auto no-repeat;
+}
+
+body[data-theme="prismatic-atelier"] #hero::after {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  content: '';
+  opacity: .24;
+  pointer-events: none;
+  background-image: linear-gradient(rgba(123, 155, 213, .12) 1px, transparent 1px), linear-gradient(90deg, rgba(123, 155, 213, .12) 1px, transparent 1px);
+  background-size: 52px 52px;
+  mask-image: linear-gradient(90deg, #000 0%, transparent 74%);
+}
+
+body[data-theme="prismatic-atelier"] #hero .gateway-mobile-menu {
+  background: var(--pa-red-deep);
+  color: #fff;
+  box-shadow: 0 12px 30px rgba(200, 24, 32, .22);
+}
+
+body[data-theme="prismatic-atelier"] #hero .gateway-nav {
+  --gateway-menu-row-bg: linear-gradient(100deg, rgba(10, 24, 48, .72), rgba(5, 14, 31, .9));
+  --gateway-menu-row-border: rgba(116, 153, 199, .14);
+  --gateway-menu-row-hover-bg: linear-gradient(100deg, rgba(42, 76, 125, .72), rgba(8, 24, 51, .94));
+  --gateway-menu-row-hover-border: rgba(102, 169, 230, .42);
+  --gateway-menu-row-active-bg: linear-gradient(100deg, rgba(0, 127, 236, .92) 0%, rgba(0, 67, 160, .93) 42%, rgba(7, 25, 65, .98) 100%);
+  --gateway-menu-row-active-border: rgba(50, 217, 255, .72);
+  --gateway-menu-icon-bg: rgba(3, 25, 45, .78);
+  --gateway-menu-icon-border: rgba(50, 217, 255, .26);
+  --gateway-menu-focus: rgba(50, 217, 255, .94);
+  border: 1px solid rgba(50, 217, 255, .24);
+  background: rgba(9, 17, 38, .86);
+  box-shadow: var(--pa-shadow-soft), inset 0 1px rgba(255, 255, 255, .07);
+  backdrop-filter: blur(18px);
+}
+
+body[data-theme="prismatic-atelier"] #hero .gateway-category-list {
+  padding: 8px 12px;
+  gap: 1px;
+}
+
+body[data-theme="prismatic-atelier"] #hero .gateway-category {
+  grid-template-columns: 20px minmax(0, 1fr) 12px;
+  gap: 8px;
+  padding: 0 8px;
+  border: 1px solid var(--gateway-menu-row-border);
+  border-radius: 6px;
+  background: var(--gateway-menu-row-bg);
+  color: #eef3fb;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  font-size: 12px;
+  font-weight: var(--font-regular);
+  line-height: 1.2;
+  box-shadow: inset 0 1px rgba(255, 255, 255, .025);
+  transition:
+    color 120ms cubic-bezier(.2, 0, 0, 1),
+    border-color 120ms cubic-bezier(.2, 0, 0, 1),
+    box-shadow 120ms cubic-bezier(.2, 0, 0, 1);
+}
+
+body[data-theme="prismatic-atelier"] #hero .gateway-category > span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+body[data-theme="prismatic-atelier"] #hero .gateway-category .menu-icon:first-child {
+  width: 20px;
+  height: min(18px, calc(100% - 2px));
+  display: grid;
+  place-items: center;
+  align-self: center;
+  border: 1px solid var(--gateway-menu-icon-border);
+  border-radius: 5px;
+  background: var(--gateway-menu-icon-bg);
+  color: var(--pa-cyan);
+  font-size: 13px;
+  line-height: 1;
+  box-shadow: inset 0 1px rgba(255, 255, 255, .07), 0 0 8px rgba(50, 217, 255, .08);
+}
+
+body[data-theme="prismatic-atelier"] #hero .gateway-category .menu-icon:last-child {
+  width: 12px;
+  display: grid;
+  place-items: center;
+  color: #71829d;
+  font-size: 10px;
+  line-height: 1;
+}
+
+body[data-theme="prismatic-atelier"] #hero .gateway-category:hover,
+body[data-theme="prismatic-atelier"] #hero .gateway-category:focus-visible {
+  border-color: var(--gateway-menu-row-hover-border);
+  background: var(--gateway-menu-row-hover-bg);
+  color: #fff;
+  box-shadow: inset 0 1px rgba(255, 255, 255, .1), 0 0 12px rgba(39, 131, 214, .16);
+}
+
+body[data-theme="prismatic-atelier"] #hero .gateway-category:hover .menu-icon:first-child,
+body[data-theme="prismatic-atelier"] #hero .gateway-category:focus-visible .menu-icon:first-child {
+  border-color: rgba(50, 217, 255, .54);
+  background: rgba(5, 43, 71, .9);
+  color: #60e4ff;
+  box-shadow: inset 0 1px rgba(255, 255, 255, .12), 0 0 10px rgba(50, 217, 255, .18);
+}
+
+body[data-theme="prismatic-atelier"] #hero .gateway-category:hover .menu-icon:last-child,
+body[data-theme="prismatic-atelier"] #hero .gateway-category:focus-visible .menu-icon:last-child {
+  color: var(--pa-cyan);
+  text-shadow: 0 0 8px rgba(50, 217, 255, .54);
+}
+
+body[data-theme="prismatic-atelier"] #hero .gateway-category.is-active {
+  border-color: var(--gateway-menu-row-active-border);
+  background: var(--gateway-menu-row-active-bg);
+  color: #fff;
+  font-weight: var(--font-semibold);
+  box-shadow: inset 0 1px rgba(255, 255, 255, .18), 0 0 14px rgba(0, 143, 255, .25);
+}
+
+body[data-theme="prismatic-atelier"] #hero .gateway-category.is-active .menu-icon:first-child {
+  border-color: rgba(96, 228, 255, .9);
+  background: rgba(0, 127, 210, .5);
+  color: #8defff;
+  box-shadow: inset 0 1px rgba(255, 255, 255, .2), 0 0 11px rgba(50, 217, 255, .42);
+}
+
+body[data-theme="prismatic-atelier"] #hero .gateway-category.is-active .menu-icon:last-child {
+  color: #60e4ff;
+  text-shadow: 0 0 9px rgba(50, 217, 255, .72);
+}
+
+body[data-theme="prismatic-atelier"] #hero .gateway-category:focus-visible {
+  outline: 2px solid var(--gateway-menu-focus);
+  outline-offset: -2px;
+}
+
+/* Wide desktop typography: give the larger line box enough room to breathe. */
+@media (min-width: 1600px) {
+  body[data-theme="prismatic-atelier"] #hero .gateway-category-list {
+    min-height: 666px;
+    grid-template-rows: repeat(21, minmax(30px, 1fr));
+  }
+
+  body[data-theme="prismatic-atelier"] #hero .gateway-category {
+    font-size: 14px;
+    line-height: 2;
+  }
+
+  body[data-theme="prismatic-atelier"] #hero .gateway-stage,
+  body[data-theme="prismatic-atelier"] #hero #specialsMosaic,
+  body[data-theme="prismatic-atelier"] #hero #specialsMosaic .specials-mosaic__composition,
+  body[data-theme="prismatic-atelier"] #hero #specialsMosaic .specials-mosaic__portraits,
+  body[data-theme="prismatic-atelier"] #hero #specialsMosaic .specials-mosaic__landscapes {
+    height: 100%;
+  }
+
+  body[data-theme="prismatic-atelier"] #hero #specialsMosaic .specials-mosaic__portraits .specials-mosaic__slot {
+    aspect-ratio: auto;
+  }
+}
+
+body[data-theme="prismatic-atelier"] #hero .gateway-reference-grid { gap: 14px; }
+body[data-theme="prismatic-atelier"] #hero .gateway-hero-carousel,
+body[data-theme="prismatic-atelier"] #hero .gateway-reference-tile {
+  border: 1px solid rgba(177, 212, 255, .28);
+  background: var(--pa-deep-navy);
+  box-shadow: var(--pa-shadow), inset 0 1px rgba(255, 255, 255, .08);
+}
+
+body[data-theme="prismatic-atelier"] #hero .gateway-hero-carousel { overflow: hidden; }
+body[data-theme="prismatic-atelier"] #hero .gateway-hero-slide__action { position: relative; display: block; height: 100%; }
+body[data-theme="prismatic-atelier"] #hero .gateway-hero-slide__action::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  content: '';
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(5, 7, 19, .96) 0%, rgba(5, 7, 19, .72) 31%, rgba(5, 7, 19, .08) 78%), linear-gradient(180deg, rgba(5, 7, 19, .02), rgba(5, 7, 19, .52));
+}
+
+body[data-theme="prismatic-atelier"] #hero .gateway-hero-slide__action img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(1.08) contrast(1.04);
+  transition: transform .7s var(--ease), filter .7s var(--ease);
+}
+
+body[data-theme="prismatic-atelier"] #hero .gateway-hero-slide--deal .gateway-hero-slide__action img { object-position: 68% center; }
+body[data-theme="prismatic-atelier"] #hero .gateway-hero-slide--laptop .gateway-hero-slide__action img { object-position: 68% center; }
+body[data-theme="prismatic-atelier"] #hero .gateway-hero-slide--pc .gateway-hero-slide__action img { object-position: 70% center; }
+body[data-theme="prismatic-atelier"] #hero .gateway-hero-slide__action:hover img,
+body[data-theme="prismatic-atelier"] #hero .gateway-hero-slide__action:focus-visible img { transform: scale(1.025); filter: saturate(1.16) contrast(1.07); }
+
+body[data-theme="prismatic-atelier"] .atelier-hero-copy {
+  position: absolute;
+  inset: 0 auto 0 0;
+  z-index: 2;
+  width: min(56%, 680px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(28px, 4vw, 64px);
+  pointer-events: none;
+}
+
+body[data-theme="prismatic-atelier"] .atelier-hero-copy__eyebrow {
+  color: var(--pa-cyan);
+  font-size: 10px;
+  font-weight: var(--font-bold);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+body[data-theme="prismatic-atelier"] .atelier-hero-copy__title {
+  max-width: 640px;
+  margin-top: 18px;
+  color: #f7f9ff;
+  font-size: clamp(2.7rem, 5.3vw, 6.1rem);
+  font-weight: var(--font-display);
+  letter-spacing: -.085em;
+  line-height: .88;
+  text-wrap: balance;
+}
+
+body[data-theme="prismatic-atelier"] .atelier-hero-copy__body {
+  max-width: 430px;
+  margin-top: 20px;
+  color: var(--pa-muted-strong);
+  font-size: clamp(.88rem, 1.2vw, 1.1rem);
+  line-height: 1.5;
+}
+
+body[data-theme="prismatic-atelier"] .atelier-hero-copy__cta {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 28px;
+  padding: 0 16px;
+  border: 1px solid rgba(234, 33, 39, .7);
+  border-radius: 10px;
+  background: var(--pa-red-deep);
+  color: #fff;
+  font-size: 13px;
+  font-weight: var(--font-semibold);
+  box-shadow: 0 14px 28px rgba(200, 24, 32, .24);
+}
+
+body[data-theme="prismatic-atelier"] #hero .gateway-reference-tile { transition: transform .24s var(--ease), border-color .24s var(--ease), box-shadow .24s var(--ease); }
+body[data-theme="prismatic-atelier"] #hero .gateway-reference-tile:hover,
+body[data-theme="prismatic-atelier"] #hero .gateway-reference-tile:focus-visible { border-color: var(--pa-cyan); box-shadow: 0 24px 48px rgba(0, 0, 0, .34), 0 0 0 1px rgba(50, 217, 255, .24); }
+body[data-theme="prismatic-atelier"] #hero .gateway-reference-tile img { transition: transform .5s var(--ease), filter .5s var(--ease); }
+body[data-theme="prismatic-atelier"] #hero .gateway-reference-tile:hover img,
+body[data-theme="prismatic-atelier"] #hero .gateway-reference-tile:focus-visible img { transform: scale(1.04); filter: saturate(1.16); }
+
+body[data-theme="prismatic-atelier"] #hero .gateway-control-deck button {
+  border-color: rgba(177, 212, 255, .3);
+  background: rgba(5, 7, 19, .72);
+  color: #fff;
+}
+body[data-theme="prismatic-atelier"] #hero .gateway-control-deck button:hover:not(:disabled),
+body[data-theme="prismatic-atelier"] #hero .gateway-control-deck button:focus-visible { border-color: var(--pa-cyan); background: var(--pa-red-deep); }
+body[data-theme="prismatic-atelier"] #hero .gateway-indicators .indicator-dot.active::after { background: var(--pa-red); border-color: var(--pa-red); }
+
+/* Editorial trust telemetry. */
+body[data-theme="prismatic-atelier"] #customerStories {
+  border-top: 1px solid var(--pa-line);
+  border-bottom: 1px solid var(--pa-line);
+  background: var(--pa-deep-navy);
+  color: var(--pa-ink-inverse);
+}
+@media (min-width: 768px) {
+  body[data-theme="prismatic-atelier"] #customerStories { padding-block: 20px; }
+}
+body[data-theme="prismatic-atelier"] #customerStories .customer-runway { background: transparent; }
+body[data-theme="prismatic-atelier"] #customerStories .customer-runway__trust {
+  border: 1px solid var(--pa-line);
+  border-radius: 18px;
+  background: linear-gradient(145deg, rgba(17, 29, 60, .92), rgba(9, 17, 38, .72));
+  box-shadow: inset 0 1px rgba(255, 255, 255, .05), var(--pa-shadow-soft);
+}
+body[data-theme="prismatic-atelier"] #customerStories .customer-runway__signal { background: linear-gradient(90deg, var(--pa-cyan), var(--pa-violet), var(--pa-magenta), var(--pa-red)); }
+body[data-theme="prismatic-atelier"] #customerStories .customer-runway__eyebrow { color: var(--pa-cyan); }
+body[data-theme="prismatic-atelier"] #customerStories .customer-runway__trust h2 strong { color: #fff; }
+body[data-theme="prismatic-atelier"] #customerStories .customer-runway__trust h2 span { color: var(--pa-muted-strong); }
+body[data-theme="prismatic-atelier"] #customerStories .customer-runway__trust p { color: var(--pa-muted); }
+body[data-theme="prismatic-atelier"] #customerStories .customer-runway__card { border-color: var(--pa-line-strong); box-shadow: 0 16px 32px rgba(0, 0, 0, .28); }
+body[data-theme="prismatic-atelier"] #customerStories .customer-runway__card.is-featured,
+body[data-theme="prismatic-atelier"] #customerStories .customer-runway__card.is-spotlight-entering { transform: none; border-color: var(--pa-cyan); box-shadow: 0 20px 38px rgba(0, 0, 0, .34), 0 0 0 1px rgba(50, 217, 255, .22), 0 0 24px rgba(50, 217, 255, .12); }
+body[data-theme="prismatic-atelier"] #customerStories .customer-runway__controls button { border-color: var(--pa-line-strong); background: rgba(17, 29, 60, .82); color: var(--pa-muted-strong); }
+body[data-theme="prismatic-atelier"] #customerStories .customer-runway__controls button:hover,
+body[data-theme="prismatic-atelier"] #customerStories .customer-runway__controls button:focus-visible { border-color: var(--pa-cyan); background: var(--pa-red-deep); color: #fff; }
+
+/* Specials Mosaic: the source-inspired campaign wall sits between hero and trust. */
+body[data-theme="prismatic-atelier"] #specialsMosaic {
+  border-block: 1px solid var(--pa-line);
+  background: linear-gradient(180deg, #03050d 0%, var(--pa-obsidian) 52%, #070b19 100%);
+}
+
+body[data-theme="prismatic-atelier"] #specialsMosaic .specials-mosaic__slot {
+  border-color: rgba(178, 205, 242, .24);
+  background: #02030a;
+}
+
+body[data-theme="prismatic-atelier"] #specialsMosaic .specials-mosaic__slot:hover,
+body[data-theme="prismatic-atelier"] #specialsMosaic .specials-mosaic__slot:focus-within {
+  border-color: var(--pa-cyan);
+  box-shadow: 0 22px 42px rgba(0, 0, 0, .38), 0 0 0 1px rgba(50, 217, 255, .2), 0 0 28px rgba(50, 217, 255, .12), inset 0 1px rgba(255, 255, 255, .14);
+}
+
+/* Dark deal pulse; Quantum Deals remains absent as a section. */
+body[data-theme="prismatic-atelier"] #deals {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  background: linear-gradient(135deg, var(--pa-red-deep), #80152b 48%, var(--pa-deep-navy));
+  color: #fff;
+}
+body[data-theme="prismatic-atelier"] #deals::before { position: absolute; inset: 0; z-index: -1; content: ''; opacity: .36; background: linear-gradient(90deg, rgba(5, 7, 19, .82), transparent 74%), url('media/promo-atrium/promo-hero.webp') 82% center / min(52vw, 900px) auto no-repeat; }
+body[data-theme="prismatic-atelier"] #deals::after { position: absolute; right: 0; bottom: 0; left: 0; height: 3px; content: ''; background: linear-gradient(90deg, var(--pa-red), var(--pa-magenta), var(--pa-violet), var(--pa-cyan)); }
+body[data-theme="prismatic-atelier"] #deals .deals-quantum__artwork { opacity: .12; mix-blend-mode: screen; }
+body[data-theme="prismatic-atelier"] #deals .section-head h2 { color: #fff; }
+body[data-theme="prismatic-atelier"] #deals .section-intro { color: var(--pa-muted-strong); }
+body[data-theme="prismatic-atelier"] #deals .eyebrow { color: #ff9aa6; }
+body[data-theme="prismatic-atelier"] #deals .section-head-actions > button { border-color: var(--pa-line-strong); background: rgba(5, 7, 19, .46); color: #fff; }
+body[data-theme="prismatic-atelier"] #deals .section-head-actions > button:hover,
+body[data-theme="prismatic-atelier"] #deals .section-head-actions > button:focus-visible { border-color: var(--pa-red); background: var(--pa-red); }
+
+/* Titanium live-ranking surface. */
+body[data-theme="prismatic-atelier"] #trending {
+  border-top: 1px solid #d8e0ec;
+  border-bottom: 1px solid #d8e0ec;
+  background: var(--pa-titanium);
+  color: var(--pa-ink);
+}
+body[data-theme="prismatic-atelier"] #trending .section-head h2 { color: var(--pa-ink); }
+body[data-theme="prismatic-atelier"] #trending .eyebrow { color: var(--pa-violet); }
+body[data-theme="prismatic-atelier"] #trending .section-tab,
+body[data-theme="prismatic-atelier"] #trending .category-pill { border-color: #d1dae8; background: rgba(255, 255, 255, .72); color: #526079; }
+body[data-theme="prismatic-atelier"] #trending .section-tab.is-active,
+body[data-theme="prismatic-atelier"] #trending .category-pill.is-active { border-color: var(--pa-violet-deep); background: var(--pa-violet-deep); color: #fff; }
+body[data-theme="prismatic-atelier"] #trending .section-tab.is-active { border-color: var(--pa-violet); background: var(--pa-violet); color: #fff; }
+body[data-theme="prismatic-atelier"] #trending .section-head-actions > button,
+body[data-theme="prismatic-atelier"] #trending .carousel-controls > button { border-color: #cbd5e1; background: #fff; color: var(--pa-ink); }
+
+/* Shopper-first collection surfaces; card interiors remain the preserved skin. */
+body[data-theme="prismatic-atelier"] #laptops,
+body[data-theme="prismatic-atelier"] #accessories { background: var(--pa-titanium); color: var(--pa-ink); }
+body[data-theme="prismatic-atelier"] #displays { background: var(--pa-pearl); color: var(--pa-ink); }
+body[data-theme="prismatic-atelier"] #pc-gaming,
+body[data-theme="prismatic-atelier"] #components { background: var(--pa-deep-navy); color: var(--pa-ink-inverse); }
+body[data-theme="prismatic-atelier"] #laptops::before,
+body[data-theme="prismatic-atelier"] #pc-gaming::before,
+body[data-theme="prismatic-atelier"] #displays::before,
+body[data-theme="prismatic-atelier"] #components::before,
+body[data-theme="prismatic-atelier"] #accessories::before {
+  display: block;
+  height: 2px;
+  margin-bottom: 26px;
+  content: '';
+  background: linear-gradient(90deg, var(--pa-cyan), var(--pa-violet), var(--pa-magenta), var(--pa-red));
+  opacity: .76;
+}
+body[data-theme="prismatic-atelier"] #pc-gaming .section-head h2,
+body[data-theme="prismatic-atelier"] #components .section-head h2 { color: #fff; }
+body[data-theme="prismatic-atelier"] #pc-gaming .eyebrow,
+body[data-theme="prismatic-atelier"] #components .eyebrow { color: var(--pa-cyan); }
+body[data-theme="prismatic-atelier"] #pc-gaming .text-link,
+body[data-theme="prismatic-atelier"] #components .text-link { color: var(--pa-muted-strong); }
+body[data-theme="prismatic-atelier"] #laptops .eyebrow { color: var(--pa-violet); }
+body[data-theme="prismatic-atelier"] #displays .eyebrow { color: #167d91; }
+body[data-theme="prismatic-atelier"] #accessories .eyebrow { color: #248c57; }
+body[data-theme="prismatic-atelier"] .category-showcase__item {
+  border-color: var(--pa-line);
+  background: var(--pa-obsidian);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, .18);
+}
+body[data-theme="prismatic-atelier"] #pc-gaming .category-showcase__item,
+body[data-theme="prismatic-atelier"] #components .category-showcase__item {
+  border-color: var(--pa-line-strong);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, .3);
+}
+body[data-theme="prismatic-atelier"] .subcategory-menu__button {
+  border-color: var(--pa-line);
+  background: rgba(255, 255, 255, .46);
+  color: var(--pa-ink);
+}
+body[data-theme="prismatic-atelier"] .subcategory-menu__button:hover,
+body[data-theme="prismatic-atelier"] .subcategory-menu__button:focus-visible {
+  border-color: var(--pa-violet);
+  background: rgba(124, 92, 255, .12);
+  color: var(--pa-violet-deep);
+}
+body[data-theme="prismatic-atelier"] #pc-gaming .subcategory-menu__button,
+body[data-theme="prismatic-atelier"] #components .subcategory-menu__button {
+  border-color: var(--pa-line-strong);
+  background: rgba(17, 29, 60, .72);
+  color: var(--pa-muted-strong);
+}
+body[data-theme="prismatic-atelier"] #pc-gaming .subcategory-menu__button:hover,
+body[data-theme="prismatic-atelier"] #pc-gaming .subcategory-menu__button:focus-visible,
+body[data-theme="prismatic-atelier"] #components .subcategory-menu__button:hover,
+body[data-theme="prismatic-atelier"] #components .subcategory-menu__button:focus-visible {
+  border-color: var(--pa-cyan);
+  background: rgba(50, 217, 255, .12);
+  color: #fff;
+}
+
+/* Showroom directory: compact hierarchy with semantic link and contact rows. */
+body[data-theme="prismatic-atelier"] .showroom-directory {
+  border-top: 1px solid var(--pa-line);
+  background: linear-gradient(180deg, var(--pa-obsidian), var(--pa-deep-navy));
+  color: var(--pa-ink-inverse);
+}
+
+body[data-theme="prismatic-atelier"] .showroom-directory__container { padding-block: clamp(44px, 5vw, 72px) clamp(60px, 8vw, 108px); }
+body[data-theme="prismatic-atelier"] .showroom-directory__intro { max-width: none; margin-inline: auto; text-align: center; }
+body[data-theme="prismatic-atelier"] .showroom-directory h2 { margin: 0; color: var(--pa-ink-inverse); font-size: clamp(1.5rem, 7vw, 1.85rem); font-weight: var(--font-bold); letter-spacing: -.045em; line-height: 1.06; text-wrap: balance; }
+body[data-theme="prismatic-atelier"] .showroom-directory__accent { display: block; width: 92px; height: 2px; margin: 14px auto 0; background: linear-gradient(90deg, var(--pa-red), var(--pa-cyan)); }
+body[data-theme="prismatic-atelier"] .showroom-directory__search { width: min(100%, 720px); margin: 26px auto 0; }
+body[data-theme="prismatic-atelier"] .showroom-directory__search-field { min-height: 56px; display: flex; align-items: center; gap: 12px; padding: 0 8px 0 17px; border: 1px solid var(--pa-line-strong); border-radius: 14px; background: rgba(17, 29, 60, .86); color: var(--pa-cyan); box-shadow: inset 0 1px rgba(255, 255, 255, .05); }
+body[data-theme="prismatic-atelier"] .showroom-directory__search-field:focus-within { border-color: var(--pa-cyan); box-shadow: 0 0 0 4px rgba(50, 217, 255, .12), inset 0 1px rgba(255, 255, 255, .08); }
+body[data-theme="prismatic-atelier"] .showroom-directory__search-field input { min-width: 0; flex: 1; height: 54px; border: 0; outline: 0; background: transparent; color: var(--pa-ink-inverse); font-size: var(--text-body); }
+body[data-theme="prismatic-atelier"] .showroom-directory__search-field input::placeholder { color: var(--pa-muted); }
+body[data-theme="prismatic-atelier"] .showroom-directory__search-field button { width: 44px; height: 44px; display: grid; flex: 0 0 44px; place-items: center; border-radius: 10px; color: var(--pa-muted-strong); }
+body[data-theme="prismatic-atelier"] .showroom-directory__search-field button[hidden] { display: none; }
+body[data-theme="prismatic-atelier"] .showroom-directory__search-field button:hover,
+body[data-theme="prismatic-atelier"] .showroom-directory__search-field button:focus-visible { background: rgba(50, 217, 255, .12); color: var(--pa-cyan); }
+body[data-theme="prismatic-atelier"] .showroom-directory__grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 32px; }
+body[data-theme="prismatic-atelier"] .showroom-directory__grid[hidden] { display: none; }
+body[data-theme="prismatic-atelier"] .showroom-directory__card { min-width: 0; overflow: hidden; border: 1px solid var(--pa-line-strong); border-radius: 14px; background: rgba(9, 17, 38, .86); color: var(--pa-ink-inverse); }
+body[data-theme="prismatic-atelier"] .showroom-directory__card-header,
+body[data-theme="prismatic-atelier"] .showroom-directory__card > summary { min-height: 52px; display: flex; align-items: center; gap: 11px; padding: 0 14px 0 0; background: rgba(27, 45, 87, .86); color: var(--pa-ink-inverse); }
+body[data-theme="prismatic-atelier"] .showroom-directory__card > summary { justify-content: space-between; padding-left: 14px; cursor: pointer; list-style: none; touch-action: manipulation; }
+body[data-theme="prismatic-atelier"] .showroom-directory__card > summary::-webkit-details-marker { display: none; }
+body[data-theme="prismatic-atelier"] .showroom-directory__card > summary:focus-visible { outline: 3px solid var(--pa-cyan); outline-offset: -3px; }
+body[data-theme="prismatic-atelier"] .showroom-directory__card > summary i { color: var(--pa-cyan); }
+body[data-theme="prismatic-atelier"] .showroom-directory__card[open] > summary i { transform: rotate(180deg); }
+body[data-theme="prismatic-atelier"] .showroom-directory__index { width: 48px; min-height: 52px; display: grid; flex: 0 0 48px; place-items: center; background: var(--pa-red); color: #fff; font-size: var(--text-ui); font-weight: var(--font-bold); font-variant-numeric: tabular-nums; }
+body[data-theme="prismatic-atelier"] .showroom-directory__card-header h3,
+body[data-theme="prismatic-atelier"] .showroom-directory__card > summary span { min-width: 0; margin: 0; color: inherit; font-size: var(--text-card-title); font-weight: var(--font-bold); letter-spacing: -.025em; line-height: 1.2; overflow-wrap: anywhere; }
+body[data-theme="prismatic-atelier"] .showroom-directory__body { display: grid; gap: 0; padding: 15px 16px 16px; }
+body[data-theme="prismatic-atelier"] .showroom-directory__address { min-width: 0; display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 10px; align-items: center; margin: 0; padding: 0 0 14px; border-bottom: 1px solid var(--pa-line); color: var(--pa-ink-inverse); font-size: var(--text-ui); font-weight: var(--font-bold); line-height: 1.4; overflow-wrap: anywhere; }
+body[data-theme="prismatic-atelier"] .showroom-directory__address i { width: 28px; height: 28px; display: grid; place-items: center; border-radius: 8px; background: rgba(234, 33, 39, .14); color: var(--pa-red); }
+body[data-theme="prismatic-atelier"] .showroom-directory__actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--pa-line); }
+body[data-theme="prismatic-atelier"] .showroom-directory__action { min-width: 0; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; gap: 7px; padding: 0 8px; border: 1px solid var(--pa-line); border-radius: 9px; background: rgba(17, 29, 60, .6); color: var(--pa-muted-strong); font-size: var(--text-caption); font-weight: var(--font-semibold); text-align: center; text-decoration: none; }
+body[data-theme="prismatic-atelier"] .showroom-directory__action i { flex: 0 0 auto; }
+body[data-theme="prismatic-atelier"] .showroom-directory__action--photo i { color: var(--pa-red); }
+body[data-theme="prismatic-atelier"] .showroom-directory__action--map i { color: var(--pa-cyan); }
+body[data-theme="prismatic-atelier"] .showroom-directory__action:hover,
+body[data-theme="prismatic-atelier"] .showroom-directory__action:focus-visible { border-color: var(--pa-cyan); background: rgba(50, 217, 255, .08); color: var(--pa-ink-inverse); }
+body[data-theme="prismatic-atelier"] .showroom-directory__details { min-width: 0; margin: 0; }
+body[data-theme="prismatic-atelier"] .showroom-directory__detail { min-width: 0; display: grid; grid-template-columns: minmax(86px, .34fr) minmax(0, 1fr); gap: 10px; align-items: center; min-height: 46px; padding: 8px 0; border-bottom: 1px solid var(--pa-line); }
+body[data-theme="prismatic-atelier"] .showroom-directory__detail:last-child { border-bottom: 0; padding-bottom: 0; }
+body[data-theme="prismatic-atelier"] .showroom-directory__detail dt { min-width: 0; display: flex; align-items: center; gap: 8px; color: var(--pa-muted); font-size: var(--text-caption); font-weight: var(--font-semibold); line-height: 1.3; }
+body[data-theme="prismatic-atelier"] .showroom-directory__detail dt i { width: 16px; flex: 0 0 16px; color: var(--pa-cyan); text-align: center; }
+body[data-theme="prismatic-atelier"] .showroom-directory__detail--time dt i { color: var(--pa-green); }
+body[data-theme="prismatic-atelier"] .showroom-directory__detail dd { min-width: 0; margin: 0; color: var(--pa-ink-inverse); font-size: var(--text-meta); font-weight: var(--font-semibold); line-height: 1.35; overflow-wrap: anywhere; }
+body[data-theme="prismatic-atelier"] .showroom-directory__detail dd a { color: inherit; text-decoration: none; }
+body[data-theme="prismatic-atelier"] .showroom-directory__detail dd a:hover,
+body[data-theme="prismatic-atelier"] .showroom-directory__detail dd a:focus-visible { color: var(--pa-cyan); }
+body[data-theme="prismatic-atelier"] .showroom-directory__detail dd a:focus-visible,
+body[data-theme="prismatic-atelier"] .showroom-directory__action:focus-visible,
+body[data-theme="prismatic-atelier"] .showroom-directory__empty button:focus-visible { outline: 3px solid var(--pa-cyan); outline-offset: 2px; }
+body[data-theme="prismatic-atelier"] .showroom-directory__empty { padding: 44px 20px; border: 1px solid var(--pa-line); border-radius: 14px; background: rgba(17, 29, 60, .72); color: var(--pa-muted-strong); text-align: center; }
+body[data-theme="prismatic-atelier"] .showroom-directory__empty > i { color: var(--pa-red); font-size: 26px; }
+body[data-theme="prismatic-atelier"] .showroom-directory__empty h3 { margin: 12px 0 5px; color: var(--pa-ink-inverse); font-size: 20px; }
+body[data-theme="prismatic-atelier"] .showroom-directory__empty p { margin: 0 0 18px; font-size: var(--text-ui); }
+body[data-theme="prismatic-atelier"] .showroom-directory__empty p a { color: var(--pa-cyan); font-weight: var(--font-bold); }
+body[data-theme="prismatic-atelier"] .showroom-directory__empty button { min-height: 44px; padding: 0 15px; border: 1px solid var(--pa-red); border-radius: 10px; background: var(--pa-red); color: #fff; font-size: var(--text-ui); font-weight: var(--font-bold); }
+body[data-theme="prismatic-atelier"] .showroom-directory__noscript { margin: 22px 0 0; color: var(--pa-muted); font-size: var(--text-meta); }
+body[data-theme="prismatic-atelier"] .showroom-directory__noscript a { color: var(--pa-cyan); text-decoration: underline; }
+
+@media (min-width: 768px) {
+  body[data-theme="prismatic-atelier"] .showroom-directory h2 { font-size: clamp(2rem, 2.4vw, 2.75rem); line-height: 1; text-wrap: nowrap; white-space: nowrap; }
+  body[data-theme="prismatic-atelier"] .showroom-directory__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  body[data-theme="prismatic-atelier"] .showroom-directory__card { border-radius: 16px; }
+}
+
+@media (min-width: 1181px) {
+  body[data-theme="prismatic-atelier"] .showroom-directory__grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+}
+
+@media (max-width: 767.98px) {
+  body[data-theme="prismatic-atelier"] .showroom-directory__container { padding-block: 44px 60px; }
+  body[data-theme="prismatic-atelier"] .showroom-directory__search-field { min-height: 54px; padding-left: 14px; }
+  body[data-theme="prismatic-atelier"] .showroom-directory__search-field input { height: 52px; font-size: var(--text-ui); }
+  body[data-theme="prismatic-atelier"] .showroom-directory__card > summary { min-height: 56px; padding-left: 15px; }
+  body[data-theme="prismatic-atelier"] .showroom-directory__card > summary span { font-size: var(--text-ui); }
+  body[data-theme="prismatic-atelier"] .showroom-directory__body { padding: 15px 15px 17px; }
+  body[data-theme="prismatic-atelier"] .showroom-directory__detail { grid-template-columns: minmax(74px, .36fr) minmax(0, 1fr); gap: 8px; }
+}
+
+body[data-theme="prismatic-atelier"] .site-footer {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  border-top: 1px solid var(--pa-line);
+  background: var(--pa-obsidian);
+  color: var(--pa-ink-inverse);
+}
+body[data-theme="prismatic-atelier"] .site-footer::before { display: block; height: 3px; content: ''; background: linear-gradient(90deg, var(--pa-red), var(--pa-magenta), var(--pa-violet), var(--pa-cyan)); }
+body[data-theme="prismatic-atelier"] .site-footer a,
+body[data-theme="prismatic-atelier"] .site-footer p,
+body[data-theme="prismatic-atelier"] .site-footer span { color: var(--pa-muted-strong); }
+body[data-theme="prismatic-atelier"] .site-footer a:hover { color: var(--pa-cyan); }
+body[data-theme="prismatic-atelier"] .footer-legal {
+  border-top-color: var(--pa-line-strong);
+  background: linear-gradient(135deg, var(--pa-footer-legal-start), var(--pa-footer-legal-end));
+  color: var(--pa-muted-strong);
+}
+body[data-theme="prismatic-atelier"] .footer-legal address p { color: var(--pa-muted-strong); }
+body[data-theme="prismatic-atelier"] .footer-legal address p:first-child,
+body[data-theme="prismatic-atelier"] .footer-legal address p:first-child span { color: var(--pa-ink-inverse); }
+body[data-theme="prismatic-atelier"] .footer-legal address a { color: var(--pa-cyan); }
+body[data-theme="prismatic-atelier"] .footer-legal address a:hover,
+body[data-theme="prismatic-atelier"] .footer-legal address a:focus-visible { color: var(--pa-ink-inverse); }
+
+body[data-theme="prismatic-atelier"] .product-card { --pg-card-bg: color-mix(in srgb, var(--pg-sky) 14%, var(--pg-canvas)); --pg-card-line: color-mix(in srgb, var(--pg-sky) 30%, var(--pg-line)); min-width: 0; overflow: visible; border: 1px solid var(--pg-card-line); border-radius: var(--pg-radius-card); background: var(--pg-card-bg); color: var(--pg-ink); box-shadow: var(--pg-shadow-sm); transition: transform .28s var(--ease), border-color .28s var(--ease), box-shadow .28s var(--ease); }
+body[data-theme="prismatic-atelier"] #trending .product-card:nth-child(4n + 1), body[data-theme="prismatic-atelier"] #laptops .product-card:nth-child(4n + 1) { --pg-card-bg: color-mix(in srgb, var(--pg-sky) 17%, var(--pg-canvas)); --pg-card-line: color-mix(in srgb, var(--pg-sky) 36%, var(--pg-line)); }
+body[data-theme="prismatic-atelier"] #trending .product-card:nth-child(4n + 2), body[data-theme="prismatic-atelier"] #laptops .product-card:nth-child(4n + 2) { --pg-card-bg: color-mix(in srgb, var(--pg-violet) 15%, var(--pg-canvas)); --pg-card-line: color-mix(in srgb, var(--pg-violet) 36%, var(--pg-line)); }
+body[data-theme="prismatic-atelier"] #trending .product-card:nth-child(4n + 3), body[data-theme="prismatic-atelier"] #laptops .product-card:nth-child(4n + 3) { --pg-card-bg: color-mix(in srgb, var(--pg-coral) 15%, var(--pg-canvas)); --pg-card-line: color-mix(in srgb, var(--pg-coral) 34%, var(--pg-line)); }
+body[data-theme="prismatic-atelier"] #trending .product-card:nth-child(4n + 4), body[data-theme="prismatic-atelier"] #laptops .product-card:nth-child(4n + 4) { --pg-card-bg: color-mix(in srgb, var(--pg-amber) 17%, var(--pg-canvas)); --pg-card-line: color-mix(in srgb, var(--pg-amber) 38%, var(--pg-line)); }
+body[data-theme="prismatic-atelier"] #pc-gaming .product-card:nth-child(3n + 1) { --pg-card-bg: color-mix(in srgb, var(--pg-rose) 17%, var(--pg-canvas)); --pg-card-line: color-mix(in srgb, var(--pg-rose) 38%, var(--pg-line)); }
+body[data-theme="prismatic-atelier"] #pc-gaming .product-card:nth-child(3n + 2) { --pg-card-bg: color-mix(in srgb, var(--pg-violet) 17%, var(--pg-canvas)); --pg-card-line: color-mix(in srgb, var(--pg-violet) 38%, var(--pg-line)); }
+body[data-theme="prismatic-atelier"] #pc-gaming .product-card:nth-child(3n + 3) { --pg-card-bg: color-mix(in srgb, var(--pg-sky) 16%, var(--pg-canvas)); --pg-card-line: color-mix(in srgb, var(--pg-sky) 38%, var(--pg-line)); }
+body[data-theme="prismatic-atelier"] #displays .product-card:nth-child(3n + 1) { --pg-card-bg: color-mix(in srgb, var(--pg-aqua) 17%, var(--pg-canvas)); --pg-card-line: color-mix(in srgb, var(--pg-aqua) 38%, var(--pg-line)); }
+body[data-theme="prismatic-atelier"] #displays .product-card:nth-child(3n + 2) { --pg-card-bg: color-mix(in srgb, var(--pg-indigo) 16%, var(--pg-canvas)); --pg-card-line: color-mix(in srgb, var(--pg-indigo) 38%, var(--pg-line)); }
+body[data-theme="prismatic-atelier"] #displays .product-card:nth-child(3n + 3) { --pg-card-bg: color-mix(in srgb, var(--pg-sky) 15%, var(--pg-canvas)); --pg-card-line: color-mix(in srgb, var(--pg-sky) 36%, var(--pg-line)); }
+body[data-theme="prismatic-atelier"] #components .product-card:nth-child(3n + 1) { --pg-card-bg: color-mix(in srgb, var(--pg-amber) 18%, var(--pg-canvas)); --pg-card-line: color-mix(in srgb, var(--pg-amber) 42%, var(--pg-line)); }
+body[data-theme="prismatic-atelier"] #components .product-card:nth-child(3n + 2) { --pg-card-bg: color-mix(in srgb, var(--pg-coral) 16%, var(--pg-canvas)); --pg-card-line: color-mix(in srgb, var(--pg-coral) 38%, var(--pg-line)); }
+body[data-theme="prismatic-atelier"] #components .product-card:nth-child(3n + 3) { --pg-card-bg: color-mix(in srgb, var(--pg-mint) 17%, var(--pg-canvas)); --pg-card-line: color-mix(in srgb, var(--pg-mint) 42%, var(--pg-line)); }
+body[data-theme="prismatic-atelier"] #accessories .product-card:nth-child(3n + 1) { --pg-card-bg: color-mix(in srgb, var(--pg-lime) 18%, var(--pg-canvas)); --pg-card-line: color-mix(in srgb, var(--pg-lime) 44%, var(--pg-line)); }
+body[data-theme="prismatic-atelier"] #accessories .product-card:nth-child(3n + 2) { --pg-card-bg: color-mix(in srgb, var(--pg-aqua) 17%, var(--pg-canvas)); --pg-card-line: color-mix(in srgb, var(--pg-aqua) 40%, var(--pg-line)); }
+body[data-theme="prismatic-atelier"] #accessories .product-card:nth-child(3n + 3) { --pg-card-bg: color-mix(in srgb, var(--pg-violet) 15%, var(--pg-canvas)); --pg-card-line: color-mix(in srgb, var(--pg-violet) 38%, var(--pg-line)); }
+body[data-theme="prismatic-atelier"] .product-card:hover, body[data-theme="prismatic-atelier"] .product-card:focus-within { border-color: var(--pg-accent, var(--pg-sky)); box-shadow: 0 22px 44px color-mix(in srgb, var(--pg-accent, var(--pg-sky)) 16%, transparent), var(--pg-shadow-sm); transform: translateY(calc(-1 * var(--hover-lift-card))); }
+body[data-theme="prismatic-atelier"] .product-card__media { min-height: 0; padding: 12px; background: transparent; }
+body[data-theme="prismatic-atelier"] .product-card__image-surface { overflow: hidden; border: 1px solid rgba(255, 255, 255, .86); border-radius: 16px; background: color-mix(in srgb, var(--pg-card-bg) 46%, var(--pg-canvas)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .9); }
+body[data-theme="prismatic-atelier"] .product-card__image { mix-blend-mode: multiply; }
+body[data-theme="prismatic-atelier"] .product-card__media-accent { background: var(--pg-accent, var(--pg-sky)); opacity: .5; }
+body[data-theme="prismatic-atelier"] .product-card__brand { background: var(--pg-ink); color: #fff; }
+body[data-theme="prismatic-atelier"] .product-card__discount { background: var(--pg-red-deep); color: #fff; }
+body[data-theme="prismatic-atelier"] .product-card__title a { color: var(--pg-ink); }
+body[data-theme="prismatic-atelier"] .product-card__meta, body[data-theme="prismatic-atelier"] .product-card__spec-label, body[data-theme="prismatic-atelier"] .product-card__old-price { color: var(--pg-ink-soft); }
+body[data-theme="prismatic-atelier"] .product-card__spec-value { color: var(--pg-ink); }
+body[data-theme="prismatic-atelier"] .product-card__price { color: var(--pg-red); font-variant-numeric: tabular-nums; }
+body[data-theme="prismatic-atelier"] .product-card__stock { color: #16734a; }
+body[data-theme="prismatic-atelier"] .product-card__footer { border-top-color: var(--pg-card-line); background: color-mix(in srgb, var(--pg-card-bg) 76%, var(--pg-canvas)); }
+body[data-theme="prismatic-atelier"] .product-card__cart { background: var(--pg-red-deep); color: #fff; box-shadow: 0 10px 20px color-mix(in srgb, var(--pg-red-deep) 20%, transparent); }
+body[data-theme="prismatic-atelier"] .product-card__cart:hover, body[data-theme="prismatic-atelier"] .product-card__cart:focus-visible { background: var(--pg-red-deep); }
+
+@media (max-width: 1180px) {
+  body[data-theme="prismatic-atelier"] #hero::before { background-position: 82% center; background-size: 94% auto; opacity: .44; }
+  body[data-theme="prismatic-atelier"] .atelier-hero-copy { width: min(66%, 620px); }
+}
+
+@media (max-width: 767.98px) {
+  body[data-theme="prismatic-atelier"] #hero { padding-block: 12px 44px; }
+  body[data-theme="prismatic-atelier"] #hero::before { background-position: 70% bottom; background-size: auto 82%; opacity: .38; }
+  body[data-theme="prismatic-atelier"] #hero::after { background-size: 34px 34px; opacity: .18; }
+  body[data-theme="prismatic-atelier"] .atelier-hero-copy { width: 100%; justify-content: flex-end; padding: 24px 26px 28px 56px; }
+  body[data-theme="prismatic-atelier"] .atelier-hero-copy__title { max-width: 100%; margin-top: 11px; font-size: clamp(2.2rem, 11vw, 3.5rem); }
+  body[data-theme="prismatic-atelier"] .atelier-hero-copy__body { max-width: 80%; margin-top: 13px; font-size: .84rem; }
+  body[data-theme="prismatic-atelier"] .atelier-hero-copy__cta { margin-top: 18px; }
+  body[data-theme="prismatic-atelier"] #deals::before { background-position: 80% center; background-size: auto 90%; opacity: .22; }
+  body[data-theme="prismatic-atelier"] .product-card { border-radius: 17px; }
+  body[data-theme="prismatic-atelier"] .product-card__media { padding: 9px; }
+  body[data-theme="prismatic-atelier"] .product-card__image-surface { border-radius: 13px; }
+  body[data-theme="prismatic-atelier"] .product-card__cart { min-width: 44px; padding-inline: 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body[data-theme="prismatic-atelier"] .product-card,
+  body[data-theme="prismatic-atelier"] .gateway-category,
+  body[data-theme="prismatic-atelier"] .gateway-reference-tile,
+  body[data-theme="prismatic-atelier"] .product-card__image,
+  body[data-theme="prismatic-atelier"] .product-card__cart { transition: none !important; }
+  body[data-theme="prismatic-atelier"] .product-card:hover,
+  body[data-theme="prismatic-atelier"] .product-card:focus-within,
+  body[data-theme="prismatic-atelier"] .gateway-reference-tile:hover,
+  body[data-theme="prismatic-atelier"] .gateway-reference-tile:focus-visible { transform: none; }
+  body[data-theme="prismatic-atelier"] #hero .gateway-hero-slide__action img { transition: none !important; }
+  body[data-theme="prismatic-atelier"] #hero .gateway-hero-slide__action:hover img,
+  body[data-theme="prismatic-atelier"] #hero .gateway-hero-slide__action:focus-visible img { transform: none; }
+}
+
+/* The former cinematic hero artwork is removed from the gateway; Mosaic owns the stage. */
+body[data-theme="prismatic-atelier"] #hero::before,
+body[data-theme="prismatic-atelier"] #hero::after {
+  display: none;
+}
+
+body[data-theme="prismatic-atelier"] #hero {
+  background: linear-gradient(145deg, #03050d 0%, var(--pa-obsidian) 52%, #091126 100%);
+}
+
+body[data-theme="prismatic-atelier"] #hero #specialsMosaic {
+  border-color: rgba(50, 217, 255, .28);
+  background: linear-gradient(180deg, #03050d 0%, var(--pa-obsidian) 52%, #070b19 100%);
+  box-shadow: var(--pa-shadow), inset 0 1px rgba(255, 255, 255, .06);
+}
+
+body[data-theme="prismatic-atelier"] #hero #specialsMosaic .specials-mosaic__slot {
+  border-color: rgba(178, 205, 242, .24);
+}
+
+body[data-theme="prismatic-atelier"] #hero #specialsMosaic .specials-mosaic__slot:hover,
+body[data-theme="prismatic-atelier"] #hero #specialsMosaic .specials-mosaic__slot:focus-within {
+  border-color: var(--pa-cyan);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body[data-theme="prismatic-atelier"] #hero #specialsMosaic .specials-mosaic__action img {
+    transition: none;
+  }
+}

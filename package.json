@@ -5,17 +5,22 @@
   "type": "module",
   "scripts": {
     "build:css": "tailwindcss -i ./assets/tailwind.input.css -o ./assets/tailwind.css --minify",
-    "build": "npm run build:css",
+    "build": "npm run build:css && npm run sync:vendor",
+    "sync:vendor": "node scripts/sync-vendor.mjs",
     "sync:catalog": "node scripts/sync-hacom-catalog.mjs",
     "lint": "eslint assets scripts tests",
     "typecheck": "tsc -p jsconfig.json --noEmit",
-    "test": "node --test tests/carousel.test.mjs tests/catalog.test.mjs tests/homepage.test.mjs",
+    "test": "node --test tests/carousel.test.mjs tests/catalog.test.mjs tests/homepage.test.mjs tests/index-2.test.mjs",
     "verify": "node scripts/verify-static-site.mjs"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "6.7.2",
     "eslint": "^10.8.1",
+    "sharp": "^0.35.3",
     "tailwindcss": "3.4.17",
     "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "gsap": "3.13.0"
   }
 }

@@ -35,7 +35,7 @@
     return cell;
   }
 
-  function renderProductCard(product, { variant = 'full', loading = 'lazy', featured = false } = {}) {
+  function renderProductCard(product, { variant = 'full', loading = 'lazy', fetchPriority = '', featured = false } = {}) {
     const compact = variant === 'compact';
     const article = make('article', {
       className: `${compact ? 'mini-product product-card product-card--compact' : 'product-card product-card--full'}${featured ? ' mini-product--featured' : ''}`,
@@ -49,7 +49,10 @@
         alt: product.image.alt,
         width: product.image.width,
         height: product.image.height,
+        srcset: product.image.srcSet,
+        sizes: product.image.sizes,
         loading,
+        ...(fetchPriority ? { fetchpriority: fetchPriority } : {}),
         decoding: 'async'
       }
     });

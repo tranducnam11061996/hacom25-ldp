@@ -40,8 +40,23 @@ function getCarouselConfig(root, { autoDelay = AUTO_SLIDE_DELAY } = {}) {
 
   return {
     autoDelay: Number.isFinite(datasetDelay) && datasetDelay > 0 ? datasetDelay : fallbackDelay,
+    autoplay: root?.hasAttribute?.('data-carousel-autoplay') ?? false,
     variant: root?.dataset?.carouselVariant || 'default'
   };
+}
+
+function isDragAllowed(root, isDesktop = window.matchMedia('(min-width: 1181px)').matches) {
+  const dragMode = root?.dataset?.carouselDrag;
+  if (dragMode === 'none') return false;
+  if (dragMode === 'desktop') return isDesktop;
+  return true;
+}
+
+function getKeyboardAction({ key, altKey = false, ctrlKey = false, metaKey = false } = {}) {
+  if (altKey || ctrlKey || metaKey) return null;
+  if (key === 'ArrowLeft') return 'previous';
+  if (key === 'ArrowRight') return 'next';
+  return null;
 }
 
 function getControls(root) {
@@ -59,7 +74,7 @@ function initInfiniteCarousel(root, options = {}) {
   const track = root.querySelector('[data-carousel-track]');
   if (!track || track.children.length < 2) return null;
 
-  const { autoDelay, variant } = getCarouselConfig(root, options);
+  const { autoDelay, autoplay, variant } = getCarouselConfig(root, options);
   const spotlight = variant === 'spotlight';
   const gateway = variant === 'gateway';
   const controls = getControls(root);
@@ -74,6 +89,8 @@ function initInfiniteCarousel(root, options = {}) {
   let manuallyPaused = false;
   let indicatorButtons = [];
   let observedInlineSize = root.getBoundingClientRect().width;
+  const canDrag = () => isDragAllowed(root);
+  const keyboardNavigationEnabled = root.dataset.carouselDrag === 'all';
 
   const originalItems = [...track.children];
   originalItems.forEach((item, index) => {
@@ -84,6 +101,7 @@ function initInfiniteCarousel(root, options = {}) {
   root.setAttribute('role', 'region');
   root.setAttribute('aria-roledescription', 'carousel');
   root.setAttribute('aria-label', getCarouselLabel(root));
+  if (keyboardNavigationEnabled) root.setAttribute('aria-keyshortcuts', 'ArrowLeft ArrowRight');
   track.setAttribute('aria-live', 'off');
 
   const getItems = () => [...track.children];
@@ -189,7 +207,7 @@ function initInfiniteCarousel(root, options = {}) {
   };
   const schedule = () => {
     clearSchedule();
-    if (phase !== 'idle' || motionQuery.matches || pauseReasons.size > 0 || !isCyclePossible()) return;
+    if (!autoplay || phase !== 'idle' || motionQuery.matches || pauseReasons.size > 0 || !isCyclePossible()) return;
     timerId = window.setTimeout(() => moveNext({ restartTimer: true }), autoDelay);
   };
   const pause = (reason, shouldPause) => {
@@ -324,7 +342,7 @@ function initInfiniteCarousel(root, options = {}) {
     cancelDrag();
   };
   const beginDrag = (event) => {
-    if (phase !== 'idle' || !isCyclePossible()) return;
+    if (!canDrag() || phase !== 'idle' || !isCyclePossible()) return;
     if (event.pointerType === 'mouse' && event.button !== 0) return;
     const interactiveTarget = event.target.closest('button, a, input, textarea, select');
     if (interactiveTarget && !interactiveTarget.matches('[data-carousel-card-action]')) return;
@@ -363,6 +381,13 @@ function initInfiniteCarousel(root, options = {}) {
     });
     commitDrag(action);
   };
+  const onKeyDown = (event) => {
+    const action = getKeyboardAction(event);
+    if (!action || event.defaultPrevented) return;
+    event.preventDefault();
+    if (action === 'previous') movePrevious();
+    else moveNext();
+  };
 
   if (controls.indicators) {
     const fragment = document.createDocumentFragment();
@@ -400,6 +425,7 @@ function initInfiniteCarousel(root, options = {}) {
   root.addEventListener('pointermove', dragMove);
   root.addEventListener('pointerup', endDrag);
   root.addEventListener('pointercancel', cancelDrag);
+  if (keyboardNavigationEnabled) root.addEventListener('keydown', onKeyDown);
   root.addEventListener('click', (event) => {
     if (!suppressClick) return;
     event.preventDefault();
@@ -468,6 +494,8 @@ window.HacomCarousel = Object.freeze({
   AUTO_SLIDE_DELAY,
   canCycle,
   getCarouselConfig,
+  getKeyboardAction,
+  isDragAllowed,
   getSwipeAction,
   hasMeaningfulInlineSizeChange,
   initInfiniteCarousel

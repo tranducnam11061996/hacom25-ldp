@@ -1,9 +1,11 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import sharp from 'sharp';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const outputDir = path.join(root, 'assets', 'media', 'products');
+const optimizedWidths = Object.freeze([320, 640]);
 
 export const sourceProducts = Object.freeze([
   { sku: 'MELO0130', sourceUrl: 'https://hacom.vn/mouse-logitech-g502-hero-gaming-usb-black' },
@@ -66,8 +68,30 @@ export async function syncImages() {
     const image = await fetchBinary(imageUrl);
     const filename = `${item.sku}.jpg`;
     await writeFile(path.join(outputDir, filename), image);
-    manifest.push({ ...item, imageUrl, imagePath: `assets/media/products/${filename}`, bytes: image.byteLength });
-    console.log(`${item.sku}: ${filename} (${image.byteLength} bytes)`);
+    const variants = [];
+    for (const width of optimizedWidths) {
+      const optimized = await sharp(image)
+        .resize({ width, height: width, fit: 'contain', background: '#ffffff' })
+        .webp({ quality: 82, effort: 6 })
+        .toBuffer();
+      const optimizedFilename = `${item.sku}-${width}.webp`;
+      await writeFile(path.join(outputDir, optimizedFilename), optimized);
+      variants.push({
+        path: `assets/media/products/${optimizedFilename}`,
+        width,
+        height: width,
+        format: 'webp',
+        bytes: optimized.byteLength
+      });
+    }
+    manifest.push({
+      ...item,
+      imageUrl,
+      imagePath: `assets/media/products/${filename}`,
+      bytes: image.byteLength,
+      variants
+    });
+    console.log(`${item.sku}: ${filename} (${image.byteLength} bytes), ${variants.map(({ width, bytes }) => `${width}px WebP ${bytes} bytes`).join(', ')}`);
   }
   await writeFile(path.join(outputDir, 'manifest.json'), `${JSON.stringify(manifest, null, 2)}\n`, 'utf8');
   return manifest;

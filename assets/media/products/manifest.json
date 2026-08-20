@@ -4,230 +4,758 @@
     "sourceUrl": "https://hacom.vn/mouse-logitech-g502-hero-gaming-usb-black",
     "imageUrl": "https://hanoicomputercdn.com/media/product/44370_mouse_logitech_g502_hero_gaming_usb_black_0003_1.jpg",
     "imagePath": "assets/media/products/MELO0130.jpg",
-    "bytes": 28819
+    "bytes": 28819,
+    "variants": [
+      {
+        "path": "assets/media/products/MELO0130-320.webp",
+        "width": 320,
+        "height": 320,
+        "format": "webp",
+        "bytes": 3620
+      },
+      {
+        "path": "assets/media/products/MELO0130-640.webp",
+        "width": 640,
+        "height": 640,
+        "format": "webp",
+        "bytes": 8170
+      }
+    ]
   },
   {
     "sku": "KBHP0023",
     "sourceUrl": "https://hacom.vn/ban-phim-co-kingston-hyperx-alloy-origins-core-tkl-rgb-aqua-switch/",
     "imageUrl": "https://hanoicomputercdn.com/media/product/88160_ban_phim_co_kingston_hyperx_alloy_origins_core_tkl_rgb_aqua_switch_1.jpg",
     "imagePath": "assets/media/products/KBHP0023.jpg",
-    "bytes": 273057
+    "bytes": 273057,
+    "variants": [
+      {
+        "path": "assets/media/products/KBHP0023-320.webp",
+        "width": 320,
+        "height": 320,
+        "format": "webp",
+        "bytes": 7682
+      },
+      {
+        "path": "assets/media/products/KBHP0023-640.webp",
+        "width": 640,
+        "height": 640,
+        "format": "webp",
+        "bytes": 20450
+      }
+    ]
   },
   {
     "sku": "TNHP0034",
     "sourceUrl": "https://hacom.vn/tai-nghe-gaming-hp-hyperx-cloud-iii-wireless-blk-gam-hs-77z45aa",
     "imageUrl": "https://hanoicomputercdn.com/media/product/82346_tai_nghe_gaming_hp_hyperx_cloud_iii_wireless_blk_gam_hs_77z45aa_1.jpg",
     "imagePath": "assets/media/products/TNHP0034.jpg",
-    "bytes": 192939
+    "bytes": 192939,
+    "variants": [
+      {
+        "path": "assets/media/products/TNHP0034-320.webp",
+        "width": 320,
+        "height": 320,
+        "format": "webp",
+        "bytes": 5306
+      },
+      {
+        "path": "assets/media/products/TNHP0034-640.webp",
+        "width": 640,
+        "height": 640,
+        "format": "webp",
+        "bytes": 13680
+      }
+    ]
   },
   {
     "sku": "GHEG0949",
     "sourceUrl": "https://hacom.vn/ghe-game-centaur-gundam-black",
     "imageUrl": "https://hanoicomputercdn.com/media/product/80829_centaur_gundam_avt_2.jpg",
     "imagePath": "assets/media/products/GHEG0949.jpg",
-    "bytes": 74729
+    "bytes": 74729,
+    "variants": [
+      {
+        "path": "assets/media/products/GHEG0949-320.webp",
+        "width": 320,
+        "height": 320,
+        "format": "webp",
+        "bytes": 4494
+      },
+      {
+        "path": "assets/media/products/GHEG0949-640.webp",
+        "width": 640,
+        "height": 640,
+        "format": "webp",
+        "bytes": 11082
+      }
+    ]
   },
   {
     "sku": "MICR0249",
     "sourceUrl": "https://hacom.vn/micro-thu-am-fifine-am8-micr0249",
     "imageUrl": "https://cdn-files.hacom.vn/hacom/cdn/web/21042026/micro-thu-am-fifine-am8-1.jpg",
     "imagePath": "assets/media/products/MICR0249.jpg",
-    "bytes": 175593
+    "bytes": 175593,
+    "variants": [
+      {
+        "path": "assets/media/products/MICR0249-320.webp",
+        "width": 320,
+        "height": 320,
+        "format": "webp",
+        "bytes": 3832
+      },
+      {
+        "path": "assets/media/products/MICR0249-640.webp",
+        "width": 640,
+        "height": 640,
+        "format": "webp",
+        "bytes": 12344
+      }
+    ]
   },
   {
     "sku": "LAHP0257",
     "sourceUrl": "https://hacom.vn/laptop-hp-15-255-g10-bk2d8pt",
     "imageUrl": "https://hanoicomputercdn.com/media/product/93159_laptop_hp_15_255_g10_bk2d8pt_0004_layer_2.jpg",
     "imagePath": "assets/media/products/LAHP0257.jpg",
-    "bytes": 91834
+    "bytes": 91834,
+    "variants": [
+      {
+        "path": "assets/media/products/LAHP0257-320.webp",
+        "width": 320,
+        "height": 320,
+        "format": "webp",
+        "bytes": 6600
+      },
+      {
+        "path": "assets/media/products/LAHP0257-640.webp",
+        "width": 640,
+        "height": 640,
+        "format": "webp",
+        "bytes": 16346
+      }
+    ]
   },
   {
     "sku": "LTLV0317",
     "sourceUrl": "https://hacom.vn/laptop-lenovo-ideapad-slim-3-15arp10-83k700evvn-ltlv0317",
     "imageUrl": "https://cdn-files.hacom.vn/hacom/cdn/web/16012026/Laptop-Lenovo-IdeaPad-Slim-3-15ARP10-83K700EVVN-R7-7735HS24GB-RAM512GB-SSD15.3-WUXGAWin11Xam-6.jpg",
     "imagePath": "assets/media/products/LTLV0317.jpg",
-    "bytes": 110981
+    "bytes": 110981,
+    "variants": [
+      {
+        "path": "assets/media/products/LTLV0317-320.webp",
+        "width": 320,
+        "height": 320,
+        "format": "webp",
+        "bytes": 7620
+      },
+      {
+        "path": "assets/media/products/LTLV0317-640.webp",
+        "width": 640,
+        "height": 640,
+        "format": "webp",
+        "bytes": 20882
+      }
+    ]
   },
   {
     "sku": "LTAC1001",
     "sourceUrl": "https://hacom.vn/laptop-acer-aspire-go-ag15-72p-54gy-ltac1001",
     "imageUrl": "https://cdn-files.hacom.vn/hacom/cdn/web/30102025/laptop-acer-aspire-go-ag15-72p-54gy-ltac1001_0005_ace1.jpg",
     "imagePath": "assets/media/products/LTAC1001.jpg",
-    "bytes": 117614
+    "bytes": 117614,
+    "variants": [
+      {
+        "path": "assets/media/products/LTAC1001-320.webp",
+        "width": 320,
+        "height": 320,
+        "format": "webp",
+        "bytes": 9644
+      },
+      {
+        "path": "assets/media/products/LTAC1001-640.webp",
+        "width": 640,
+        "height": 640,
+        "format": "webp",
+        "bytes": 26858
+      }
+    ]
   },
   {
     "sku": "LTMS0640",
     "sourceUrl": "https://hacom.vn/laptop-msi-cyborg-15-a13uc-2082vn-ltms0640",
     "imageUrl": "https://cdn-files.hacom.vn/hacom/cdn/web/29102025/laptop-msi-cyborg-15-a13uc-2082vn-ltms0640_0004_MSI-1.jpg",
     "imagePath": "assets/media/products/LTMS0640.jpg",
-    "bytes": 92812
+    "bytes": 92812,
+    "variants": [
+      {
+        "path": "assets/media/products/LTMS0640-320.webp",
+        "width": 320,
+        "height": 320,
+        "format": "webp",
+        "bytes": 6638
+      },
+      {
+        "path": "assets/media/products/LTMS0640-640.webp",
+        "width": 640,
+        "height": 640,
+        "format": "webp",
+        "bytes": 15816
+      }
+    ]
   },
   {
     "sku": "LTAU1091",
     "sourceUrl": "https://hacom.vn/laptop-asus-gaming-tuf-fa506ncg-hn329w-ltau1091",
     "imageUrl": "https://cdn-files.hacom.vn/hacom/cdn/web/21072026/Laptop-Asus-Gaming-TUF-FA506NCG-HN329W-R7-8845HS16GB-RAM-512GB-SSD-15.6-inch-FHD-144Hz-RTX-3050-4GB-Win11-Den.jpg",
     "imagePath": "assets/media/products/LTAU1091.jpg",
-    "bytes": 80540
+    "bytes": 80540,
+    "variants": [
+      {
+        "path": "assets/media/products/LTAU1091-320.webp",
+        "width": 320,
+        "height": 320,
+        "format": "webp",
+        "bytes": 8602
+      },
+      {
+        "path": "assets/media/products/LTAU1091-640.webp",
+        "width": 640,
+        "height": 640,
+        "format": "webp",
+        "bytes": 24486
+      }
+    ]
   },
   {
     "sku": "LTAC1029",
     "sourceUrl": "https://hacom.vn/laptop-acer-predator-helios-phn16-i31-72xe-ltac1029",
     "imageUrl": "https://cdn-files.hacom.vn/hacom/cdn/web/18052026/Laptop-Acer-Predator-Helios-PHN16-I31-72XE-NH.U4RSV.001-i7-14650HX32GB-RAM512GB-SSDRTX-5060-8GB16-inch-2K-180HzWin-11Den-3.jpg",
     "imagePath": "assets/media/products/LTAC1029.jpg",
-    "bytes": 119393
+    "bytes": 119393,
+    "variants": [
+      {
+        "path": "assets/media/products/LTAC1029-320.webp",
+        "width": 320,
+        "height": 320,
+        "format": "webp",
+        "bytes": 7580
+      },
+      {
+        "path": "assets/media/products/LTAC1029-640.webp",
+        "width": 640,
+        "height": 640,
+        "format": "webp",
+        "bytes": 21820
+      }
+    ]
   },
   {
     "sku": "PCGM00007",
     "sourceUrl": "https://hacom.vn/pc-hacom-gaming-alpha-002-i7-10700f-b460-16gb-ram-500gb-ssd-rtx-3060ti",
     "imageUrl": "https://hanoicomputercdn.com/media/product/88685_pc_hacom_gaming_alpha_002_i7_10700f_b460_16gb_ram_500gb_ssd_rtx_3060ti.jpg",
     "imagePath": "assets/media/products/PCGM00007.jpg",
-    "bytes": 80794
+    "bytes": 80794,
+    "variants": [
+      {
+        "path": "assets/media/products/PCGM00007-320.webp",
+        "width": 320,
+        "height": 320,
+        "format": "webp",
+        "bytes": 7286
+      },
+      {
+        "path": "assets/media/products/PCGM00007-640.webp",
+        "width": 640,
+        "height": 640,
+        "format": "webp",
+        "bytes": 25330
+      }
+    ]
   },
   {
     "sku": "PCGM1174",
     "sourceUrl": "https://hacom.vn/pc-hacom-platinum-pro-035-pcgm1174",
     "imageUrl": "https://cdn-files.hacom.vn/hacom/cdn/web/22062026/pc-hacom-platinum-pro-035-pcgm1174.jpg",
     "imagePath": "assets/media/products/PCGM1174.jpg",
-    "bytes": 442341
+    "bytes": 442341,
+    "variants": [
+      {
+        "path": "assets/media/products/PCGM1174-320.webp",
+        "width": 320,
+        "height": 320,
+        "format": "webp",
+        "bytes": 16462
+      },
+      {
+        "path": "assets/media/products/PCGM1174-640.webp",
+        "width": 640,
+        "height": 640,
+        "format": "webp",
+        "bytes": 45144
+      }
+    ]
   },
   {
     "sku": "PCGM1171",
     "sourceUrl": "https://hacom.vn/pc-hacom-silver-pro-036-pcgm1171",
     "imageUrl": "https://cdn-files.hacom.vn/hacom/cdn/web/09062026/pc-hacom-silver-pro-036-pcgm1171.jpg",
     "imagePath": "assets/media/products/PCGM1171.jpg",
-    "bytes": 334854
+    "bytes": 334854,
+    "variants": [
+      {
+        "path": "assets/media/products/PCGM1171-320.webp",
+        "width": 320,
+        "height": 320,
+        "format": "webp",
+        "bytes": 13830
+      },
+      {
+        "path": "assets/media/products/PCGM1171-640.webp",
+        "width": 640,
+        "height": 640,
+        "format": "webp",
+        "bytes": 39294
+      }
+    ]
   },
   {
     "sku": "PCGM1143",
     "sourceUrl": "https://hacom.vn/pc-hacom-gold-pro-076-pcgm1143",
     "imageUrl": "https://cdn-files.hacom.vn/hacom/cdn/web/19122025/pc-hacom-gold-pro-076-pcgm1143.jpg",
     "imagePath": "assets/media/products/PCGM1143.jpg",
-    "bytes": 494743
+    "bytes": 494743,
+    "variants": [
+      {
+        "path": "assets/media/products/PCGM1143-320.webp",
+        "width": 320,
+        "height": 320,
+        "format": "webp",
+        "bytes": 17294
+      },
+      {
+        "path": "assets/media/products/PCGM1143-640.webp",
+        "width": 640,
+        "height": 640,
+        "format": "webp",
+        "bytes": 49626
+      }
+    ]
   },
   {
     "sku": "PCGM1178",
     "sourceUrl": "https://hacom.vn/pc-hacom-gold-pro-037-pcgm1178",
     "imageUrl": "https://cdn-files.hacom.vn/hacom/cdn/web/10072026/pc-hacom-gold-pro-037-pcgm1178.jpg",
     "imagePath": "assets/media/products/PCGM1178.jpg",
-    "bytes": 473356
+    "bytes": 473356,
+    "variants": [
+      {
+        "path": "assets/media/products/PCGM1178-320.webp",
+        "width": 320,
+        "height": 320,
+        "format": "webp",
+        "bytes": 15946
+      },
+      {
+        "path": "assets/media/products/PCGM1178-640.webp",
+        "width": 640,
+        "height": 640,
+        "format": "webp",
+        "bytes": 44756
+      }
+    ]
   },
   {
     "sku": "VGAS0733",
     "sourceUrl": "https://hacom.vn/card-man-hinh-asus-rog-strix-rtx-4060-o8g-gaming",
     "imageUrl": "https://hanoicomputercdn.com/media/product/73424_card_man_hinh_asus_rog_strix_rtx_4060_o8g_gaming__1_.jpg",
     "imagePath": "assets/media/products/VGAS0733.jpg",
-    "bytes": 171069
+    "bytes": 171069,
+    "variants": [
+      {
+        "path": "assets/media/products/VGAS0733-320.webp",
+        "width": 320,
+        "height": 320,
+        "format": "webp",
+        "bytes": 15918
+      },
+      {
+        "path": "assets/media/products/VGAS0733-640.webp",
+        "width": 640,
+        "height": 640,
+        "format": "webp",
+        "bytes": 46364
+      }
+    ]
   },
   {
     "sku": "MOVI0237",
     "sourceUrl": "https://hacom.vn/man-hinh-viewsonic-vx2779a-hd-pro",
     "imageUrl": "https://hanoicomputercdn.com/media/product/87674_man_hinh_viewsonic_vx2779a_hd_pro_1.jpg",
     "imagePath": "assets/media/products/MOVI0237.jpg",
-    "bytes": 187795
+    "bytes": 187795,
+    "variants": [
+      {
+        "path": "assets/media/products/MOVI0237-320.webp",
+        "width": 320,
+        "height": 320,
+        "format": "webp",
+        "bytes": 6492
+      },
+      {
+        "path": "assets/media/products/MOVI0237-640.webp",
+        "width": 640,
+        "height": 640,
+        "format": "webp",
+        "bytes": 16296
+      }
+    ]
   },
   {
     "sku": "MOGI0059",
     "sourceUrl": "https://hacom.vn/man-hinh-gigabyte-mo27q2",
     "imageUrl": "https://cdn-files.hacom.vn/hacom/Development/20250812-11abf2a2-01f9-45fb-a59d-f0c620fed133.jpg",
     "imagePath": "assets/media/products/MOGI0059.jpg",
-    "bytes": 306557
+    "bytes": 306557,
+    "variants": [
+      {
+        "path": "assets/media/products/MOGI0059-320.webp",
+        "width": 320,
+        "height": 320,
+        "format": "webp",
+        "bytes": 10128
+      },
+      {
+        "path": "assets/media/products/MOGI0059-640.webp",
+        "width": 640,
+        "height": 640,
+        "format": "webp",
+        "bytes": 29474
+      }
+    ]
   },
   {
     "sku": "MOAS0338",
     "sourceUrl": "https://hacom.vn/man-hinh-asus-tuf-vg279qe5a",
     "imageUrl": "https://cdn-files.hacom.vn/hacom//man-hinh-asus-tuf-vg279qe5a-new-5.jpg",
     "imagePath": "assets/media/products/MOAS0338.jpg",
-    "bytes": 163342
+    "bytes": 163342,
+    "variants": [
+      {
+        "path": "assets/media/products/MOAS0338-320.webp",
+        "width": 320,
+        "height": 320,
+        "format": "webp",
+        "bytes": 12864
+      },
+      {
+        "path": "assets/media/products/MOAS0338-640.webp",
+        "width": 640,
+        "height": 640,
+        "format": "webp",
+        "bytes": 32174
+      }
+    ]
   },
   {
     "sku": "MODE0306",
     "sourceUrl": "https://hacom.vn/man-hinh-dell-pro-plus-p2725d",
     "imageUrl": "https://hanoicomputercdn.com/media/product/90519_man_hinh_dell_pro_plus_p2725d_2.jpg",
     "imagePath": "assets/media/products/MODE0306.jpg",
-    "bytes": 217509
+    "bytes": 217509,
+    "variants": [
+      {
+        "path": "assets/media/products/MODE0306-320.webp",
+        "width": 320,
+        "height": 320,
+        "format": "webp",
+        "bytes": 6878
+      },
+      {
+        "path": "assets/media/products/MODE0306-640.webp",
+        "width": 640,
+        "height": 640,
+        "format": "webp",
+        "bytes": 17904
+      }
+    ]
   },
   {
     "sku": "MOAS0339",
     "sourceUrl": "https://hacom.vn/man-hinh-asus-va279hg",
     "imageUrl": "https://hanoicomputercdn.com/media/product/90181_man_hinh_asus_va279hg_2.jpg",
     "imagePath": "assets/media/products/MOAS0339.jpg",
-    "bytes": 271888
+    "bytes": 271888,
+    "variants": [
+      {
+        "path": "assets/media/products/MOAS0339-320.webp",
+        "width": 320,
+        "height": 320,
+        "format": "webp",
+        "bytes": 11950
+      },
+      {
+        "path": "assets/media/products/MOAS0339-640.webp",
+        "width": 640,
+        "height": 640,
+        "format": "webp",
+        "bytes": 29718
+      }
+    ]
   },
   {
     "sku": "MOSA0326",
     "sourceUrl": "https://hacom.vn/man-hinh-samsung-s3-s32gf-ls27f320gaexxv",
     "imageUrl": "https://hanoicomputercdn.com/media/product/90168_man_hinh_samsung_s3_s32gf_ls27f320_1.jpg",
     "imagePath": "assets/media/products/MOSA0326.jpg",
-    "bytes": 160346
+    "bytes": 160346,
+    "variants": [
+      {
+        "path": "assets/media/products/MOSA0326-320.webp",
+        "width": 320,
+        "height": 320,
+        "format": "webp",
+        "bytes": 5006
+      },
+      {
+        "path": "assets/media/products/MOSA0326-640.webp",
+        "width": 640,
+        "height": 640,
+        "format": "webp",
+        "bytes": 12554
+      }
+    ]
   },
   {
     "sku": "MELO0173",
     "sourceUrl": "https://hacom.vn/chuot-khong-day-logitech-m171-xam-usb",
     "imageUrl": "https://hanoicomputercdn.com/media/product/60697_chuot_khong_day_logitech_m171_xam_usb_0000_1.jpg",
     "imagePath": "assets/media/products/MELO0173.jpg",
-    "bytes": 150217
+    "bytes": 150217,
+    "variants": [
+      {
+        "path": "assets/media/products/MELO0173-320.webp",
+        "width": 320,
+        "height": 320,
+        "format": "webp",
+        "bytes": 2740
+      },
+      {
+        "path": "assets/media/products/MELO0173-640.webp",
+        "width": 640,
+        "height": 640,
+        "format": "webp",
+        "bytes": 6228
+      }
+    ]
   },
   {
     "sku": "PADM0937",
     "sourceUrl": "https://hacom.vn/ban-di-chuot-gaming-redragon-p047-l-padm0937",
     "imageUrl": "https://cdn-files.hacom.vn/hacom/cdn/web/23042026/ban-di-chuot-gaming-redragon-p047-l.jpg",
     "imagePath": "assets/media/products/PADM0937.jpg",
-    "bytes": 299363
+    "bytes": 299363,
+    "variants": [
+      {
+        "path": "assets/media/products/PADM0937-320.webp",
+        "width": 320,
+        "height": 320,
+        "format": "webp",
+        "bytes": 10590
+      },
+      {
+        "path": "assets/media/products/PADM0937-640.webp",
+        "width": 640,
+        "height": 640,
+        "format": "webp",
+        "bytes": 28492
+      }
+    ]
   },
   {
     "sku": "MERZ0119",
     "sourceUrl": "https://hacom.vn/chuot-razer-deathadder-essential-ergonomic-den-usb-led-green-rz01-03850100-r3m1",
     "imageUrl": "https://hanoicomputercdn.com/media/product/64000_chuot_razer_deathadder_essential_ergonomic_den_usb_4.jpg",
     "imagePath": "assets/media/products/MERZ0119.jpg",
-    "bytes": 316318
+    "bytes": 316318,
+    "variants": [
+      {
+        "path": "assets/media/products/MERZ0119-320.webp",
+        "width": 320,
+        "height": 320,
+        "format": "webp",
+        "bytes": 3370
+      },
+      {
+        "path": "assets/media/products/MERZ0119-640.webp",
+        "width": 640,
+        "height": 640,
+        "format": "webp",
+        "bytes": 11652
+      }
+    ]
   },
   {
     "sku": "HDSA0250",
     "sourceUrl": "https://hacom.vn/o-cung-ssd-samsung-990-evo-plus-1tb-m.2-2280-pcie-gen4-x4",
     "imageUrl": "https://hanoicomputercdn.com/media/product/88439_o_cung_ssd_samsung_990_evo_plus_1tb_pcie_nvme_4__1_.jpg",
     "imagePath": "assets/media/products/HDSA0250.jpg",
-    "bytes": 73681
+    "bytes": 73681,
+    "variants": [
+      {
+        "path": "assets/media/products/HDSA0250-320.webp",
+        "width": 320,
+        "height": 320,
+        "format": "webp",
+        "bytes": 2550
+      },
+      {
+        "path": "assets/media/products/HDSA0250-640.webp",
+        "width": 640,
+        "height": 640,
+        "format": "webp",
+        "bytes": 7876
+      }
+    ]
   },
   {
     "sku": "PWMI0005",
     "sourceUrl": "https://hacom.vn/nguon-may-tinh-msi-mag-a650bn-650w-80-plus-bronze-mau-den",
     "imageUrl": "https://hanoicomputercdn.com/media/product/61261_psu_mag_a650b__2_.jpg",
     "imagePath": "assets/media/products/PWMI0005.jpg",
-    "bytes": 207783
+    "bytes": 207783,
+    "variants": [
+      {
+        "path": "assets/media/products/PWMI0005-320.webp",
+        "width": 320,
+        "height": 320,
+        "format": "webp",
+        "bytes": 7428
+      },
+      {
+        "path": "assets/media/products/PWMI0005-640.webp",
+        "width": 640,
+        "height": 640,
+        "format": "webp",
+        "bytes": 23570
+      }
+    ]
   },
   {
     "sku": "RAKT0413",
     "sourceUrl": "https://hacom.vn/ram-ecc-rdimm-kingston-32gb-ksm32rd4-32hdr",
     "imageUrl": "https://hanoicomputercdn.com/media/product/91305_ram_ecc_rdimm_kingston_32gb_ksm32rd4_32hdr_1.jpg",
     "imagePath": "assets/media/products/RAKT0413.jpg",
-    "bytes": 111401
+    "bytes": 111401,
+    "variants": [
+      {
+        "path": "assets/media/products/RAKT0413-320.webp",
+        "width": 320,
+        "height": 320,
+        "format": "webp",
+        "bytes": 4064
+      },
+      {
+        "path": "assets/media/products/RAKT0413-640.webp",
+        "width": 640,
+        "height": 640,
+        "format": "webp",
+        "bytes": 13410
+      }
+    ]
   },
   {
     "sku": "VGGI0734",
     "sourceUrl": "https://hacom.vn/card-man-hinh-gigabyte-rtx-5060-windforce-max-oc-8gb-vggi0734",
     "imageUrl": "https://cdn-files.hacom.vn/hacom/cdn/web/22102025/card-man-hinh-gigabyte-rtx-5060-windforce-max-oc-8gb-vggi0734-8.jpg",
     "imagePath": "assets/media/products/VGGI0734.jpg",
-    "bytes": 146867
+    "bytes": 146867,
+    "variants": [
+      {
+        "path": "assets/media/products/VGGI0734-320.webp",
+        "width": 320,
+        "height": 320,
+        "format": "webp",
+        "bytes": 11232
+      },
+      {
+        "path": "assets/media/products/VGGI0734-640.webp",
+        "width": 640,
+        "height": 640,
+        "format": "webp",
+        "bytes": 32532
+      }
+    ]
   },
   {
     "sku": "VGGI0692",
     "sourceUrl": "https://hacom.vn/card-man-hinh-gigabyte-rtx-5070-windforce-oc-sff-12g-gddr7-gv-n5070wf3oc-12gd",
     "imageUrl": "https://hanoicomputercdn.com/media/product/88666_card_man_hinh_gigabyte_rtx_5070_windforce_oc_sff_12g_gddr7_gv_n5070wf3oc_12gd__7_.png",
     "imagePath": "assets/media/products/VGGI0692.jpg",
-    "bytes": 1329020
+    "bytes": 1329020,
+    "variants": [
+      {
+        "path": "assets/media/products/VGGI0692-320.webp",
+        "width": 320,
+        "height": 320,
+        "format": "webp",
+        "bytes": 6040
+      },
+      {
+        "path": "assets/media/products/VGGI0692-640.webp",
+        "width": 640,
+        "height": 640,
+        "format": "webp",
+        "bytes": 16822
+      }
+    ]
   },
   {
     "sku": "VGAS0844",
     "sourceUrl": "https://hacom.vn/card-man-hinh-asus-dual-rtx-5060-8g-oc-gddr7-dual-rtx5060-o8g",
     "imageUrl": "https://hanoicomputercdn.com/media/product/91266_card_man_hinh_asus_dual_rtx_5060_8g_oc_gddr7_dual_rtx5060_o8g.jpg",
     "imagePath": "assets/media/products/VGAS0844.jpg",
-    "bytes": 116586
+    "bytes": 116586,
+    "variants": [
+      {
+        "path": "assets/media/products/VGAS0844-320.webp",
+        "width": 320,
+        "height": 320,
+        "format": "webp",
+        "bytes": 9278
+      },
+      {
+        "path": "assets/media/products/VGAS0844-640.webp",
+        "width": 640,
+        "height": 640,
+        "format": "webp",
+        "bytes": 23620
+      }
+    ]
   },
   {
     "sku": "RTRU0047",
     "sourceUrl": "https://hacom.vn/router-wifi-6-ruijie-reyee-rg-ew3000gx-rtru0047",
     "imageUrl": "https://cdn-files.hacom.vn/hacom/cdn/web/Router-WiFi-6-Ruijie-Reyee-RG-EW3000GX-1.jpg",
     "imagePath": "assets/media/products/RTRU0047.jpg",
-    "bytes": 76480
+    "bytes": 76480,
+    "variants": [
+      {
+        "path": "assets/media/products/RTRU0047-320.webp",
+        "width": 320,
+        "height": 320,
+        "format": "webp",
+        "bytes": 2416
+      },
+      {
+        "path": "assets/media/products/RTRU0047-640.webp",
+        "width": 640,
+        "height": 640,
+        "format": "webp",
+        "bytes": 6140
+      }
+    ]
   }
 ]
