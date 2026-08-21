@@ -1443,7 +1443,7 @@ body { background: var(--page); color: var(--ink); }
 .product-card__spec-value { font-size: var(--text-meta); line-height: 1.25; }
 .product-card__rating { color: var(--muted-dark); font-size: var(--text-meta); }
 .product-card__rating-star { color: #f59e0b; }
-.product-card__review-count { color: #526079; }
+.product-card__review-count { color: var(--muted); }
 .product-card__price { color: var(--brand-red-dark); font-size: 20px; }
 .product-card__old-price { font-size: var(--text-meta); }
 .product-card__footer { min-height: 52px; padding: 8px 12px 10px; border-end-start-radius: inherit; border-end-end-radius: inherit; background: #fafafa; }

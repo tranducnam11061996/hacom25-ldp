@@ -8,6 +8,7 @@ npm-debug.log*
 
 # Browser automation profiles and temporary audit artifacts
 .tmp-chrome-*/
+.tmp-index-2-audit/
 .tmp-*.html
 .tmp-*.png
 root.getAttribute('aria-roledescription')

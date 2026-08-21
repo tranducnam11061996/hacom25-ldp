@@ -1,9 +1,50 @@
 (function initializePrismaticAtelierExperience(global) {
   'use strict';
 
+  const initCollectionTabsAccessibility = (root) => {
+    root.querySelectorAll('.section-tabs[role="tablist"]').forEach((tabList) => {
+      const tabs = Array.from(tabList.querySelectorAll('[role="tab"][data-collection-tab]'));
+      if (!tabs.length) return;
+
+      const sync = (activeTab, focus = false) => {
+        tabs.forEach((tab) => {
+          const active = tab === activeTab;
+          const panelId = tab.getAttribute('aria-controls');
+          const panel = panelId ? root.querySelector(`#${panelId}`) : null;
+          tab.setAttribute('aria-selected', String(active));
+          tab.setAttribute('tabindex', active ? '0' : '-1');
+          if (panel) panel.hidden = !active;
+        });
+        if (focus) activeTab.focus();
+      };
+
+      tabs.forEach((tab) => {
+        tab.addEventListener('click', () => sync(tab));
+        tab.addEventListener('keydown', (event) => {
+          const currentIndex = tabs.indexOf(tab);
+          let nextIndex = currentIndex;
+          if (event.key === 'ArrowLeft') nextIndex = (currentIndex - 1 + tabs.length) % tabs.length;
+          else if (event.key === 'ArrowRight') nextIndex = (currentIndex + 1) % tabs.length;
+          else if (event.key === 'Home') nextIndex = 0;
+          else if (event.key === 'End') nextIndex = tabs.length - 1;
+          else return;
+
+          event.preventDefault();
+          const nextTab = tabs[nextIndex];
+          nextTab.click();
+          sync(nextTab, true);
+        });
+      });
+
+      sync(tabs.find((tab) => tab.getAttribute('aria-selected') === 'true') || tabs[0]);
+    });
+  };
+
   const boot = () => {
     const root = document.body;
     if (!root || root.dataset.theme !== 'prismatic-atelier') return;
+
+    initCollectionTabsAccessibility(root);
 
     const customerTrack = root.querySelector('.customer-runway__track');
     if (customerTrack) customerTrack.setAttribute('role', 'list');

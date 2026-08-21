@@ -490,3 +490,37 @@ test('prismatic atelier motion uses GSAP matchMedia and ScrollTrigger without hi
   assert.doesNotMatch(experience2, /querySelectorAll\('\.section-head, \.customer-runway__gallery, \.carousel-viewport'\)/);
   assert.doesNotMatch(experience2, /display\s*:\s*none|visibility\s*:\s*hidden/);
 });
+
+test('index-2 prioritizes opening mosaic artwork without eagerly loading hidden slides', () => {
+  const activeSlides = [...index2.matchAll(/<article class="specials-mosaic__slide is-gateway-active">([\s\S]*?)<\/article>/g)];
+  assert.equal(activeSlides.length, 6);
+  for (const [, slide] of activeSlides) assert.match(slide, /<img[^>]*loading="eager"[^>]*decoding="async"/);
+  assert.match(index2, /hacom-app-only-deals\.avif"[^>]*loading="eager"[^>]*fetchpriority="high"/);
+  assert.match(index2, /intel-game-bundle\.avif"[^>]*loading="lazy"/);
+  assert.match(index2, /smart-watches\.avif"[^>]*loading="lazy"/);
+});
+
+test('index-2 product tabs expose linked panels and keyboard navigation', () => {
+  assert.match(index2, /id="trendingTab"[^>]*data-collection-tab="trending"[^>]*aria-controls="trendingPanel"[^>]*tabindex="0"/);
+  assert.match(index2, /id="newArrivalsTab"[^>]*data-collection-tab="new-arrivals"[^>]*aria-controls="newArrivalsPanel"[^>]*tabindex="-1"/);
+  assert.match(index2, /id="trendingPanel"[^>]*role="tabpanel"[^>]*aria-labelledby="trendingTab"/);
+  assert.match(index2, /id="newArrivalsPanel"[^>]*role="tabpanel"[^>]*aria-labelledby="newArrivalsTab"[^>]*hidden/);
+  assert.match(experience2, /initCollectionTabsAccessibility/);
+  assert.match(experience2, /ArrowLeft|ArrowRight/);
+  assert.match(experience2, /Home|End/);
+  assert.match(experience2, /tab\.setAttribute\('tabindex', active \? '0' : '-1'\)/);
+});
+
+test('index-2 mobile search input preserves a 44px interactive height', () => {
+  assert.match(atelierStyles, /@media \(max-width: 767\.98px\)[\s\S]*?\.mobile-header \.search-input-box input\s*\{[^}]*min-height:\s*44px/s);
+});
+
+test('index-2 closes deterministic Lighthouse accessibility and image-fit gaps', () => {
+  assert.match(index2, /<meta name="description" content="[^"]+">/);
+  assert.match(index2, /<strong>Dựng cấu hình<\/strong>\s+<small>PC theo nhu cầu<\/small>/);
+  assert.match(atelierStyles, /#customerStories \.customer-runway__card img\s*\{[^}]*object-fit:\s*cover/s);
+  assert.match(styles2, /\.product-card__review-count\s*\{[^}]*color:\s*#526079/s);
+  assert.match(atelierStyles, /\.site-footer \.showroom-directory__index\s*\{[^}]*background:\s*var\(--pa-red-deep\)[^}]*color:\s*#fff/s);
+  assert.match(atelierStyles, /@media \(max-width: 767\.98px\)[\s\S]*?\.mobile-header \.search-input-box input\s*\{[^}]*color:\s*var\(--pa-ink\)/s);
+  assert.match(index2, /aria-label="Thêm tuỳ chọn"[^>]*>[\s\S]*?<span>Thêm<\/span>/);
+});

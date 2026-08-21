@@ -803,6 +803,7 @@ body[data-theme="prismatic-atelier"] #customerStories .customer-runway__trust h2
 body[data-theme="prismatic-atelier"] #customerStories .customer-runway__trust h2 span { color: var(--pa-muted-strong); }
 body[data-theme="prismatic-atelier"] #customerStories .customer-runway__trust p { color: var(--pa-muted); }
 body[data-theme="prismatic-atelier"] #customerStories .customer-runway__card { border-color: var(--pa-line-strong); box-shadow: 0 16px 32px rgba(0, 0, 0, .28); }
+body[data-theme="prismatic-atelier"] #customerStories .customer-runway__card img { object-fit: cover; }
 body[data-theme="prismatic-atelier"] #customerStories .customer-runway__card.is-featured,
 body[data-theme="prismatic-atelier"] #customerStories .customer-runway__card.is-spotlight-entering { transform: none; border-color: var(--pa-cyan); box-shadow: 0 20px 38px rgba(0, 0, 0, .34), 0 0 0 1px rgba(50, 217, 255, .22), 0 0 24px rgba(50, 217, 255, .12); }
 body[data-theme="prismatic-atelier"] #customerStories .customer-runway__controls button { border-color: var(--pa-line-strong); background: rgba(17, 29, 60, .82); color: var(--pa-muted-strong); }
@@ -955,6 +956,7 @@ body[data-theme="prismatic-atelier"] .showroom-directory__card > summary:focus-v
 body[data-theme="prismatic-atelier"] .showroom-directory__card > summary i { color: var(--pa-cyan); }
 body[data-theme="prismatic-atelier"] .showroom-directory__card[open] > summary i { transform: rotate(180deg); }
 body[data-theme="prismatic-atelier"] .showroom-directory__index { width: 48px; min-height: 52px; display: grid; flex: 0 0 48px; place-items: center; background: var(--pa-red); color: #fff; font-size: var(--text-ui); font-weight: var(--font-bold); font-variant-numeric: tabular-nums; }
+body[data-theme="prismatic-atelier"] .site-footer .showroom-directory__index { background: var(--pa-red-deep); color: #fff; }
 body[data-theme="prismatic-atelier"] .showroom-directory__card-header h3,
 body[data-theme="prismatic-atelier"] .showroom-directory__card > summary span { min-width: 0; margin: 0; color: inherit; font-size: var(--text-card-title); font-weight: var(--font-bold); letter-spacing: -.025em; line-height: 1.2; overflow-wrap: anywhere; }
 body[data-theme="prismatic-atelier"] .showroom-directory__body { display: grid; gap: 0; padding: 15px 16px 16px; }
@@ -1000,6 +1002,8 @@ body[data-theme="prismatic-atelier"] .showroom-directory__noscript a { color: va
 }
 
 @media (max-width: 767.98px) {
+  body[data-theme="prismatic-atelier"] .mobile-header .search-input-box input { min-height: 44px; color: var(--pa-ink); }
+  body[data-theme="prismatic-atelier"] .mobile-header .search-input-box input::placeholder { color: var(--pg-ink-soft); }
   body[data-theme="prismatic-atelier"] .showroom-directory__container { padding-block: 44px 60px; }
   body[data-theme="prismatic-atelier"] .showroom-directory__search-field { min-height: 54px; padding-left: 14px; }
   body[data-theme="prismatic-atelier"] .showroom-directory__search-field input { height: 52px; font-size: var(--text-ui); }
